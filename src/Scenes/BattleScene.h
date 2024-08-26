@@ -13,6 +13,7 @@
 #include "../Items/Blocks/Ironblock.h"
 #include "../Items/Blocks/Soilblock.h"
 #include "../Items/Blocks/Stoneblock.h"
+#include "../Items/Gravity.h"
 
 
 class BattleScene : public Scene {
@@ -28,6 +29,8 @@ public:
     void processPicking() override; //处理拾取
 
     static const int blocks[9][16];
+
+    Gravity gravity; //重力
 
 protected slots:
 
@@ -49,6 +52,7 @@ private:
     Armor *spareArmor; //备用护甲
     Grassblock *grassBlock; //草方块
     Ironblock *ironBlock; //铁方块
+    //vector<Item*> dropItems; //掉落物品
     //Battlebackground *battlebackground; //战斗背景
     Stoneblock *stoneBlock; //石头方块
     Soilblock *soilBlock; //土方块

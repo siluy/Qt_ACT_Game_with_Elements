@@ -1,5 +1,6 @@
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/SNE2VJ5FQV/moc_Scene.cpp: C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/moc_predefs.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QPointF \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/QTimer \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
@@ -30,8 +31,10 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qflags.h \
@@ -42,6 +45,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
@@ -51,6 +55,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qlogging.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
@@ -70,7 +75,11 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
@@ -94,6 +103,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtimer.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtnoop.h \
@@ -106,14 +116,21 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
@@ -121,13 +138,16 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtextoption.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
@@ -221,6 +241,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cerrno \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/climits \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstddef \
@@ -329,4 +350,6 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sys/types.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
-  C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+  C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h

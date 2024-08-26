@@ -11,6 +11,8 @@
 class Link : public Character {
 public:
     explicit Link(QGraphicsItem *parent = nullptr); //构造函数，传入父节点
+
+    Gravity gravity; //重力
 }; //Link类继承自Character类，表示林克
 
 

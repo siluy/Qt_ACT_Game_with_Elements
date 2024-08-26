@@ -18,6 +18,7 @@ void Scene::update() {
     }
     lastTime = currentTime; //更新上次时间为当前时间
 
+
     processInput();
     processMovement();
     processPicking();

@@ -11,34 +11,56 @@ void Gravity::setGravity(qreal newGravity) {
     gravity = newGravity;
 }
 
-bool Gravity::isOnGround(QGraphicsItem *item) const {
+/*bool Gravity::isOnGround(Item *item) const {
     QPointF Position = item->pos();
     bool onGround = false;
     int blockX = (int)Position.x() / 80;
     int blockY = (int)Position.y() / 80;
-    if (BattleScene::blocks[blockY + 1][blockX] != 0) {
+    int blocks[9][16] = {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
+    if (blocks[blockY][blockX] != 0) {
         onGround = true;
     }
     return onGround;
-}
+}*/
 
-void Gravity::applyGravity() {
-    //if (!onGround) {
-    velocity.setY(velocity.y() + gravity * 1.0 / 90.0);
-    //} else {
-        // 当物体在地面上时，重置垂直速度
-        //velocity.setY(0);
-    //}
-}
+/*void Gravity::applyGravity(Item *item) {
+    if (!isOnGround(item)) {
+        item->setPos(item->pos() + velocity);
+        velocity.setY(velocity.y() + gravity * 1.0 / 90.0);
+    } else {
+        velocity.setY(0);
+    }
+}*/
 
-QPointF Gravity::getVelocity() const {
+qreal Gravity::getVelocity(Item *item)  {
+    velocity = item->downSpeed;
     return velocity;
 }
 
-void Gravity::setVelocity(const QPointF &newVelocity) {
-    velocity = newVelocity;
+void Gravity::setVelocity(Item *item, double deltaTime) {
+    velocity = item->downSpeed + gravity * deltaTime;
+    item->downSpeed = velocity;
 }
 
-void Gravity::setOnGround(bool onGroundStatus) {
+void Gravity::setPos(Item *item, double deltaTime) {
+    if(item->downAcceleration != 0){
+    auto y = item->downSpeed * deltaTime + 0.5 * gravity * deltaTime * deltaTime;
+    item->setPos(item->pos() + QPointF(0, y));
+    }
+    else {
+        item->setPos(item->pos() + QPointF(0, 0));
+    }
+}
+
+void Gravity::setOnGround(bool onGround) {
     //onGround = onGroundStatus;
 }

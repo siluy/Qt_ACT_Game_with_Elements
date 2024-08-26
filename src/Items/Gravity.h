@@ -2,28 +2,30 @@
 #ifndef GRAVITY_H
 #define GRAVITY_H
 
-#include <QGraphicsItem>
+#include "Item.h"
 #include <QPointF>
 //#include "../Scenes/BattleScene.h"
+//#include "../Scenes/Scene.h"
 
 class Gravity {
 public:
-    explicit Gravity(qreal gravity = 0.1);
+    explicit Gravity(qreal gravity = 0.005);
 
     qreal getGravity() const;
     void setGravity(qreal newGravity);
 
-    void applyGravity();
+    void applyGravity(Item *item);
 
-    bool isOnGround(QGraphicsItem *Item) const;
+    //bool isOnGround(Item *item) const;
 
     void setOnGround(bool onGround);
-    QPointF getVelocity() const;
-    void setVelocity(const QPointF &velocity);
+    qreal getVelocity(Item *item);
+    void setVelocity(Item *item, double deltaTime);
+    void setPos(Item *item, double deltaTime);
 
 protected:
-    qreal gravity = 0.1;
-    QPointF velocity = {0.0,0.0};
+    qreal gravity = 0.005;
+    qreal velocity = 0.0;
     bool onGround;
 };
 

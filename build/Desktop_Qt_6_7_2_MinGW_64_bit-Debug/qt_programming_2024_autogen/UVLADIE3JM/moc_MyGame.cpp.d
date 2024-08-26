@@ -1,5 +1,6 @@
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/UVLADIE3JM/moc_MyGame.cpp: C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/MyGame.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/moc_predefs.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QPointF \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/QTimer \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
@@ -120,6 +121,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
@@ -133,6 +135,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
@@ -148,11 +151,13 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -362,4 +367,6 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h

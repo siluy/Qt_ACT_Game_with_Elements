@@ -28,6 +28,14 @@ public:
 
     int index; //用于标记item的序号
 
+    qreal downSpeed; //下降速度
+
+    qreal downAcceleration = 0.03; //下降加速度
+
+    bool isOnGround(Item* item); //是否在地面上
+
+    void setAcceleration(); //设置加速度
+
 protected:
     QGraphicsPixmapItem *pixmapItem{}; //QGraphicsPixmapItem对象指针，用于绘制图片
 };

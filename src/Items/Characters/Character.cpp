@@ -34,7 +34,7 @@ bool Character::isJumpDown() const {
     return jumpDown;
 } //是否按下跳跃键
 
-void Character::setJumpDown(bool jumpDown) {
+void Character::setJumpDown(bool jumpDown) {//TODO  给人赋值速度加速度
     Character::jumpDown = jumpDown;
 } //设置跳跃键是否按下
 
@@ -85,12 +85,12 @@ void Character::processInput() {
     }
     if (isJumpDown()&&isOnGround()) {
         // 跳跃键按下，只有在地面上时才允许跳跃
-        velocity.setY(-jumpSpeed); // 设置向上的速度
+        //velocity.setY(-jumpSpeed); // 设置向上的速度
         //gravity.applyGravity(); //应用重力
     }
-    gravity.applyGravity(); //应用重力
+    //gravity.applyGravity(); //应用重力
 
-    setVelocity(velocity); // 设置速度
+    //setVelocity(velocity); // 设置速度
 
     if (!lastPickDown && pickDown) { // first time pickDown //拾取键第一次按下
         picking = true; //设置为拾取

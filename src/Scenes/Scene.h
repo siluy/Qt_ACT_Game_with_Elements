@@ -7,6 +7,7 @@
 
 #include <QGraphicsScene>
 #include <QTimer>
+#include "../Items/Gravity.h"
 
 class Scene : public QGraphicsScene {
 Q_OBJECT
