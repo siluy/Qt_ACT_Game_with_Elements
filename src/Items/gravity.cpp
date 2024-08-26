@@ -11,6 +11,17 @@ void Gravity::setGravity(qreal newGravity) {
     gravity = newGravity;
 }
 
+bool Gravity::isOnGround(QGraphicsItem *item) const {
+    QPointF Position = item->pos();
+    bool onGround = false;
+    int blockX = (int)Position.x() / 80;
+    int blockY = (int)Position.y() / 80;
+    if (BattleScene::blocks[blockY + 1][blockX] != 0) {
+        onGround = true;
+    }
+    return onGround;
+}
+
 void Gravity::applyGravity() {
     //if (!onGround) {
     velocity.setY(velocity.y() + gravity * 1.0 / 90.0);

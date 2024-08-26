@@ -3,6 +3,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/Armor.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/battlebackground.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.h
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h
  mmc:Q_OBJECT
  mdp:C:/D/Qt/6.7.2/mingw_64/include/QtCore/QTimer
@@ -337,10 +338,9 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
  mdp:C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/moc_predefs.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h
-C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.h
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.cpp
-C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/FlamebreakerArmor.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Ironblock.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.h
