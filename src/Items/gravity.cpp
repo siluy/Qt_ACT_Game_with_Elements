@@ -52,9 +52,14 @@ void Gravity::setVelocity(Item *item, double deltaTime) {
 }
 
 void Gravity::setPos(Item *item, double deltaTime) {
-    if(item->downAcceleration != 0){
-    auto y = item->downSpeed * deltaTime + 0.5 * gravity * deltaTime * deltaTime;
-    item->setPos(item->pos() + QPointF(0, y));
+    if(item->downAcceleration != 0)
+    {
+        auto y = item->downSpeed * deltaTime + 0.5 * gravity * deltaTime * deltaTime;
+        item->setPos(item->pos() + QPointF(0, y));
+        //if(item->isOnGround(item)){
+            //item->downSpeed = 0;
+            //item->downAcceleration = 0;
+        //}
     }
     else {
         item->setPos(item->pos() + QPointF(0, 0));

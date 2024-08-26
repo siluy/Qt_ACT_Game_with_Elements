@@ -118,8 +118,8 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
     case Qt::Key_W:
         if (character != nullptr) {
             character->setJumpDown(true);
-            character->downSpeed = -0.3;
-            character->downAcceleration = 0.03;
+            character->downSpeed = -3;
+            //character->downAcceleration = 0.03;
         }
         break;
     default:
@@ -157,12 +157,12 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
 void BattleScene::update() {
     //character->gravity::applyGravity(this); //应用重力
     character->setAcceleration(); //设置加速度
-    if(character->downSpeed >= 0){
-        gravity.setVelocity(character, deltaTime); //设置速度
-        gravity.setPos(character, deltaTime); //设置位置
-    }
-    //gravity.setVelocity(character, deltaTime); //设置速度
-    //gravity.setPos(character, deltaTime); //设置位置
+    //if(character->downSpeed >= 0){
+        //gravity.setVelocity(character, deltaTime); //设置速度
+        //gravity.setPos(character, deltaTime); //设置位置
+    //}
+    gravity.setVelocity(character, deltaTime); //设置速度
+    gravity.setPos(character, deltaTime); //设置位置
     Scene::update();
 } //更新
 

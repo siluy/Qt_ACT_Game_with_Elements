@@ -15,7 +15,7 @@ bool Item::isOnGround(Item *item) {
     bool onGround = false;
     int blockX = (int)Position.x() / 80;
     int blockY = (int)Position.y() / 80;
-    double absence = 24;
+    double absence = 30;
     //int n_blockX = (int)(Position.x() + absence) / 80;
     int n_blockY = (int)(Position.y() + absence) / 80;
     int blocks[9][16] = {
