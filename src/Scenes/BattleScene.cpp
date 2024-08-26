@@ -18,7 +18,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     // This is useful if you want the scene to have the exact same dimensions as the view
     setSceneRect(0, 0, 1280, 720); //设置场景矩形区域为(0,0,1280,720)
     const int blockWidth = 80; //方块宽度为80
-    int blocks[9][16] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    /*BattleScene::blocks[9][16] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                          {0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0},
                          {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                          {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3},
@@ -26,7 +26,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
                          {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                          {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
                          {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //方块数组初始化
+                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //方块数组初始化*/
     //grassBlock = new Grassblock(); //创建一个草方块对象
     //ironBlock = new Ironblock(); //创建一个铁方块对象
     //soilBlock = new Soilblock(); //创建一个土方块对象
@@ -82,7 +82,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
                 addItem(grassBlock);
             }
         }
-    }*/
+    }性能不好*/
     addItem(character); //添加角色
     addItem(spareArmor); //添加空护甲
     map->scaleToFitScene(this); //地图适应场景
@@ -199,3 +199,13 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
     }
     return nullptr;
 } //拾取可挂载物品
+
+const int BattleScene::blocks[9][16] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                 {0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0},
+                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                 {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3},
+                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                 {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //方块数组初始化

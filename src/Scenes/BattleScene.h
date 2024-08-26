@@ -27,6 +27,8 @@ public:
 
     void processPicking() override; //处理拾取
 
+    static const int blocks[9][16];
+
 protected slots:
 
     void update() override; //更新

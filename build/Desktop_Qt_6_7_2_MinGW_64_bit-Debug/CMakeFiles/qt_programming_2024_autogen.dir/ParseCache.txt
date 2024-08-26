@@ -338,9 +338,9 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/moc_predefs.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.h
-C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.cpp
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/FlamebreakerArmor.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Ironblock.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.h
