@@ -83,3 +83,11 @@
 153	1805	7463723152465945	CMakeFiles/qt_programming_2024.dir/src/Items/Blocks/Ironblock.cpp.obj	2afcc6672caaac5c
 150	1806	7463723152433801	CMakeFiles/qt_programming_2024.dir/src/Items/Blocks/Stoneblock.cpp.obj	fedade803064d16e
 1806	2153	7463723168991878	qt_programming_2024.exe	7a0f7e2d63e7db31
+17	829	7463730710593432	qt_programming_2024_autogen/timestamp	2562083c2cce8904
+17	829	7463730710593432	qt_programming_2024_autogen/mocs_compilation.cpp	2562083c2cce8904
+17	829	7463730710593432	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	2562083c2cce8904
+17	829	7463730710593432	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	2562083c2cce8904
+830	3210	7463730711687615	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/mocs_compilation.cpp.obj	84c79e1805082452
+838	3213	7463730711773029	CMakeFiles/qt_programming_2024.dir/src/Scenes/BattleScene.cpp.obj	69ca8e2895ec89d3
+834	3247	7463730711732922	CMakeFiles/qt_programming_2024.dir/src/MyGame.cpp.obj	9d88d97e963bc927
+3247	3624	7463730735862372	qt_programming_2024.exe	7a0f7e2d63e7db31

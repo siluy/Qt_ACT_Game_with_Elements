@@ -27,16 +27,39 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
                          {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
                          {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                          {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //方块数组初始化
-    grassBlock = new Grassblock(); //创建一个草方块对象
-    ironBlock = new Ironblock(); //创建一个铁方块对象
-    soilBlock = new Soilblock(); //创建一个土方块对象
-    stoneBlock = new Stoneblock(); //创建一个石方块对象
+    //grassBlock = new Grassblock(); //创建一个草方块对象
+    //ironBlock = new Ironblock(); //创建一个铁方块对象
+    //soilBlock = new Soilblock(); //创建一个土方块对象
+    //stoneBlock = new Stoneblock(); //创建一个石方块对象
     map = new Battlebackground(); //创建一个战场对象
     character = new Link(); //创建一个林克对象
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
 
     addItem(map); //添加地图
-    for(int i=0;i<9;i++){
+    for(int i=0; i<9; i++) {
+        for(int j=0; j<16; j++) {
+            switch (blocks[i][j]) {
+            case 1:
+                blockGrid[i][j] = new Soilblock();
+                break;
+            case 2:
+                blockGrid[i][j] = new Grassblock();
+                break;
+            case 3:
+                blockGrid[i][j] = new Ironblock();
+                break;
+            case 4:
+                blockGrid[i][j] = new Stoneblock();
+                break;
+            default:
+                blockGrid[i][j] = nullptr;
+                continue;
+            }
+            blockGrid[i][j]->setPos(j * blockWidth, i * blockWidth);
+            addItem(blockGrid[i][j]); // 将方块添加到场景中
+        }
+    }
+    /*for(int i=0;i<9;i++){
         for(int j=0;j<16;j++){
             if(blocks[i][j]==1){
                 soilBlock = new Soilblock();
@@ -59,7 +82,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
                 addItem(grassBlock);
             }
         }
-    }
+    }*/
     addItem(character); //添加角色
     addItem(spareArmor); //添加空护甲
     map->scaleToFitScene(this); //地图适应场景

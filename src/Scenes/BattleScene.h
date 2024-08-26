@@ -50,6 +50,7 @@ private:
     //Battlebackground *battlebackground; //战斗背景
     Stoneblock *stoneBlock; //石头方块
     Soilblock *soilBlock; //土方块
+    Blocks* blockGrid[9][16]; // 定义一个9x16的方块指针数组
 };  //BattleScene类继承自Scene类，表示战斗场景
 
 
