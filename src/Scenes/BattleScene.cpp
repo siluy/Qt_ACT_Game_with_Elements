@@ -157,7 +157,7 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
 
 void BattleScene::update() {
     //character->gravity::applyGravity(this); //应用重力
-    if(character->downSpeed > 0){
+    if(character->downSpeed >= 0){
     character->setAcceleration(); //设置加速度
     }
     if(!character->isOnGround()){
