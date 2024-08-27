@@ -34,6 +34,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     map = new Battlebackground(); //创建一个战场对象
     character = new Link(); //创建一个林克对象
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+    spareMelee = new IronShortSword(); //创建一个铁短剑对象
 
     addItem(map); //添加地图
     for(int i=0; i<9; i++) {
@@ -85,10 +86,13 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     }性能不好*/
     addItem(character); //添加角色
     addItem(spareArmor); //添加空护甲
+    addItem(spareMelee); //添加空近战武器
     map->scaleToFitScene(this); //地图适应场景
     character->setPos(map->getSpawnPos()); //设置角色位置为出生点
     spareArmor->unmount(); //卸载空护甲
     spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置空护甲位置
+    spareMelee->unmount(); //卸载空近战武器
+    spareMelee->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置空近战武器位置
 } //构造函数，传入父节点
 
 void BattleScene::processInput() {
@@ -184,7 +188,8 @@ void BattleScene::processPicking() {
     if (character->isPicking()) {
         auto mountable = findNearestUnmountedMountable(character->pos(), 100.); //查找最近的未挂载的可挂载物品，距离阈值为100
         if (mountable != nullptr) {
-            spareArmor = dynamic_cast<Armor *>(pickupMountable(character, mountable)); //拾取可挂载物品
+            spareArmor = dynamic_cast<Armor *>(pickupMountable(character, mountable)); //拾取可挂载护甲
+            spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(character, mountable)); //拾取可挂载近战武器
         }
     }
 } //处理拾取
@@ -212,6 +217,9 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
     // Limitation: currently only supports armor //限制：目前仅支持护甲
     if (auto armor = dynamic_cast<Armor *>(mountable)) {
         return character->pickupArmor(armor); //拾取护甲
+    }
+    if (auto melee = dynamic_cast<MeleeWeapon *>(mountable)) {
+        return character->pickupMelee(melee); //拾取近战武器
     }
     return nullptr;
 } //拾取可挂载物品

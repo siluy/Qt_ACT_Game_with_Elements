@@ -116,3 +116,21 @@ Armor *Character::pickupArmor(Armor *newArmor) {
     armor = newArmor; //设置新护甲
     return oldArmor; //返回旧护甲
 } //拾取护甲
+
+MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
+    auto oldMelee = melee; //旧近战武器
+    if (oldMelee != nullptr) { //如果旧近战武器不为空
+        oldMelee->unmount(); //卸载旧近战武器
+        oldMelee->setPos(newMelee->pos()); //设置旧近战武器位置为新近战武器位置
+        oldMelee->setParentItem(parentItem());  //设置旧近战武器的父节点为当前节点
+    }
+    if (oldMelee == nullptr) {
+        newMelee->setParentItem(this); //设置新近战武器的父节点为当前节点
+        newMelee->mountToParent(); //挂载新近战武器到父节点
+        melee = newMelee; //设置新近战武器
+    }
+    newMelee->setParentItem(this); //设置新近战武器的父节点为当前节点
+    newMelee->mountToParent(); //挂载新近战武器到父节点
+    melee = newMelee; //设置新近战武器
+    return oldMelee; //返回旧近战武器
+} //拾取近战武器

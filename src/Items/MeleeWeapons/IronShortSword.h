@@ -8,10 +8,13 @@ class IronShortSword : public MeleeWeapon
 public:
     explicit IronShortSword(QGraphicsItem *parent = nullptr);
 
-    void attack();
+    void attack() override;
 
     void throwWeapon();
 
+    void mountToParent() override; //挂载到父节点
+
+    void unmount() override; //卸载
 
 };
 

@@ -11,6 +11,7 @@
 #include "../Armors/Armor.h"
 #include "../LegEquipments/LegEquipment.h"
 #include "../../Items/Gravity.h"
+#include "../MeleeWeapons/MeleeWeapon.h"
 
 class Character : public Item {
 public:
@@ -42,6 +43,8 @@ public:
 
     Armor* pickupArmor(Armor* newArmor); //拾取护甲
 
+    MeleeWeapon* pickupMelee(MeleeWeapon* newMeleeWeapon); //拾取近战武器
+
     Gravity gravity; //重力
 
     bool isOnGround() const; //是否在地面上
@@ -51,6 +54,7 @@ protected:
     LegEquipment *legEquipment{}; //腿部装备
     Armor *armor{}; //护甲
     QPointF velocity{}; //速度
+    MeleeWeapon *melee{nullptr}; //近战武器
     //    QGraphicsEllipseItem *ellipseItem; //椭圆图形项，用于绘制角色的碰撞体积，debug用
 private:
     bool leftDown{}, rightDown{}, pickDown{}, jumpDown{}; //左键、右键、拾取键是否按下

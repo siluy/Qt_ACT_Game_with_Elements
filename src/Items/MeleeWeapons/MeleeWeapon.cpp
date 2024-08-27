@@ -6,8 +6,8 @@ MeleeWeapon::MeleeWeapon(QGraphicsItem *parent, const QString &pixmapPath) : Ite
 
 void MeleeWeapon::mountToParent() {
     Mountable::mountToParent(); //调用父类的挂载函数，设置为挂载状态
-    setScale(0.8); //设置缩放比例0.8
-    setPos(-59, -176);  //设置近战武器的位置
+    setScale(2.0); //设置缩放比例2.0 适合铁短剑的大小
+    setPos(-190, -170);  //设置近战武器的位置 适合铁短剑的位置
     if (pixmapItem != nullptr) {
         pixmapItem->setPos(0, 0); //设置图片位置
     }
@@ -19,4 +19,8 @@ void MeleeWeapon::unmount() {
     if (pixmapItem != nullptr) {
         pixmapItem->setPos(0, -120); //设置图片位置
     }
+}
+
+void MeleeWeapon::attack() {
+    //攻击函数
 }

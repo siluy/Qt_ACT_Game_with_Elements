@@ -14,6 +14,8 @@
 #include "../Items/Blocks/Soilblock.h"
 #include "../Items/Blocks/Stoneblock.h"
 #include "../Items/Gravity.h"
+#include "../Items/MeleeWeapons/IronShortSword.h"
+
 
 
 class BattleScene : public Scene {
@@ -52,6 +54,7 @@ private:
     Armor *spareArmor; //备用护甲
     Grassblock *grassBlock; //草方块
     Ironblock *ironBlock; //铁方块
+    MeleeWeapon *spareMelee; //备用近战武器
     //vector<Item*> dropItems; //掉落物品
     //Battlebackground *battlebackground; //战斗背景
     Stoneblock *stoneBlock; //石头方块

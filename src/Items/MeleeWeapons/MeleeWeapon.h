@@ -13,7 +13,7 @@ public:
 
     void unmount() override; //卸载
 
-    void attack(int material); //攻击函数
+    virtual void attack(); //攻击函数
 
     void throwWeapon(); //投掷武器函数
 
