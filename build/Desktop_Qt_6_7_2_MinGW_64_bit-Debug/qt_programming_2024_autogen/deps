@@ -612,6 +612,10 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/battlebackground.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/battlebackground.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/MeleeWeapon.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/MeleeWeapon.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/gravity.cpp \

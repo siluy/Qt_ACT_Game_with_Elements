@@ -54,7 +54,9 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/Maps/battlebackground.h src/Items/Maps/battlebackground.cpp
         src/Items/Blocks/Soilblock.h src/Items/Blocks/Soilblock.cpp
         src/Items/Blocks/Stoneblock.h src/Items/Blocks/Stoneblock.cpp
-        src/Items/Blocks/Ironblock.h src/Items/Blocks/Ironblock.cpp)
+        src/Items/Blocks/Ironblock.h src/Items/Blocks/Ironblock.cpp
+        src/Items/MeleeWeapons/MeleeWeapon.h src/Items/MeleeWeapons/MeleeWeapon.cpp
+        src/Items/MeleeWeapons/IronShortSword.h src/Items/MeleeWeapons/IronShortSword.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

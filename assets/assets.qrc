@@ -10,5 +10,6 @@
         <file>Items/Blocks/IronBlock/iron_block.png</file>
         <file>Items/Blocks/StoneBlock/stone_block.png</file>
         <file>Items/Maps/BattleBackground/battle_background.png</file>
+        <file>Items/Weapons/MeleeWeapons/IronShortSword/Iron_Short_Sword.png</file>
     </qresource>
 </RCC>
