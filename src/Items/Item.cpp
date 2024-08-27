@@ -41,7 +41,7 @@ void Item::setAcceleration() {
     if(isOnGround(this)) {
         downAcceleration = 0;
         downSpeed = 0;
-    } else {
-        downAcceleration = 0.03;
-    }
+    } //else {
+        //downAcceleration = 0.03;
+    //}
 } //设置加速度
