@@ -20,6 +20,18 @@ void IronShortSword::unmount() {
     }
 }
 
-void IronShortSword::attack() {
+int IronShortSword::attack() {
     //攻击函数
+    //setRotation(90);
+    setPos(-250,-170);
+
+    return damage;
+}
+
+void IronShortSword::attackStoped() {
+//setRotation(-90);
+    setPos(-190, -170);  //设置近战武器的位置 适合铁短剑的位置
+    if (pixmapItem != nullptr) {
+        pixmapItem->setPos(0, 0); //设置图片位置
+    }
 }

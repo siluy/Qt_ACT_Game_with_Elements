@@ -13,7 +13,9 @@ public:
 
     void unmount() override; //卸载
 
-    virtual void attack(); //攻击函数
+    virtual int attack(); //攻击函数
+
+    virtual void attackStoped(); //攻击停止
 
     void throwWeapon(); //投掷武器函数
 

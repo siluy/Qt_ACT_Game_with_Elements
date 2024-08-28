@@ -46,6 +46,14 @@ void Character::setPickDown(bool pickDown) {
     Character::pickDown = pickDown;
 } //设置拾取键是否按下
 
+bool Character::isAttackDown() const {
+    return attackDown;
+} //是否按下攻击键
+
+void Character::setAttackDown(bool attackDown) {
+    Character::attackDown = attackDown;
+} //设置攻击键是否按下
+
 const QPointF &Character::getVelocity() const {
     return velocity;
 } //获取速度
@@ -82,6 +90,10 @@ void Character::processInput() {
         } else if (velocity.x() < 0) {
             velocity.setX(qMin(velocity.x() + moveSpeed/2, 0.0));
         }
+    }
+    if(isAttackDown()){
+        //attack
+        melee->attack();
     }
     if (isJumpDown()&&isOnGround()) {
         // 跳跃键按下，只有在地面上时才允许跳跃

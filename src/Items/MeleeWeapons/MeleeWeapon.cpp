@@ -21,6 +21,11 @@ void MeleeWeapon::unmount() {
     }
 }
 
-void MeleeWeapon::attack() {
+int MeleeWeapon::attack() {
     //攻击函数
+    return damage;
+}
+
+void MeleeWeapon::attackStoped() {
+    //setRotation(0);
 }

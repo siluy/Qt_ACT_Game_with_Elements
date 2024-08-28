@@ -114,7 +114,7 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
             character->setRightDown(true);
         }
         break;
-    case Qt::Key_J:
+    case Qt::Key_S:
         if (character != nullptr) {
             character->setPickDown(true);
         }
@@ -125,6 +125,11 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
             character->downSpeed = -1;
             character->downAcceleration = gravity.getGravity();
             //character->downAcceleration = 0.03;
+        }
+        break;
+    case Qt::Key_J:
+        if (character != nullptr) {
+            character->setAttackDown(true);
         }
         break;
     default:
@@ -144,7 +149,7 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
             character->setRightDown(false);
         }
         break;
-    case Qt::Key_J:
+    case Qt::Key_S:
         if (character != nullptr) {
             character->setPickDown(false);
         }
@@ -153,6 +158,13 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
         if (character != nullptr) {
             character->setJumpDown(false);
         }
+    case::Qt::Key_J:
+        if (character != nullptr) {
+            character->setAttackDown(false);
+            if(character->isAttackDown()==false){
+                character->melee->attackStoped();
+            }
+        }
         break;
     default:
         Scene::keyReleaseEvent(event);
@@ -160,7 +172,6 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
 } //按键释放事件
 
 void BattleScene::update() {
-    //character->gravity::applyGravity(this); //应用重力
     if(character->downSpeed >= 0){
     character->setAcceleration(); //设置加速度
     }
