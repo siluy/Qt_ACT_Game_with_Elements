@@ -17,7 +17,9 @@ public:
 
     virtual qreal getFloorHeight(); // Need to rewrite to support multiple platforms //获取地图高度
 
-    virtual QPointF getSpawnPos(); //获取出生点
+    virtual QPointF getSpawnPosForLink(); //获取出生点
+
+    virtual QPointF getSpawnPosForRival(); //获取出生点
 
     int index;
 }; //Map类继承自Item类，表示地图，可以缩放适应场景，获取地图高度和出生点

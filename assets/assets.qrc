@@ -11,5 +11,14 @@
         <file>Items/Blocks/StoneBlock/stone_block.png</file>
         <file>Items/Maps/BattleBackground/battle_background.png</file>
         <file>Items/Weapons/MeleeWeapons/IronShortSword/Iron_Short_Sword.png</file>
+        <file>Items/Armors/IceArmor/IceArmor.png</file>
+        <file>Items/Armors/ThunderArmor/Thunder_Armor.png</file>
+        <file>Items/HeadEquipments/HairOfTheHero/HairOfTheHero.png</file>
+        <file>Items/HeadEquipments/FlameCap/FlameCap.png</file>
+        <file>Items/HeadEquipments/IceCap/IceCap.png</file>
+        <file>Items/HeadEquipments/ThunderCap/ThunderCap.png</file>
+        <file>Items/LegEquipments/FlameTrousers/FlameTrousers.png</file>
+        <file>Items/LegEquipments/IceTrousers/IceTrousers.png</file>
+        <file>Items/LegEquipments/ThunderTrousers/ThunderTrousers.png</file>
     </qresource>
 </RCC>

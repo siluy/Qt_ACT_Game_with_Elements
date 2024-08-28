@@ -9,17 +9,26 @@
 	"INCLUDE_DIR" : "C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/include",
 	"INPUTS" : 
 	[
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/HeadEquipments/ThunderCap/ThunderCap.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/HeadEquipments/HairOfTheHero/HairOfTheHero.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/HeadEquipments/FlameCap/FlameCap.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/HeadEquipments/IceCap/IceCap.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/HeadEquipments/CapOfTheHero/BotW_Cap_of_the_Hero_Icon.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Blocks/SoilBlock/soil_block.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Blocks/GrassBlock/grass_block.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Blocks/StoneBlock/stone_block.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Blocks/IronBlock/iron_block.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Armors/ThunderArmor/Thunder_Armor.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Armors/FlamebreakerArmor/BotW_Flamebreaker_Armor_Icon.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Armors/OldShirt/BotW_Old_Shirt_Icon.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Armors/IceArmor/IceArmor.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Weapons/MeleeWeapons/IronShortSword/Iron_Short_Sword.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Maps/BattleBackground/battle_background.png",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/Maps/Battlefield/g9tOqth.png",
-		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/LegEquipments/WellWornTrousers/BotW_Well-Worn_Trousers_Icon.png"
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/LegEquipments/IceTrousers/IceTrousers.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/LegEquipments/WellWornTrousers/BotW_Well-Worn_Trousers_Icon.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/LegEquipments/ThunderTrousers/ThunderTrousers.png",
+		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/assets/Items/LegEquipments/FlameTrousers/FlameTrousers.png"
 	],
 	"LOCK_FILE" : "C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/qt_programming_2024_autogen.dir/AutoRcc_assets_GBFAFXFCVO_Lock.lock",
 	"MULTI_CONFIG" : false,

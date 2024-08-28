@@ -10,8 +10,9 @@
 #include "../HeadEquipments/HeadEquipment.h"
 #include "../Armors/Armor.h"
 #include "../LegEquipments/LegEquipment.h"
-#include "../../Items/Gravity.h"
+#include "../Gravity.h"
 #include "../MeleeWeapons/MeleeWeapon.h"
+#include "../HealthBar.h"
 
 class Character : public Item {
 public:
@@ -55,13 +56,18 @@ public:
 
     MeleeWeapon *melee{nullptr}; //近战武器
 
-    int health = 3; //生命值
+    qreal health = 100.0; //生命值
+
+    void setHealth(qreal m_health); //设置生命值
+
+    //void updateHealthBar(); //更新生命值条
 
 protected:
     HeadEquipment *headEquipment{}; //头部装备
     LegEquipment *legEquipment{}; //腿部装备
     Armor *armor{}; //护甲
     QPointF velocity{}; //速度
+    HealthBar *healthBar{}; //生命值条
 
     //    QGraphicsEllipseItem *ellipseItem; //椭圆图形项，用于绘制角色的碰撞体积，debug用
 private:

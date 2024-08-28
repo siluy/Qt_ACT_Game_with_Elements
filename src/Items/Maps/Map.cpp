@@ -25,11 +25,17 @@ void Map::scaleToFitScene(QGraphicsScene *scene) {
 
 } //缩放适应场景
 
-QPointF Map::getSpawnPos() {
+QPointF Map::getSpawnPosForLink() {
     auto boundingRect = sceneBoundingRect(); //获取场景矩形
-    auto midX = (boundingRect.left() + boundingRect.right()) * 0.5; //计算中心x坐标
+    auto midX = (boundingRect.left() + boundingRect.right()) * 0.15; //计算x坐标
     return {midX, getFloorHeight()}; //返回出生点坐标
 } //获取出生点
+
+QPointF Map::getSpawnPosForRival(){
+    auto boundingRect = sceneBoundingRect(); //获取场景矩形
+    auto midX = (boundingRect.left() + boundingRect.right()) * 0.85; //计算x坐标
+    return {midX, getFloorHeight()}; //返回出生点坐标
+}
 
 qreal Map::getFloorHeight() { //获取地图高度
     auto sceneRect = sceneBoundingRect(); //获取场景矩形

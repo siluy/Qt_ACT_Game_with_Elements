@@ -287,6 +287,12 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Rival.h",
+			"MU",
+			"KRBJEFP6ZJ/moc_Rival.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h",
 			"MU",
 			"7O23G427QC/moc_Gravity.cpp",
@@ -299,9 +305,21 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HairOfTheHero.h",
+			"MU",
+			"6DSFGWXEQO/moc_HairOfTheHero.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HeadEquipment.h",
 			"MU",
 			"6DSFGWXEQO/moc_HeadEquipment.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HealthBar.h",
+			"MU",
+			"7O23G427QC/moc_HealthBar.cpp",
 			null
 		],
 		[
@@ -497,12 +515,27 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Rival.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp",
 			"MU",
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HairOfTheHero.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HeadEquipment.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HealthBar.cpp",
 			"MU",
 			null
 		],

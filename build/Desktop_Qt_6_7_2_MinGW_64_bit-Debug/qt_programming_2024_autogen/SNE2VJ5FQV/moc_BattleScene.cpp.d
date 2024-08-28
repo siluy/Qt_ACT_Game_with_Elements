@@ -176,6 +176,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsRectItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -390,6 +391,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HeadEquipment.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HealthBar.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.h \

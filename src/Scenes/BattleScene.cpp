@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "BattleScene.h"
 #include "../Items/Characters/Link.h"
+#include "../Items/Characters/Rival.h"
 #include "../Items/Maps/battlebackground.h"
 #include "../Items/Armors/FlamebreakerArmor.h"
 #include "../Items/Gravity.h"
@@ -32,9 +33,12 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //soilBlock = new Soilblock(); //创建一个土方块对象
     //stoneBlock = new Stoneblock(); //创建一个石方块对象
     map = new Battlebackground(); //创建一个战场对象
-    character = new Link(); //创建一个林克对象
+    link = new Link(); //创建一个林克对象
+    rival = new Rival(); //创建一个对手对象
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
     spareMelee = new IronShortSword(); //创建一个铁短剑对象
+    healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
+    healthBarForRival = new HealthBar(rival, 100, 10, -50, -220); //创建一个对手血条对象
 
     addItem(map); //添加地图
     for(int i=0; i<9; i++) {
@@ -84,11 +88,15 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
             }
         }
     }性能不好*/
-    addItem(character); //添加角色
+    addItem(link); //添加角色
+    addItem(rival); //添加对手
     addItem(spareArmor); //添加空护甲
     addItem(spareMelee); //添加空近战武器
+    addItem(healthBarForLink); //添加角色血条
+    addItem(healthBarForRival); //添加对手血条
     map->scaleToFitScene(this); //地图适应场景
-    character->setPos(map->getSpawnPos()); //设置角色位置为出生点
+    link->setPos(map->getSpawnPosForLink()); //设置角色位置为出生点
+    rival->setPos(map->getSpawnPosForRival()); //设置对手位置为出生点
     spareArmor->unmount(); //卸载空护甲
     spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置空护甲位置
     spareMelee->unmount(); //卸载空近战武器
@@ -97,39 +105,68 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
 
 void BattleScene::processInput() {
     Scene::processInput(); //调用基类的处理输入函数
-    if (character != nullptr) {
-        character->processInput(); //处理角色输入
+    if (link != nullptr && rival != nullptr) {
+        link->processInput(); //处理角色输入
+        rival->processInput(); //处理对手输入
     }
 } //处理输入
 
 void BattleScene::keyPressEvent(QKeyEvent *event) {
     switch (event->key()) {
     case Qt::Key_A:
-        if (character != nullptr) {
-            character->setLeftDown(true);
+        if (link != nullptr) {
+            link->setLeftDown(true);
         }
         break;
     case Qt::Key_D:
-        if (character != nullptr) {
-            character->setRightDown(true);
+        if (link != nullptr) {
+            link->setRightDown(true);
         }
         break;
     case Qt::Key_S:
-        if (character != nullptr) {
-            character->setPickDown(true);
+        if (link != nullptr) {
+            link->setPickDown(true);
         }
         break;
     case Qt::Key_W:
-        if (character != nullptr) {
-            character->setJumpDown(true);
-            character->downSpeed = -1;
-            character->downAcceleration = gravity.getGravity();
+        if (link != nullptr) {
+            link->setJumpDown(true);
+            link->downSpeed = -1;
+            link->downAcceleration = gravity.getGravity();
             //character->downAcceleration = 0.03;
         }
         break;
     case Qt::Key_J:
-        if (character != nullptr) {
-            character->setAttackDown(true);
+        if (link != nullptr) {
+            link->setAttackDown(true);
+        }
+        break;
+    case Qt::Key_Left:
+        if (rival != nullptr) {
+            rival->setLeftDown(true);
+        }
+        break;
+    case Qt::Key_Right:
+        if (rival != nullptr) {
+            rival->setRightDown(true);
+        }
+        break;
+    case Qt::Key_Down:
+        if (rival != nullptr) {
+            rival->setPickDown(true);
+        }
+        break;
+    case Qt::Key_Up:
+        if (rival != nullptr) {
+            rival->setJumpDown(true);
+            rival->downSpeed = -1;
+            rival->downAcceleration = gravity.getGravity();
+            //character->downAcceleration = 0.03;
+        }
+        break;
+    case Qt::Key_Shift:
+        if (rival != nullptr) {
+            rival->setAttackDown(true);
         }
         break;
     default:
@@ -140,29 +177,57 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
 void BattleScene::keyReleaseEvent(QKeyEvent *event) {
     switch (event->key()) {
     case Qt::Key_A:
-        if (character != nullptr) {
-            character->setLeftDown(false);
+        if (link != nullptr) {
+            link->setLeftDown(false);
         }
         break;
     case Qt::Key_D:
-        if (character != nullptr) {
-            character->setRightDown(false);
+        if (link != nullptr) {
+            link->setRightDown(false);
         }
         break;
     case Qt::Key_S:
-        if (character != nullptr) {
-            character->setPickDown(false);
+        if (link != nullptr) {
+            link->setPickDown(false);
         }
         break;
     case Qt::Key_W:
-        if (character != nullptr) {
-            character->setJumpDown(false);
+        if (link != nullptr) {
+            link->setJumpDown(false);
         }
     case::Qt::Key_J:
-        if (character != nullptr) {
-            character->setAttackDown(false);
-            if(character->isAttackDown()==false){
-                character->melee->attackStoped();
+        if (link != nullptr) {
+            link->setAttackDown(false);
+            if(link->isAttackDown()==false){
+                link->melee->attackStoped();
+            }
+        }
+        break;
+    case Qt::Key_Left:
+        if (rival != nullptr) {
+            rival->setLeftDown(false);
+        }
+        break;
+    case Qt::Key_Right:
+        if (rival != nullptr) {
+            rival->setRightDown(false);
+        }
+        break;
+    case Qt::Key_Down:
+        if (rival != nullptr) {
+            rival->setPickDown(false);
+        }
+        break;
+    case Qt::Key_Up:
+        if (rival != nullptr) {
+            rival->setJumpDown(false);
+        }
+        break;
+    case Qt::Key_Shift:
+        if (rival != nullptr) {
+            rival->setAttackDown(false);
+            if(rival->isAttackDown()==false){
+                rival->melee->attackStoped();
             }
         }
         break;
@@ -172,35 +237,46 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
 } //按键释放事件
 
 void BattleScene::update() {
-    if(character->downSpeed >= 0){
-    character->setAcceleration(); //设置加速度
+    if(link->downSpeed >= 0){
+    link->setAcceleration(); //设置加速度
     }
-    if(!character->isOnGround()){
-        character->downAcceleration = gravity.getGravity();
+    if(!link->isOnGround()){
+        link->downAcceleration = gravity.getGravity();
     }
     //if(character->downSpeed >= 0){
         //gravity.setVelocity(character, deltaTime); //设置速度
         //gravity.setPos(character, deltaTime); //设置位置
     //}
-    gravity.setVelocity(character, deltaTime); //设置速度
-    gravity.setPos(character, deltaTime); //设置位置
+    gravity.setVelocity(link, deltaTime); //设置速度
+    gravity.setPos(link, deltaTime); //设置位置
+    if(rival->downSpeed >= 0){
+        rival->setAcceleration(); //设置加速度
+    }
+    if(!rival->isOnGround()){
+        rival->downAcceleration = gravity.getGravity();
+    }
+    gravity.setVelocity(rival, deltaTime); //设置速度
+    gravity.setPos(rival, deltaTime); //设置位置
     Scene::update();
 } //更新
 
 void BattleScene::processMovement() {
     Scene::processMovement();
-    if (character != nullptr) {
-        character->setPos(character->pos() + character->getVelocity() * (double) deltaTime); //设置角色位置为当前位置加上速度乘以时间差
+    if (link != nullptr) {
+        link->setPos(link->pos() + link->getVelocity() * (double) deltaTime); //设置角色位置为当前位置加上速度乘以时间差
+    }
+    if (rival != nullptr) {
+        rival->setPos(rival->pos() + rival->getVelocity() * (double) deltaTime); //设置对手位置为当前位置加上速度乘以时间差
     }
 } //处理移动
 
 void BattleScene::processPicking() {
     Scene::processPicking();
-    if (character->isPicking()) {
-        auto mountable = findNearestUnmountedMountable(character->pos(), 100.); //查找最近的未挂载的可挂载物品，距离阈值为100
+    if (link->isPicking()) {
+        auto mountable = findNearestUnmountedMountable(link->pos(), 100.); //查找最近的未挂载的可挂载物品，距离阈值为100
         if (mountable != nullptr) {
-            spareArmor = dynamic_cast<Armor *>(pickupMountable(character, mountable)); //拾取可挂载护甲
-            spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(character, mountable)); //拾取可挂载近战武器
+            spareArmor = dynamic_cast<Armor *>(pickupMountable(link, mountable)); //拾取可挂载护甲
+            spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(link, mountable)); //拾取可挂载近战武器
         }
     }
 } //处理拾取

@@ -15,6 +15,7 @@
 #include "../Items/Blocks/Stoneblock.h"
 #include "../Items/Gravity.h"
 #include "../Items/MeleeWeapons/IronShortSword.h"
+#include "../Items/HealthBar.h"
 
 
 
@@ -50,7 +51,8 @@ private:
     static Mountable * pickupMountable(Character *character, Mountable *mountable); //拾取可挂载物品
 
     Map *map; //地图
-    Character *character;   //角色
+    Character *link;   //角色
+    Character *rival; //对手
     Armor *spareArmor; //备用护甲
     Grassblock *grassBlock; //草方块
     Ironblock *ironBlock; //铁方块
@@ -60,6 +62,8 @@ private:
     Stoneblock *stoneBlock; //石头方块
     Soilblock *soilBlock; //土方块
     Blocks* blockGrid[9][16]; // 定义一个9x16的方块指针数组
+    HealthBar *healthBarForLink; //角色的生命值条
+    HealthBar *healthBarForRival; //对手的生命值条
 };  //BattleScene类继承自Scene类，表示战斗场景
 
 
