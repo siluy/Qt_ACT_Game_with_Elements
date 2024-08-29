@@ -21,7 +21,7 @@ void MeleeWeapon::unmount() {
     }
 }
 
-int MeleeWeapon::attack() {
+qreal MeleeWeapon::attack() {
     //攻击函数
     return damage;
 }

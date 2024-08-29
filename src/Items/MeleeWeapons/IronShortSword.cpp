@@ -20,7 +20,7 @@ void IronShortSword::unmount() {
     }
 }
 
-int IronShortSword::attack() {
+qreal IronShortSword::attack() {
     //攻击函数
     //setRotation(90);
     setPos(-250,-170);

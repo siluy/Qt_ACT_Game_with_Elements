@@ -58,7 +58,7 @@ public:
 
     qreal health = 100.0; //生命值
 
-    void setHealth(qreal m_health); //设置生命值
+    void setHealth(qreal health); //设置生命值
 
     //void updateHealthBar(); //更新生命值条
 

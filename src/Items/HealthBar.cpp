@@ -12,7 +12,7 @@ void HealthBar::updateHealthBar(qreal health) {
     qreal healthBarWidth = (maxWidth * health) / 100;
 
     // 更新生命值条的矩形大小
-    setRect(0, 0, healthBarWidth, height);
+    setRect(-50, -220, healthBarWidth, height);
 
     // 如果生命值较低，可以改变颜色（变为红色）
     if (health <= 20) {

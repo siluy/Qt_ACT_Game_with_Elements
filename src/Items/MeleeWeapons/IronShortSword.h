@@ -8,7 +8,7 @@ class IronShortSword : public MeleeWeapon
 public:
     explicit IronShortSword(QGraphicsItem *parent = nullptr);
 
-    int attack() override;
+    qreal attack() override;
 
     void attackStoped() override;
 
@@ -18,9 +18,11 @@ public:
 
     void unmount() override; //卸载
 
-    int damage = 10; //伤害值
+    qreal damage = 10; //伤害值
 
     int material = 1; //材质，0表示木质，1表示铁质
+
+    int attackRange = 100; //攻击范围
 
 };
 

@@ -13,7 +13,7 @@ public:
 
     void unmount() override; //卸载
 
-    virtual int attack(); //攻击函数
+    virtual qreal attack(); //攻击函数
 
     virtual void attackStoped(); //攻击停止
 
@@ -21,7 +21,9 @@ public:
 
     int material; //材质，0表示木质，1表示铁质
 
-    int damage; //伤害值
+    qreal damage = 10; //伤害值
+
+    qreal attackRange = 100; //攻击范围
 };
 
 #endif // MELEEWEAPON_H

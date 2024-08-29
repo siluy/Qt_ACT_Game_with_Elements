@@ -35,6 +35,10 @@ public:
 
     Gravity gravity; //重力
 
+    bool attackTrue(Character *attacker, Character *victim); //能否完成攻击
+
+    void attackDone(Character *attacker, Character *victim); //攻击
+
 protected slots:
 
     void update() override; //更新

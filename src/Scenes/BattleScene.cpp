@@ -37,8 +37,8 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     rival = new Rival(); //创建一个对手对象
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
     spareMelee = new IronShortSword(); //创建一个铁短剑对象
-    healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
-    healthBarForRival = new HealthBar(rival, 100, 10, -50, -220); //创建一个对手血条对象
+    healthBarForLink = new HealthBar(link, link->health, 10, -50, -220); //创建一个角色血条对象
+    healthBarForRival = new HealthBar(rival, rival->health, 10, -50, -220); //创建一个对手血条对象
 
     addItem(map); //添加地图
     for(int i=0; i<9; i++) {
@@ -92,8 +92,8 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     addItem(rival); //添加对手
     addItem(spareArmor); //添加空护甲
     addItem(spareMelee); //添加空近战武器
-    addItem(healthBarForLink); //添加角色血条
-    addItem(healthBarForRival); //添加对手血条
+    //addItem(healthBarForLink); //添加角色血条 先前已添加过
+    //addItem(healthBarForRival); //添加对手血条
     map->scaleToFitScene(this); //地图适应场景
     link->setPos(map->getSpawnPosForLink()); //设置角色位置为出生点
     rival->setPos(map->getSpawnPosForRival()); //设置对手位置为出生点
@@ -105,8 +105,10 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
 
 void BattleScene::processInput() {
     Scene::processInput(); //调用基类的处理输入函数
-    if (link != nullptr && rival != nullptr) {
+    if (link != nullptr) {
         link->processInput(); //处理角色输入
+    }
+    if(rival != nullptr){
         rival->processInput(); //处理对手输入
     }
 } //处理输入
@@ -139,6 +141,7 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
     case Qt::Key_J:
         if (link != nullptr) {
             link->setAttackDown(true);
+            attackDone(link, rival);
         }
         break;
     case Qt::Key_Left:
@@ -310,6 +313,29 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
     }
     return nullptr;
 } //拾取可挂载物品
+
+bool BattleScene::attackTrue(Character *attacker, Character *victim){
+    if(attacker->melee == nullptr){
+        return false;
+    }else{
+    QPointF pos1 = attacker->pos();
+    QPointF pos2 = victim->pos();
+    qreal minDistance = attacker->melee->attackRange;
+
+    qreal distance = QLineF(pos1, pos2).length();
+        if(distance < minDistance){
+            return true;
+        }
+    }
+    return false;
+}
+
+void BattleScene::attackDone(Character *attacker, Character *victim){
+    if(attackTrue(attacker, victim)){
+        victim->health -= attacker->melee->damage;
+        victim->setHealth(victim->health);
+    }
+}
 
 const int BattleScene::blocks[9][16] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
