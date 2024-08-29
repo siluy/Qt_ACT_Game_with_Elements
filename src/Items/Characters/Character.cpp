@@ -148,8 +148,11 @@ MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
 } //拾取近战武器
 
 void Character::setHealth(qreal health) {
-    healthBar->updateHealthBar(health); //更新生命值条
-} //设置生命值
+    qDebug() << "Setting health to:" << health;
+    healthBar->updateHealthBar(health);
+    qDebug() << "setHealth finished.";
+}
+
 
 //void Character::updateHealthBar(){
     //qreal healthBarWidth = (healthBar.width * health) / 100; //生命值是0-100，计算生命值条的宽度

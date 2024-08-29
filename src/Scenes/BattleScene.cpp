@@ -33,12 +33,19 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //soilBlock = new Soilblock(); //创建一个土方块对象
     //stoneBlock = new Stoneblock(); //创建一个石方块对象
     map = new Battlebackground(); //创建一个战场对象
+    //map = std::make_shared<Battlebackground>(); // 创建一个战场对象，并赋值给 map
     link = new Link(); //创建一个林克对象
+    //link = std::make_shared<Link>(); // 创建一个林克对象，并赋值给 link
     rival = new Rival(); //创建一个对手对象
+    //rival = std::make_shared<Rival>(); // 创建一个对手对象，并赋值给 rival
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+    //spareArmor = std::make_shared<FlamebreakerArmor>(); // 创建一个火焰护甲对象，并赋值给 spareArmor
     spareMelee = new IronShortSword(); //创建一个铁短剑对象
-    healthBarForLink = new HealthBar(link, link->health, 10, -50, -220); //创建一个角色血条对象
-    healthBarForRival = new HealthBar(rival, rival->health, 10, -50, -220); //创建一个对手血条对象
+    //spareMelee = std::make_shared<IronShortSword>(); // 创建一个铁短剑对象，并赋值给 spareMelee
+    healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
+    //healthBarForLink = std::make_shared<HealthBar>(link, link->health, 10, -50, -220); // 创建一个角色血条对象，并赋值给 healthBarForLink
+    healthBarForRival = new HealthBar(rival, 100, 10, -50, -220); //创建一个对手血条对象
+    //healthBarForRival = std::make_shared<HealthBar>(rival, rival->health, 10, -50, -220); // 创建一个对手血条对象，并赋值给 healthBarForRival
 
     addItem(map); //添加地图
     for(int i=0; i<9; i++) {
@@ -46,15 +53,19 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
             switch (blocks[i][j]) {
             case 1:
                 blockGrid[i][j] = new Soilblock();
+                //blockGrid[i][j] = std::make_shared<Soilblock>();
                 break;
             case 2:
                 blockGrid[i][j] = new Grassblock();
+                //blockGrid[i][j] = std::make_shared<Grassblock>();
                 break;
             case 3:
                 blockGrid[i][j] = new Ironblock();
+                //blockGrid[i][j] = std::make_shared<Ironblock>();
                 break;
             case 4:
                 blockGrid[i][j] = new Stoneblock();
+                //blockGrid[i][j] = std::make_shared<Stoneblock>();
                 break;
             default:
                 blockGrid[i][j] = nullptr;
@@ -140,8 +151,16 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
         break;
     case Qt::Key_J:
         if (link != nullptr) {
-            link->setAttackDown(true);
-            attackDone(link, rival);
+            qDebug() << "link is not null.";
+            if (link->melee != nullptr) {
+                link->setAttackDown(true);
+                qDebug() << "link has a melee weapon.";
+                attackDone(link, rival);
+            } else {
+                qDebug() << "link has no melee weapon.";
+            }
+        } else {
+            qDebug() << "link is null.";
         }
         break;
     case Qt::Key_Left:
@@ -198,12 +217,22 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
         if (link != nullptr) {
             link->setJumpDown(false);
         }
+        break;
     case::Qt::Key_J:
+        qDebug() << "Releasing J key.";
         if (link != nullptr) {
+            qDebug() << "Releasing J key, link is not null.";
             link->setAttackDown(false);
-            if(link->isAttackDown()==false){
-                link->melee->attackStoped();
+            if (link->melee != nullptr) {
+                qDebug() << "link has a melee weapon, stopping attack.";
+                if (!link->isAttackDown()) {
+                    link->melee->attackStoped();
+                }
+            } else {
+                qDebug() << "link has no melee weapon.";
             }
+        } else {
+            qDebug() << "Releasing J key, link is null.";
         }
         break;
     case Qt::Key_Left:
@@ -240,27 +269,32 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
 } //按键释放事件
 
 void BattleScene::update() {
-    if(link->downSpeed >= 0){
-    link->setAcceleration(); //设置加速度
-    }
-    if(!link->isOnGround()){
-        link->downAcceleration = gravity.getGravity();
-    }
+    if(link != nullptr){
+        if(link->downSpeed >= 0){
+        link->setAcceleration(); //设置加速度
+        }
+        if(!link->isOnGround()){
+            link->downAcceleration = gravity.getGravity();
+        }
     //if(character->downSpeed >= 0){
         //gravity.setVelocity(character, deltaTime); //设置速度
         //gravity.setPos(character, deltaTime); //设置位置
     //}
-    gravity.setVelocity(link, deltaTime); //设置速度
-    gravity.setPos(link, deltaTime); //设置位置
-    if(rival->downSpeed >= 0){
-        rival->setAcceleration(); //设置加速度
+        gravity.setVelocity(link, deltaTime); //设置速度
+        gravity.setPos(link, deltaTime); //设置位置
     }
-    if(!rival->isOnGround()){
-        rival->downAcceleration = gravity.getGravity();
+    if(rival != nullptr){
+        if(rival->downSpeed >= 0){
+            rival->setAcceleration(); //设置加速度
+        }
+        if(!rival->isOnGround()){
+            rival->downAcceleration = gravity.getGravity();
+        }
+        gravity.setVelocity(rival, deltaTime); //设置速度
+        gravity.setPos(rival, deltaTime); //设置位置
     }
-    gravity.setVelocity(rival, deltaTime); //设置速度
-    gravity.setPos(rival, deltaTime); //设置位置
     Scene::update();
+    map->update();
 } //更新
 
 void BattleScene::processMovement() {
@@ -330,12 +364,25 @@ bool BattleScene::attackTrue(Character *attacker, Character *victim){
     return false;
 }
 
-void BattleScene::attackDone(Character *attacker, Character *victim){
-    if(attackTrue(attacker, victim)){
-        victim->health -= attacker->melee->damage;
-        victim->setHealth(victim->health);
+void BattleScene::attackDone(Character *attacker, Character *victim) {
+    if (attacker != nullptr && victim != nullptr) {
+        qDebug() << "Attacker and victim are valid.";
+        if (attacker->melee != nullptr) {
+            qDebug() << "Attacker has a melee weapon.";
+            if (attackTrue(attacker, victim)) {
+                qDebug() << "Attack is successful.";
+                victim->health -= attacker->melee->damage;
+                victim->setHealth(victim->health);
+            }
+        } else {
+            qDebug() << "Attacker has no melee weapon.";
+        }
+    } else {
+        if (attacker == nullptr) qDebug() << "Attacker is null.";
+        if (victim == nullptr) qDebug() << "Victim is null.";
     }
 }
+
 
 const int BattleScene::blocks[9][16] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},

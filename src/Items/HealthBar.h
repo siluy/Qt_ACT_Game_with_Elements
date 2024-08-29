@@ -2,6 +2,7 @@
 #define HEALTHBAR_H
 
 #include <QGraphicsRectItem>
+#include <QPainter>
 #include "Mountable.h"
 
 class HealthBar : public QGraphicsRectItem, public Mountable {
@@ -12,9 +13,13 @@ public:
 
     void mountToParent() override; //挂载到父节点
 
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+               QWidget *widget) override;
+
 private:
-    qreal maxWidth; // 最大宽度
+    qreal maxWidth{100}; // 最大宽度
     qreal height; // 高度
+    qreal nowHealth{100};
 };
 
 #endif // HEALTHBAR_H
