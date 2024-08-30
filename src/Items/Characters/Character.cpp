@@ -7,11 +7,13 @@
 #include "Character.h"
 #include "../Gravity.h"
 
-Character::Character(QGraphicsItem *parent) : Item(parent, "") {
+Character::Character(QGraphicsItem *parent) : Item(parent, ""), healthBar(new QGraphicsRectItem(this)) {
     //    ellipseItem = new QGraphicsEllipseItem(-5, -5, 10, 10, this); //创造一个椭圆，位置在(-5,-5)，大小为10*10，父节点为当前节点
     //    // Optionally, set some properties of the ellipse //可选，设置椭圆的一些属性
     //    ellipseItem->setBrush(Qt::green);          // Fill color //填充颜色
     //    ellipseItem->setZValue(1); // Draw on top of the pixmap //绘制在图片的上面 //设置Z值为1，Z值表示绘制顺序，数值越大越靠上
+    healthBar->setRect(-50,-220,100,10); //设置生命值条的矩形
+    healthBar->setBrush(QBrush(Qt::green)); //设置生命值条的颜色
 } //构造函数，传入父节点
 
 bool Character::isLeftDown() const {
@@ -86,9 +88,9 @@ void Character::processInput() {
     else{
         //如果没有按下任何水平移动的按键，速度向0靠近
         if (velocity.x() > 0) {
-            velocity.setX(qMax(velocity.x() - moveSpeed/2, 0.0));
+            velocity.setX(qMax(velocity.x() - moveSpeed/2, 0.00000001));
         } else if (velocity.x() < 0) {
-            velocity.setX(qMin(velocity.x() + moveSpeed/2, 0.0));
+            velocity.setX(qMin(velocity.x() + moveSpeed/2, -0.00000001));
         }
     }
     if(isAttackDown()){
@@ -147,14 +149,24 @@ MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
     return oldMelee; //返回旧近战武器
 } //拾取近战武器
 
-void Character::setHealth(qreal health) {
-    qDebug() << "Setting health to:" << health;
-    healthBar->updateHealthBar(health);
-    qDebug() << "setHealth finished.";
+void Character::setHealth(qreal newHealth) {
+    //qDebug() << "Setting health to:" << health;
+    //healthBar->updateHealthBar(health);
+    //qDebug() << "setHealth finished.";
+    this->health = newHealth;
+    updateHealthBar();
 }
 
 
-//void Character::updateHealthBar(){
-    //qreal healthBarWidth = (healthBar.width * health) / 100; //生命值是0-100，计算生命值条的宽度
-    //healthBar->setRect(0,0,healthBarWidth,10); //设置生命值条的矩形
-//}
+void Character::updateHealthBar(){
+    int width = 100; //生命值条的宽度
+    qreal healthBarWidth = (width * health) / 100; //生命值是0-100，计算生命值条的宽度
+    healthBar->setRect(-50,-220,healthBarWidth,10); //设置生命值条的矩形
+    if(health <= 20){
+        healthBar->setBrush(QBrush(Qt::red)); //如果生命值较低，设置生命值条的颜色为红色
+    }
+}
+
+QPointF Character::getDirection() const{
+    return velocity;
+}

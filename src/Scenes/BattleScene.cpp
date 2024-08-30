@@ -42,9 +42,9 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //spareArmor = std::make_shared<FlamebreakerArmor>(); // 创建一个火焰护甲对象，并赋值给 spareArmor
     spareMelee = new IronShortSword(); //创建一个铁短剑对象
     //spareMelee = std::make_shared<IronShortSword>(); // 创建一个铁短剑对象，并赋值给 spareMelee
-    healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
+    //healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
     //healthBarForLink = std::make_shared<HealthBar>(link, link->health, 10, -50, -220); // 创建一个角色血条对象，并赋值给 healthBarForLink
-    healthBarForRival = new HealthBar(rival, 100, 10, -50, -220); //创建一个对手血条对象
+    //healthBarForRival = new HealthBar(rival, 100, 10, -50, -220); //创建一个对手血条对象
     //healthBarForRival = std::make_shared<HealthBar>(rival, rival->health, 10, -50, -220); // 创建一个对手血条对象，并赋值给 healthBarForRival
 
     addItem(map); //添加地图
@@ -156,6 +156,8 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
                 link->setAttackDown(true);
                 qDebug() << "link has a melee weapon.";
                 attackDone(link, rival);
+                qDebug() << "link attacked rival.";
+                rival->updateHealthBar();
             } else {
                 qDebug() << "link has no melee weapon.";
             }
@@ -372,7 +374,8 @@ void BattleScene::attackDone(Character *attacker, Character *victim) {
             if (attackTrue(attacker, victim)) {
                 qDebug() << "Attack is successful.";
                 victim->health -= attacker->melee->damage;
-                victim->setHealth(victim->health);
+                qDebug() << "Victim health is now:" << victim->health;
+                //victim->setHealth(victim->health);
             }
         } else {
             qDebug() << "Attacker has no melee weapon.";

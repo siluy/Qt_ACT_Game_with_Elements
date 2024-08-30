@@ -76,9 +76,9 @@ private:
     //std::shared_ptr<Soilblock> soilBlock; // 土方块，使用 shared_ptr 管理内存
     Blocks* blockGrid[9][16]; // 定义一个9x16的方块指针数组
     //std::shared_ptr<Blocks> blockGrid[9][16]; // 方块指针数组，使用 shared_ptr 管理内存
-    HealthBar *healthBarForLink; //角色的生命值条
+    //HealthBar *healthBarForLink; //角色的生命值条
     //std::shared_ptr<HealthBar> healthBarForLink; // 角色的生命值条，使用 shared_ptr 管理内存
-    HealthBar *healthBarForRival; //对手的生命值条
+    //HealthBar *healthBarForRival; //对手的生命值条
     //std::shared_ptr<HealthBar> healthBarForRival; // 对手的生命值条，使用 shared_ptr 管理内存
 };  //BattleScene类继承自Scene类，表示战斗场景
 

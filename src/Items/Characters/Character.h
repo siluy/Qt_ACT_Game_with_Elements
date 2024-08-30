@@ -60,14 +60,17 @@ public:
 
     void setHealth(qreal health); //设置生命值
 
-    //void updateHealthBar(); //更新生命值条
+    void updateHealthBar(); //更新生命值条
+
+    QPointF getDirection() const; //获取朝向
 
 protected:
     HeadEquipment *headEquipment{}; //头部装备
     LegEquipment *legEquipment{}; //腿部装备
     Armor *armor{}; //护甲
     QPointF velocity{}; //速度
-    HealthBar *healthBar{}; //生命值条
+    //HealthBar *healthBar{}; //生命值条
+    QGraphicsRectItem *healthBar; //生命值条
 
     //    QGraphicsEllipseItem *ellipseItem; //椭圆图形项，用于绘制角色的碰撞体积，debug用
 private:
