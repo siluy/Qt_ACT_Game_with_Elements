@@ -168,5 +168,10 @@ void Character::updateHealthBar(){
 }
 
 QPointF Character::getDirection() const{
-    return velocity;
+    QPointF direction;
+    if (velocity.x() > 0) {
+        direction = QPointF(1, 0);
+    } else if (velocity.x() < 0) {
+        direction = QPointF(-1, 0);}
+    return direction;
 }

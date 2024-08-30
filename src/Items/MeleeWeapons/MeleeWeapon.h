@@ -23,7 +23,7 @@ public:
 
     qreal damage = 10; //伤害值
 
-    qreal attackRange = 100; //攻击范围
+    qreal attackRange = 250; //攻击范围
 };
 
 #endif // MELEEWEAPON_H

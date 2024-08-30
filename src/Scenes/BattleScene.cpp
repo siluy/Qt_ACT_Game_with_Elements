@@ -353,18 +353,49 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
 bool BattleScene::attackTrue(Character *attacker, Character *victim){
     if(attacker->melee == nullptr){
         return false;
-    }else{
-    QPointF pos1 = attacker->pos();
-    QPointF pos2 = victim->pos();
-    qreal minDistance = attacker->melee->attackRange;
+    } else {
+        QPointF pos1 = attacker->pos();
+        QPointF pos2 = victim->pos();
+        qreal attackRange = attacker->melee->attackRange;
 
-    qreal distance = QLineF(pos1, pos2).length();
+        // 计算攻击者与被攻击者的距离
+        qreal distance = QLineF(pos1, pos2).length();
+
+        if(distance < attackRange){
+            // 计算攻击者朝向的向量
+            QPointF directionVector = attacker->getDirection();
+            QPointF vectorToVictim = pos2 - pos1;
+
+            // 归一化向量
+            vectorToVictim /= QLineF(pos1, pos2).length();
+
+            // 计算两个向量的夹角的余弦值
+            qreal dotProduct = QPointF::dotProduct(directionVector, vectorToVictim);
+
+            // 判断夹角是否在180度以内（即余弦值是否大于0）
+            if(dotProduct > 0){
+                return true; // 被攻击者在攻击者的前方半圆内
+            }
+        }
+    }
+    return false;
+}
+
+/*bool BattleScene::attackTrue(Character *attacker, Character *victim){
+    if(attacker->melee == nullptr){
+        return false;
+    }else{
+        QPointF pos1 = attacker->pos();
+        QPointF pos2 = victim->pos();
+        qreal minDistance = attacker->melee->attackRange;
+
+        qreal distance = QLineF(pos1, pos2).length();
         if(distance < minDistance){
             return true;
         }
     }
     return false;
-}
+}*/
 
 void BattleScene::attackDone(Character *attacker, Character *victim) {
     if (attacker != nullptr && victim != nullptr) {
