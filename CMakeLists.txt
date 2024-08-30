@@ -59,7 +59,8 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/MeleeWeapons/IronShortSword.h src/Items/MeleeWeapons/IronShortSword.cpp
         src/Items/Characters/Rival.h src/Items/Characters/Rival.cpp
         src/Items/HeadEquipments/HairOfTheHero.h src/Items/HeadEquipments/HairOfTheHero.cpp
-        src/Items/HealthBar.h src/Items/HealthBar.cpp)
+        src/Items/HealthBar.h src/Items/HealthBar.cpp
+        src/Items/MeleeWeapons/WoodShortSword.h src/Items/MeleeWeapons/WoodShortSword.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

@@ -14,6 +14,7 @@
 #include "../Items/Blocks/Ironblock.h"
 #include "../Items/Blocks/Soilblock.h"
 #include "../Items/Blocks/Stoneblock.h"
+#include <cmath>
 
 BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     // This is useful if you want the scene to have the exact same dimensions as the view
@@ -40,7 +41,15 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //rival = std::make_shared<Rival>(); // 创建一个对手对象，并赋值给 rival
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
     //spareArmor = std::make_shared<FlamebreakerArmor>(); // 创建一个火焰护甲对象，并赋值给 spareArmor
-    spareMelee = new IronShortSword(); //创建一个铁短剑对象
+    //spareMelee = new WoodShortSword(); //创建一个铁短剑对象
+    ironShortSword = new IronShortSword(); //创建一个铁短剑对象
+    woodShortSword = new WoodShortSword(); //创建一个木短剑对象
+    dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
+    dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
+    dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
+    Melees.push_back(ironShortSword);
+    Melees.push_back(woodShortSword);
+    //dropItems.push_back(spareMelee); //添加备用近战武器到掉落物品
     //spareMelee = std::make_shared<IronShortSword>(); // 创建一个铁短剑对象，并赋值给 spareMelee
     //healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
     //healthBarForLink = std::make_shared<HealthBar>(link, link->health, 10, -50, -220); // 创建一个角色血条对象，并赋值给 healthBarForLink
@@ -102,7 +111,9 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     addItem(link); //添加角色
     addItem(rival); //添加对手
     addItem(spareArmor); //添加空护甲
-    addItem(spareMelee); //添加空近战武器
+    //addItem(spareMelee); //添加空近战武器
+    addItem(ironShortSword); //添加铁短剑
+    addItem(woodShortSword); //添加木短剑
     //addItem(healthBarForLink); //添加角色血条 先前已添加过
     //addItem(healthBarForRival); //添加对手血条
     map->scaleToFitScene(this); //地图适应场景
@@ -110,8 +121,11 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     rival->setPos(map->getSpawnPosForRival()); //设置对手位置为出生点
     spareArmor->unmount(); //卸载空护甲
     spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置空护甲位置
-    spareMelee->unmount(); //卸载空近战武器
-    spareMelee->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置空近战武器位置
+    //spareMelee->unmount(); //卸载空近战武器
+    ironShortSword->unmount(); //卸载铁短剑
+    woodShortSword->unmount(); //卸载木短剑
+    ironShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.85, map->getFloorHeight()); //设置铁短剑位置
+    woodShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木短剑位置
 } //构造函数，传入父节点
 
 void BattleScene::processInput() {
@@ -190,7 +204,11 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
         break;
     case Qt::Key_Shift:
         if (rival != nullptr) {
+            if (rival->melee != nullptr) {
             rival->setAttackDown(true);
+            attackDone(rival, link);
+            link->updateHealthBar();
+            }
         }
         break;
     default:
@@ -260,7 +278,7 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
     case Qt::Key_Shift:
         if (rival != nullptr) {
             rival->setAttackDown(false);
-            if(rival->isAttackDown()==false){
+            if(rival->melee != nullptr){
                 rival->melee->attackStoped();
             }
         }
@@ -295,6 +313,15 @@ void BattleScene::update() {
         gravity.setVelocity(rival, deltaTime); //设置速度
         gravity.setPos(rival, deltaTime); //设置位置
     }
+    for(Item* item: dropItems){
+        if(!item->isOnGround(item))
+        gravity.setVelocity(item, deltaTime); //设置速度
+        gravity.setPos(item, deltaTime); //设置位置
+        if(item->isOnGround(item)){
+            item->downSpeed = 0;
+            item->downAcceleration = 0;
+        }
+    }
     Scene::update();
     map->update();
 } //更新
@@ -316,6 +343,13 @@ void BattleScene::processPicking() {
         if (mountable != nullptr) {
             spareArmor = dynamic_cast<Armor *>(pickupMountable(link, mountable)); //拾取可挂载护甲
             spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(link, mountable)); //拾取可挂载近战武器
+        }
+    }
+    if (rival->isPicking()) {
+        auto mountable = findNearestUnmountedMountable(rival->pos(), 100.); //查找最近的未挂载的可挂载物品，距禒阈值为100
+        if (mountable != nullptr) {
+            spareArmor = dynamic_cast<Armor *>(pickupMountable(rival, mountable)); //拾取可挂载护甲
+            spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(rival, mountable)); //拾取可挂载近战武器
         }
     }
 } //处理拾取
@@ -372,9 +406,15 @@ bool BattleScene::attackTrue(Character *attacker, Character *victim){
             // 计算两个向量的夹角的余弦值
             qreal dotProduct = QPointF::dotProduct(directionVector, vectorToVictim);
 
-            // 判断夹角是否在180度以内（即余弦值是否大于0）
-            if(dotProduct > 0){
-                return true; // 被攻击者在攻击者的前方半圆内
+            // 获取两个向量夹角的余弦值对应的弧度
+            qreal angleRadians = std::acos(dotProduct);
+
+            // 定义攻击弧的角度
+            const qreal attackArcAngleRadians = M_PI / 3; // 60度对应的弧度
+
+            // 判断夹角是否在定义的攻击弧内
+            if(angleRadians <= attackArcAngleRadians){
+                return true; // 被攻击者在攻击者的前方弧内
             }
         }
     }

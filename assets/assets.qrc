@@ -20,5 +20,6 @@
         <file>Items/LegEquipments/FlameTrousers/FlameTrousers.png</file>
         <file>Items/LegEquipments/IceTrousers/IceTrousers.png</file>
         <file>Items/LegEquipments/ThunderTrousers/ThunderTrousers.png</file>
+        <file>Items/Weapons/MeleeWeapons/WoodShortSword/WoodShortSword.png</file>
     </qresource>
 </RCC>

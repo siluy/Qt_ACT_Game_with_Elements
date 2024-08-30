@@ -15,8 +15,7 @@
 #include "../Items/Blocks/Stoneblock.h"
 #include "../Items/Gravity.h"
 #include "../Items/MeleeWeapons/IronShortSword.h"
-#include "../Items/HealthBar.h"
-
+#include "../Items/MeleeWeapons/WoodShortSword.h"
 
 
 class BattleScene : public Scene {
@@ -66,9 +65,13 @@ private:
     //std::shared_ptr<Grassblock> grassBlock; // 草方块，使用 shared_ptr 管理内存
     Ironblock *ironBlock; //铁方块
     //std::shared_ptr<Ironblock> ironBlock; // 铁方块，使用 shared_ptr 管理内存
-    MeleeWeapon *spareMelee; //备用近战武器
+    MeleeWeapon *spareMelee; //空近战武器
+    IronShortSword *ironShortSword; //铁短剑
+    WoodShortSword *woodShortSword; //木短剑
     //std::shared_ptr<MeleeWeapon> spareMelee; // 备用近战武器，使用 shared_ptr 管理内存
-    //vector<Item*> dropItems; //掉落物品
+    QVector<Item*> dropItems; //掉落物品
+    QVector<MeleeWeapon*> Melees; //近战武器
+    QVector<Armor*> Armors; //护甲
     //Battlebackground *battlebackground; //战斗背景
     Stoneblock *stoneBlock; //石头方块
     //std::shared_ptr<Stoneblock> stoneBlock; // 石头方块，使用 shared_ptr 管理内存

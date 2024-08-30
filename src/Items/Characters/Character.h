@@ -12,7 +12,6 @@
 #include "../LegEquipments/LegEquipment.h"
 #include "../Gravity.h"
 #include "../MeleeWeapons/MeleeWeapon.h"
-#include "../HealthBar.h"
 
 class Character : public Item {
 public:
