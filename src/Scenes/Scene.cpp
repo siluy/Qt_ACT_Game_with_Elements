@@ -40,3 +40,7 @@ void Scene::processPicking() {
 
 }
 
+void Scene::processThrow(Item* item) {
+
+}
+

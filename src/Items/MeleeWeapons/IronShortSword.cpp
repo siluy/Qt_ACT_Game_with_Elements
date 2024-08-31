@@ -25,16 +25,15 @@ qreal IronShortSword::attack() {
     if(pixmapItem != nullptr){
     //setRotation(90);
     setPos(-250,-170);}
-
     return damage;
 }
 
 void IronShortSword::attackStoped() {
-    qDebug() << "Stopping attack.";
+    //qDebug() << "Stopping attack.";
     if (pixmapItem != nullptr) {
         setPos(-190, -170);  //设置近战武器的位置 适合铁短剑的位置
         pixmapItem->setPos(0, 0); //设置图片位置
-    } else {
-        qDebug() << "pixmapItem is null.";
-    }
+    } //else {
+        //qDebug() << "pixmapItem is null.";
+    //}
 }

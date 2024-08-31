@@ -383,6 +383,12 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.h",
+			"MU",
+			"7O23G427QC/moc_Throwable.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/MyGame.h",
 			"MU",
 			"UVLADIE3JM/moc_MyGame.cpp",
@@ -592,6 +598,11 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.cpp",
 			"MU",
 			null
 		],

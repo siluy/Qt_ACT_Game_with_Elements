@@ -30,6 +30,8 @@ public:
 
     void processPicking() override; //处理拾取
 
+    void processThrow(Item* item) override; //处理投掷
+
     static const int blocks[9][16];
 
     Gravity gravity; //重力
@@ -72,6 +74,7 @@ private:
     QVector<Item*> dropItems; //掉落物品
     QVector<MeleeWeapon*> Melees; //近战武器
     QVector<Armor*> Armors; //护甲
+    QList<Throwable*> itemsToDelete; //待删除的可投掷物品
     //Battlebackground *battlebackground; //战斗背景
     Stoneblock *stoneBlock; //石头方块
     //std::shared_ptr<Stoneblock> stoneBlock; // 石头方块，使用 shared_ptr 管理内存

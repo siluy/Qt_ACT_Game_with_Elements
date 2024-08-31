@@ -37,6 +37,10 @@ public:
 
     void setAttackDown(bool attackDown); //设置攻击键是否按下
 
+    [[nodiscard]] bool isThrowDown() const; //是否按下投掷键
+
+    void setThrowDown(bool throwDown); //设置投掷键是否按下
+
     [[nodiscard]] const QPointF &getVelocity() const; //获取速度
 
     [[nodiscard]] bool isPicking() const; //是否在拾取
@@ -63,6 +67,10 @@ public:
 
     QPointF getDirection() const; //获取朝向
 
+    void throwWeapon(); //投掷武器
+
+    bool checkCollision(); //检查碰撞
+
 protected:
     HeadEquipment *headEquipment{}; //头部装备
     LegEquipment *legEquipment{}; //腿部装备
@@ -73,7 +81,7 @@ protected:
 
     //    QGraphicsEllipseItem *ellipseItem; //椭圆图形项，用于绘制角色的碰撞体积，debug用
 private:
-    bool leftDown{}, rightDown{}, pickDown{}, jumpDown{}, attackDown{}; //左键、右键、拾取键是否按下
+    bool leftDown{}, rightDown{}, pickDown{}, jumpDown{}, attackDown{}, throwDown{}; //左键、右键、拾取键是否按下
     bool lastPickDown{}; //上一次拾取键是否按下
     bool picking{}; //是否在拾取
     bool onGround{}; //是否在地面上

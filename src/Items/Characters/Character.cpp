@@ -56,6 +56,14 @@ void Character::setAttackDown(bool attackDown) {
     Character::attackDown = attackDown;
 } //设置攻击键是否按下
 
+bool Character::isThrowDown() const {
+    return throwDown;
+} //是否按下投掷键
+
+void Character::setThrowDown(bool throwDown) {
+    Character::throwDown = throwDown;
+} //设置投掷键是否按下
+
 const QPointF &Character::getVelocity() const {
     return velocity;
 } //获取速度
@@ -93,15 +101,18 @@ void Character::processInput() {
             velocity.setX(qMin(velocity.x() + moveSpeed/2, -0.00000001));
         }
     }
+    if (isThrowDown()) {
+        throwWeapon();
+    }
     if(isAttackDown()){
         //attack
         melee->attack();
     }
-    if (isJumpDown()&&isOnGround()) {
+    //if (isJumpDown()&&isOnGround()) {
         // 跳跃键按下，只有在地面上时才允许跳跃
         //velocity.setY(-jumpSpeed); // 设置向上的速度
         //gravity.applyGravity(); //应用重力
-    }
+    //}
     //gravity.applyGravity(); //应用重力
 
     //setVelocity(velocity); // 设置速度
@@ -174,4 +185,29 @@ QPointF Character::getDirection() const{
     } else if (velocity.x() < 0) {
         direction = QPointF(-1, 0);}
     return direction;
+}
+
+void Character::throwWeapon() {
+    if(melee == nullptr){
+        return;
+    }
+    else if (melee != nullptr) {
+        //qDebug() << "Throwing weapon, melee is not null";
+        melee->unmount();
+        melee->setParentItem(parentItem());
+        melee->setPos(QPointF(pos().x(), pos().y()));
+        melee->startThrown();
+        melee->beThrown = true;
+        //qDebug() << "Setting melee pos to:" << pos();
+        QPointF direction = getDirection();
+        QPointF speed = direction * 0.2;
+        if(direction.x()>0){
+            melee->setTransform(QTransform().scale(-1, 1), true); // 设置武器的水平翻转
+        }
+        melee->speed = speed;
+        //qDebug() << "Setting melee speed to:" << speed;
+        melee->downAcceleration = gravity.getGravity();
+        //qDebug() << "Setting melee downAcceleration to:" << gravity.getGravity();
+        melee = nullptr;
+    }
 }

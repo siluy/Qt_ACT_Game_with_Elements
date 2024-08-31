@@ -44,11 +44,12 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //spareMelee = new WoodShortSword(); //创建一个铁短剑对象
     ironShortSword = new IronShortSword(); //创建一个铁短剑对象
     woodShortSword = new WoodShortSword(); //创建一个木短剑对象
-    dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
-    dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
+    //dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
+    //dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
     dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
     Melees.push_back(ironShortSword);
     Melees.push_back(woodShortSword);
+    Armors.push_back(spareArmor);
     //dropItems.push_back(spareMelee); //添加备用近战武器到掉落物品
     //spareMelee = std::make_shared<IronShortSword>(); // 创建一个铁短剑对象，并赋值给 spareMelee
     //healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
@@ -165,18 +166,23 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
         break;
     case Qt::Key_J:
         if (link != nullptr) {
-            qDebug() << "link is not null.";
+            //qDebug() << "link is not null.";
             if (link->melee != nullptr) {
                 link->setAttackDown(true);
-                qDebug() << "link has a melee weapon.";
+                //qDebug() << "link has a melee weapon.";
                 attackDone(link, rival);
-                qDebug() << "link attacked rival.";
+                //qDebug() << "link attacked rival.";
                 rival->updateHealthBar();
-            } else {
-                qDebug() << "link has no melee weapon.";
-            }
-        } else {
-            qDebug() << "link is null.";
+            }// else {
+                //qDebug() << "link has no melee weapon.";
+            //}
+        } //else {
+           // qDebug() << "link is null.";
+        //}
+        break;
+    case Qt::Key_Q:
+        if (link != nullptr) {
+            link->setThrowDown(true);
         }
         break;
     case Qt::Key_Left:
@@ -239,20 +245,25 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
         }
         break;
     case::Qt::Key_J:
-        qDebug() << "Releasing J key.";
+        //qDebug() << "Releasing J key.";
         if (link != nullptr) {
-            qDebug() << "Releasing J key, link is not null.";
+            //qDebug() << "Releasing J key, link is not null.";
             link->setAttackDown(false);
             if (link->melee != nullptr) {
-                qDebug() << "link has a melee weapon, stopping attack.";
+                //qDebug() << "link has a melee weapon, stopping attack.";
                 if (!link->isAttackDown()) {
                     link->melee->attackStoped();
                 }
-            } else {
-                qDebug() << "link has no melee weapon.";
-            }
-        } else {
-            qDebug() << "Releasing J key, link is null.";
+            } //else {
+                //qDebug() << "link has no melee weapon.";
+            //}
+        } //else {
+            //qDebug() << "Releasing J key, link is null.";
+        //}
+        break;
+    case Qt::Key_Q:
+        if (link != nullptr) {
+            link->setThrowDown(false);
         }
         break;
     case Qt::Key_Left:
@@ -334,10 +345,72 @@ void BattleScene::processMovement() {
     if (rival != nullptr) {
         rival->setPos(rival->pos() + rival->getVelocity() * (double) deltaTime); //设置对手位置为当前位置加上速度乘以时间差
     }
+    for (QGraphicsItem *Qitem: items()) {
+        if(auto item = dynamic_cast<Item *>(Qitem))
+        {
+            if(item->isOnGround(item)){
+                item->downSpeed = 0;
+                item->downAcceleration = 0;
+                /*if(auto throwable = dynamic_cast<Throwable *>(item)){
+                    if(throwable->isThrown()){
+                    qDebug() << "Thrown item is on ground.";
+                    throwable->endThrown();
+                    //itemsToDelete.append(throwable);  // 将投掷物添加到待删除列表
+                    //qDebug() << "Thrown item deleted.";
+                    qDebug() << "Deleting throwable item.";
+                    itemsToDelete.removeOne(throwable); // 从待删除列表中移除投掷物
+                    Melees.removeOne(throwable);
+                    qDebug() << "Deleting throwable item.";
+                    delete throwable;
+                    //throwable = nullptr;
+                    qDebug() << "Thrown item is nullptr.";
+                    }
+                }*/
+            }
+            else if (auto throwable = dynamic_cast<Throwable *>(item))
+            { //如果是可投掷物品
+                if (throwable->isThrown()) {
+                    auto melee = dynamic_cast<MeleeWeapon *>(throwable);
+                    if(melee!=nullptr){
+                    melee->setPos(item->pos() + melee->getSpeed() * (double) deltaTime);
+                    gravity.setVelocity(melee, deltaTime);
+                    auto y = melee->downSpeed * deltaTime + 0.5 * 0.005 * deltaTime * deltaTime;
+                    melee->setPos(melee->pos() + QPointF(0, y));}
+                }
+            }
+        }
+    }
+    for(QGraphicsItem *Qitem: items()){
+        if(auto item = dynamic_cast<Item *>(Qitem)){
+            if(item->isOnGround(item) && item->beThrown){
+                delete item;
+                item = nullptr;
+                //link->melee = nullptr;
+            }
+        }
+
+    }
+    /*for (Throwable* throwable : itemsToDelete) {
+        if(throwable != nullptr){
+            qDebug() << "Deleting throwable item.";
+            itemsToDelete.removeAll(throwable); // 从待删除列表中移除投掷物
+            Melees.removeOne(throwable);
+            qDebug() << "Deleting throwable item.";
+            delete throwable;
+            qDebug() << "Deleted throwable item.";
+            //throwable = nullptr;
+        }
+    }*/
 } //处理移动
+
+void BattleScene::processThrow(Item* item){
+    auto throwable = dynamic_cast<Throwable *>(item);
+
+}
 
 void BattleScene::processPicking() {
     Scene::processPicking();
+    //qDebug() << "Processing picking.";
     if (link->isPicking()) {
         auto mountable = findNearestUnmountedMountable(link->pos(), 100.); //查找最近的未挂载的可挂载物品，距离阈值为100
         if (mountable != nullptr) {
@@ -439,22 +512,22 @@ bool BattleScene::attackTrue(Character *attacker, Character *victim){
 
 void BattleScene::attackDone(Character *attacker, Character *victim) {
     if (attacker != nullptr && victim != nullptr) {
-        qDebug() << "Attacker and victim are valid.";
+        //qDebug() << "Attacker and victim are valid.";
         if (attacker->melee != nullptr) {
-            qDebug() << "Attacker has a melee weapon.";
+            //qDebug() << "Attacker has a melee weapon.";
             if (attackTrue(attacker, victim)) {
-                qDebug() << "Attack is successful.";
+                //qDebug() << "Attack is successful.";
                 victim->health -= attacker->melee->damage;
-                qDebug() << "Victim health is now:" << victim->health;
+                //qDebug() << "Victim health is now:" << victim->health;
                 //victim->setHealth(victim->health);
             }
-        } else {
-            qDebug() << "Attacker has no melee weapon.";
-        }
-    } else {
-        if (attacker == nullptr) qDebug() << "Attacker is null.";
-        if (victim == nullptr) qDebug() << "Victim is null.";
-    }
+        } //else {
+            //qDebug() << "Attacker has no melee weapon.";
+        //}
+    } //else {
+        //if (attacker == nullptr) qDebug() << "Attacker is null.";
+        //if (victim == nullptr) qDebug() << "Victim is null.";
+    //}
 }
 
 

@@ -26,7 +26,6 @@ qreal MeleeWeapon::attack() {
     if(pixmapItem != nullptr){
         //setRotation(90);
         setPos(-250,-170);}
-
     return damage;
 }
 
@@ -36,3 +35,7 @@ void MeleeWeapon::attackStoped() {
         pixmapItem->setPos(0, 0); //设置图片位置
     }
 }
+
+QPointF MeleeWeapon::getSpeed() const {
+    return speed;
+} //获取速度

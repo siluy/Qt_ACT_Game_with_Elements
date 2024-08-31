@@ -3,8 +3,9 @@
 
 #include "../Item.h"
 #include "../Mountable.h"
+#include "../Throwable.h"
 
-class MeleeWeapon : public Item, public Mountable
+class MeleeWeapon : public Item, public Mountable, public Throwable
 {
 public:
     explicit MeleeWeapon(QGraphicsItem *parent, const QString &pixmapPath); //构造函数，传入父节点和图片路径
@@ -17,13 +18,20 @@ public:
 
     virtual void attackStoped(); //攻击停止
 
-    void throwWeapon(); //投掷武器函数
+    QPointF getSpeed() const; //获取速度
 
     int material; //材质，0表示木质，1表示铁质
 
     qreal damage = 10; //伤害值
 
     qreal attackRange = 250; //攻击范围
+
+    QPointF speed = QPointF(0, 0); //投掷初速度
+
+    qreal downAcceleration; //重力加速度
+
+    qreal downSpeed; //下降速度
+
 };
 
 #endif // MELEEWEAPON_H

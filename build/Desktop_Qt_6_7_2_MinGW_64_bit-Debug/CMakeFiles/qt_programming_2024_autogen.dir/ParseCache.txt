@@ -361,9 +361,9 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h
-C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/FlamebreakerArmor.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Ironblock.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.h
@@ -375,6 +375,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Grassblock.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.h
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/WellWornTrousers.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Soilblock.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HealthBar.h
@@ -936,7 +937,6 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
  mdp:C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem
  mdp:C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem
- mdp:C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsRectItem
  mdp:C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h
  mdp:C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h
@@ -1152,7 +1152,6 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HeadEquipment.h
- mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HealthBar.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.h
@@ -1160,6 +1159,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/MeleeWeapon.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.h
+ mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/Armor.cpp
@@ -1168,13 +1168,14 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/battlebackground.cpp
-C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.cpp
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Ironblock.h
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HeadEquipment.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Grassblock.cpp
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/WellWornTrousers.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Soilblock.cpp

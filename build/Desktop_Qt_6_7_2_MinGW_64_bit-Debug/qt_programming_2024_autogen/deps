@@ -180,7 +180,6 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
 	C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 	C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem \
-	C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsRectItem \
 	C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
 	C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
 	C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -627,6 +626,8 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/gravity.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/MyGame.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/MyGame.h \
