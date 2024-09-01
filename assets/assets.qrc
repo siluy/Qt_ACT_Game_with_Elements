@@ -21,5 +21,15 @@
         <file>Items/LegEquipments/IceTrousers/IceTrousers.png</file>
         <file>Items/LegEquipments/ThunderTrousers/ThunderTrousers.png</file>
         <file>Items/Weapons/MeleeWeapons/WoodShortSword/WoodShortSword.png</file>
+        <file>Items/Weapons/BowsAndArrows/IronBow/IronBow.png</file>
+        <file>Items/Weapons/BowsAndArrows/IronHandBow/IronHandBow.png</file>
+        <file>Items/Weapons/BowsAndArrows/IronStrongBow/IronStrongBow.png</file>
+        <file>Items/Weapons/BowsAndArrows/WoodBow/WoodBow.png</file>
+        <file>Items/Weapons/BowsAndArrows/WoodStrongBow/WoodStrongBow.png</file>
+        <file>Items/Weapons/BowsAndArrows/WoodHandBow/WoodHandBow.png</file>
+        <file>Items/Weapons/BowsAndArrows/Arrow/Arrow.png</file>
+        <file>Items/Weapons/BowsAndArrows/FireArrow/FireArrow.png</file>
+        <file>Items/Weapons/BowsAndArrows/IceArrow/IceArrow.png</file>
+        <file>Items/Weapons/BowsAndArrows/ThunderArrow/ThunderArrow.png</file>
     </qresource>
 </RCC>

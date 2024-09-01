@@ -141,6 +141,39 @@ Armor *Character::pickupArmor(Armor *newArmor) {
     armor = newArmor; //设置新护甲
     return oldArmor; //返回旧护甲
 } //拾取护甲
+Arrow* Character::pickupArrow(Arrow* newArrow) {
+    // 假设你想保留原有的箭矢，这里直接添加新的箭矢到 arrows 中
+    auto oldArrows = arrows; // 保存当前的箭矢
+    newArrow->setParentItem(this); // 设置新箭矢的父节点为当前角色
+    newArrow->mountToParent(); //挂载新箭矢到父节点
+    arrows.append(newArrow); // 将新箭矢添加到 arrows 向量中
+    return nullptr;
+    /*for (Arrow* newArrow : newArrows) {
+        if (newArrow) {
+            newArrow->setParentItem(this); // 设置新箭矢的父节点为当前角色
+            arrows.append(newArrow); // 将新箭矢添加到 arrows 向量中
+        }
+    }
+
+    // 如果需要返回原来的箭矢（例如为了丢弃或者处理），可以将旧箭矢返回
+    // 这里假设你只想返回新添加的箭矢
+    return newArrows;*/
+}
+
+QVector<Arrow*> Character::removeAllArrows() {
+    QVector<Arrow*> removedArrows = arrows; // 保存当前的箭矢
+    arrows.clear(); // 清空 arrows 向量
+    return removedArrows; // 返回被移除的箭矢
+}
+
+Arrow* Character::removeArrow(int index) {
+    if (index >= 0 && index < arrows.size()) {
+        Arrow* removedArrow = arrows.takeAt(index); // 移除并返回特定位置的箭矢
+        removedArrow->setParentItem(nullptr); // 将箭矢的父节点设置为空
+        return removedArrow;
+    }
+    return nullptr; // 如果索引无效，返回空指针
+}
 
 MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
     auto oldMelee = melee; //旧近战武器
@@ -159,6 +192,24 @@ MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
     melee = newMelee; //设置新近战武器
     return oldMelee; //返回旧近战武器
 } //拾取近战武器
+
+Bow *Character::pickupBow(Bow *newBow){
+    auto oldBow = bow;
+    if(oldBow != nullptr){
+        oldBow->unmount();
+        oldBow->setPos(newBow->pos());
+        oldBow->setParentItem(parentItem());
+    }
+    if(oldBow == nullptr){
+        newBow->setParentItem(this);
+        newBow->mountToParent();
+        bow = newBow;
+    }
+    newBow->setParentItem(this);
+    newBow->mountToParent();
+    bow = newBow;
+    return oldBow;
+}
 
 void Character::setHealth(qreal newHealth) {
     //qDebug() << "Setting health to:" << health;

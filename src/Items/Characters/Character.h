@@ -12,6 +12,8 @@
 #include "../LegEquipments/LegEquipment.h"
 #include "../Gravity.h"
 #include "../MeleeWeapons/MeleeWeapon.h"
+#include "../Bows/Bow.h"
+#include "../Arrows/Arrow.h"
 
 class Character : public Item {
 public:
@@ -53,11 +55,23 @@ public:
 
     MeleeWeapon* pickupMelee(MeleeWeapon* newMeleeWeapon); //拾取近战武器
 
+    Bow* pickupBow(Bow* newBow); //拾取弓
+
     Gravity gravity; //重力
 
     bool isOnGround() const; //是否在地面上
 
     MeleeWeapon *melee{nullptr}; //近战武器
+
+    Bow *bow{nullptr}; //弓
+
+    QVector<Arrow*> arrows; //箭
+
+    Arrow* pickupArrow(Arrow* newArrow); //拾取箭
+
+    QVector<Arrow*> removeAllArrows(); //移除所有箭
+
+    Arrow* removeArrow(int index); //移除箭
 
     qreal health = 100.0; //生命值
 

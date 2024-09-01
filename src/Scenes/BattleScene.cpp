@@ -44,9 +44,13 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //spareMelee = new WoodShortSword(); //创建一个铁短剑对象
     ironShortSword = new IronShortSword(); //创建一个铁短剑对象
     woodShortSword = new WoodShortSword(); //创建一个木短剑对象
+    ironBow = new IronBow(); //创建一个铁弓对象
+    normalArrow = new NormalArrow(); //创建一个普通箭对象
     //dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
     //dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
     dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
+    dropItems.push_back(ironBow);
+    dropItems.push_back(normalArrow);
     Melees.push_back(ironShortSword);
     Melees.push_back(woodShortSword);
     Armors.push_back(spareArmor);
@@ -85,36 +89,14 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
             addItem(blockGrid[i][j]); // 将方块添加到场景中
         }
     }
-    /*for(int i=0;i<9;i++){
-        for(int j=0;j<16;j++){
-            if(blocks[i][j]==1){
-                soilBlock = new Soilblock();
-                soilBlock->setPos(j*blockWidth,i*blockWidth);
-                addItem(soilBlock);
-            }
-            else if(blocks[i][j]==4){
-                stoneBlock = new Stoneblock();
-                stoneBlock->setPos(j*blockWidth,i*blockWidth);
-                addItem(stoneBlock);
-            }
-            else if(blocks[i][j]==3){
-                ironBlock = new Ironblock();
-                ironBlock->setPos(j*blockWidth,i*blockWidth);
-                addItem(ironBlock);
-            }
-            else if(blocks[i][j]==2){
-                grassBlock = new Grassblock();
-                grassBlock->setPos(j*blockWidth,i*blockWidth);
-                addItem(grassBlock);
-            }
-        }
-    }性能不好*/
     addItem(link); //添加角色
     addItem(rival); //添加对手
     addItem(spareArmor); //添加空护甲
     //addItem(spareMelee); //添加空近战武器
     addItem(ironShortSword); //添加铁短剑
     addItem(woodShortSword); //添加木短剑
+    addItem(ironBow); //添加铁弓
+    addItem(normalArrow);
     //addItem(healthBarForLink); //添加角色血条 先前已添加过
     //addItem(healthBarForRival); //添加对手血条
     map->scaleToFitScene(this); //地图适应场景
@@ -127,6 +109,12 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     woodShortSword->unmount(); //卸载木短剑
     ironShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.85, map->getFloorHeight()); //设置铁短剑位置
     woodShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木短剑位置
+    ironBow->unmount(); //卸载铁弓
+    ironBow->setScale(0.2); //设置缩放比
+    ironBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置铁弓位置
+    normalArrow->unmount();
+    normalArrow->setScale(0.2);
+    normalArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
 } //构造函数，传入父节点
 
 void BattleScene::processInput() {
@@ -448,6 +436,10 @@ void BattleScene::processPicking() {
         if (mountable != nullptr) {
             spareArmor = dynamic_cast<Armor *>(pickupMountable(link, mountable)); //拾取可挂载护甲
             spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(link, mountable)); //拾取可挂载近战武器
+            spareBow = dynamic_cast<Bow *>(pickupMountable(link, mountable)); //拾取可挂载弓
+            if(link->bow != nullptr){
+                spareArrow = dynamic_cast<Arrow *>(pickupMountable(link, mountable)); //拾取可挂载箭
+            }
         }
     }
     if (rival->isPicking()) {
@@ -455,6 +447,10 @@ void BattleScene::processPicking() {
         if (mountable != nullptr) {
             spareArmor = dynamic_cast<Armor *>(pickupMountable(rival, mountable)); //拾取可挂载护甲
             spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(rival, mountable)); //拾取可挂载近战武器
+            spareBow = dynamic_cast<Bow *>(pickupMountable(rival, mountable)); //拾取可挂载弓
+            if(rival->bow != nullptr){
+            spareArrow = dynamic_cast<Arrow *>(pickupMountable(rival, mountable)); //拾取可挂载箭
+            }
         }
     }
 } //处理拾取
@@ -486,7 +482,14 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
     if (auto melee = dynamic_cast<MeleeWeapon *>(mountable)) {
         return character->pickupMelee(melee); //拾取近战武器
     }
-    return nullptr;
+    if (auto bow = dynamic_cast<Bow *>(mountable)) {
+        return character->pickupBow(bow); //拾取弓
+    }
+    if (auto arrow = dynamic_cast<Arrow *>(mountable) ) {
+        if(character->bow != nullptr)
+            return character->pickupArrow(arrow);
+    }        //拾取箭
+        return nullptr;
 } //拾取可挂载物品
 
 bool BattleScene::attackTrue(Character *attacker, Character *victim){

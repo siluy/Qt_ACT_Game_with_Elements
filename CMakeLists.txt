@@ -61,7 +61,11 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/HeadEquipments/HairOfTheHero.h src/Items/HeadEquipments/HairOfTheHero.cpp
         src/Items/HealthBar.h src/Items/HealthBar.cpp
         src/Items/MeleeWeapons/WoodShortSword.h src/Items/MeleeWeapons/WoodShortSword.cpp
-        src/Items/Throwable.h src/Items/Throwable.cpp)
+        src/Items/Throwable.h src/Items/Throwable.cpp
+        src/Items/Bows/Bow.h src/Items/Bows/Bow.cpp
+        src/Items/Bows/IronBow.h src/Items/Bows/IronBow.cpp
+        src/Items/Arrows/Arrow.h src/Items/Arrows/Arrow.cpp
+        src/Items/Arrows/NormalArrow.h src/Items/Arrows/NormalArrow.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

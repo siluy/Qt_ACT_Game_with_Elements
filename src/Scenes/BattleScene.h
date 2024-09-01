@@ -16,6 +16,10 @@
 #include "../Items/Gravity.h"
 #include "../Items/MeleeWeapons/IronShortSword.h"
 #include "../Items/MeleeWeapons/WoodShortSword.h"
+#include "../Items/Bows/IronBow.h"
+#include "../Items/Bows/Bow.h"
+#include "../Items/Arrows/Arrow.h"
+#include "../Items/Arrows/NormalArrow.h"
 
 
 class BattleScene : public Scene {
@@ -70,6 +74,10 @@ private:
     MeleeWeapon *spareMelee; //空近战武器
     IronShortSword *ironShortSword; //铁短剑
     WoodShortSword *woodShortSword; //木短剑
+    Bow *spareBow; //空弓
+    IronBow *ironBow; //铁弓
+    Arrow *spareArrow; //空箭
+    NormalArrow *normalArrow; //普通箭
     //std::shared_ptr<MeleeWeapon> spareMelee; // 备用近战武器，使用 shared_ptr 管理内存
     QVector<Item*> dropItems; //掉落物品
     QVector<MeleeWeapon*> Melees; //近战武器

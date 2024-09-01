@@ -245,6 +245,18 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_Arrow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_NormalArrow.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.h",
 			"MU",
 			"WYAV65ENTW/moc_Blocks.cpp",
@@ -272,6 +284,18 @@
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Stoneblock.h",
 			"MU",
 			"WYAV65ENTW/moc_Stoneblock.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/Bow.h",
+			"MU",
+			"G4HZ5YLGZV/moc_Bow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronBow.h",
+			"MU",
+			"G4HZ5YLGZV/moc_IronBow.cpp",
 			null
 		],
 		[
@@ -492,6 +516,16 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.cpp",
 			"MU",
 			null
@@ -513,6 +547,16 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Stoneblock.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/Bow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronBow.cpp",
 			"MU",
 			null
 		],

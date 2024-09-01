@@ -581,6 +581,10 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/FlamebreakerArmor.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Grassblock.cpp \
@@ -591,6 +595,10 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Soilblock.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Stoneblock.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Stoneblock.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/Bow.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/Bow.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronBow.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronBow.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.cpp \
