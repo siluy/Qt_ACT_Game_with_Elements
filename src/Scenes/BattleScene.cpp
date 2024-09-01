@@ -334,6 +334,11 @@ void BattleScene::update() {
         }
     }
     Scene::update();
+    for(QGraphicsItem *Qitem: items()){
+        if(auto item = dynamic_cast<Item *>(Qitem)){
+                processThrow(item);
+        }
+    }
     map->update();
 } //更新
 
@@ -380,7 +385,7 @@ void BattleScene::processMovement() {
             }
         }
     }
-    for(QGraphicsItem *Qitem: items()){
+    /*for(QGraphicsItem *Qitem: items()){
         if(auto item = dynamic_cast<Item *>(Qitem)){
             if(item->isOnGround(item) && item->beThrown){
                 delete item;
@@ -389,7 +394,7 @@ void BattleScene::processMovement() {
             }
         }
 
-    }
+    }*/
     /*for (Throwable* throwable : itemsToDelete) {
         if(throwable != nullptr){
             qDebug() << "Deleting throwable item.";
@@ -405,7 +410,34 @@ void BattleScene::processMovement() {
 
 void BattleScene::processThrow(Item* item){
     auto throwable = dynamic_cast<Throwable *>(item);
-
+    auto melee = dynamic_cast<MeleeWeapon *>(throwable);
+    if(melee == nullptr){
+        return;
+    }
+    QRectF throwAttackRect = QRectF(item->pos().x(), item->pos().y(), -100, 200);
+    //qDebug() << "Throwing weapon.";
+    if(melee->speed.x() < 0){
+        throwAttackRect = QRectF(item->pos().x(), item->pos().y(), 80, 180);
+        qDebug() << "Throwing weapon left.";
+    }
+    if(item->beThrown){
+        if(throwAttackRect.contains(rival->pos())){
+            qDebug() << "Throw attack hit rival.";
+            rival->setHealth(rival->health - 10);
+            delete item;
+            item = nullptr;
+        }
+        if(throwAttackRect.intersects(link->boundingRect())){
+            qDebug() << "Throw attack hit link.";
+            link->setHealth(link->health - 10);
+            delete item;
+            item = nullptr;
+        }
+    }
+    if(item->isOnGround(item) && item->beThrown){
+        delete item;
+        item = nullptr;
+    }
 }
 
 void BattleScene::processPicking() {

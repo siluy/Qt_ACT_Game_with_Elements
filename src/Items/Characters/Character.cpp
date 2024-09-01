@@ -195,7 +195,7 @@ void Character::throwWeapon() {
         //qDebug() << "Throwing weapon, melee is not null";
         melee->unmount();
         melee->setParentItem(parentItem());
-        melee->setPos(QPointF(pos().x(), pos().y()));
+        melee->setPos(QPointF(pos().x(), pos().y()-50));
         melee->startThrown();
         melee->beThrown = true;
         //qDebug() << "Setting melee pos to:" << pos();
