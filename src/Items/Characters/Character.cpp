@@ -64,6 +64,22 @@ void Character::setThrowDown(bool throwDown) {
     Character::throwDown = throwDown;
 } //设置投掷键是否按下
 
+bool Character::isChangeDown() const {
+    return changeDown;
+}
+
+void Character::setChangeDown(bool changeDown) {
+    Character::changeDown = changeDown;
+}
+
+bool Character::isChangeArrowDown() const {
+    return changeArrowDown;
+}
+
+void Character::setChangeArrowDown(bool changeArrowDown) {
+    Character::changeArrowDown = changeArrowDown;
+}
+
 const QPointF &Character::getVelocity() const {
     return velocity;
 } //获取速度
@@ -103,10 +119,23 @@ void Character::processInput() {
     }
     if (isThrowDown()) {
         throwWeapon();
+        archery();
     }
     if(isAttackDown()){
         //attack
-        melee->attack();
+        if(bow != nullptr){
+            bow->attack();
+        }
+        if(melee != nullptr){
+            melee->attack();
+        }
+    }
+
+    if(isChangeDown()){
+        changeWeapon();
+    }
+    if(isChangeArrowDown()){
+        changeArrow();
     }
     //if (isJumpDown()&&isOnGround()) {
         // 跳跃键按下，只有在地面上时才允许跳跃
@@ -143,10 +172,10 @@ Armor *Character::pickupArmor(Armor *newArmor) {
 } //拾取护甲
 Arrow* Character::pickupArrow(Arrow* newArrow) {
     // 假设你想保留原有的箭矢，这里直接添加新的箭矢到 arrows 中
-    auto oldArrows = arrows; // 保存当前的箭矢
     newArrow->setParentItem(this); // 设置新箭矢的父节点为当前角色
     newArrow->mountToParent(); //挂载新箭矢到父节点
     arrows.append(newArrow); // 将新箭矢添加到 arrows 向量中
+    newArrow->setVisible(0);
     return nullptr;
     /*for (Arrow* newArrow : newArrows) {
         if (newArrow) {
@@ -166,13 +195,9 @@ QVector<Arrow*> Character::removeAllArrows() {
     return removedArrows; // 返回被移除的箭矢
 }
 
-Arrow* Character::removeArrow(int index) {
-    if (index >= 0 && index < arrows.size()) {
-        Arrow* removedArrow = arrows.takeAt(index); // 移除并返回特定位置的箭矢
-        removedArrow->setParentItem(nullptr); // 将箭矢的父节点设置为空
-        return removedArrow;
-    }
-    return nullptr; // 如果索引无效，返回空指针
+void Character::removeArrow(Arrow* selected) {
+    Arrow* removedArrow = selected; // 移除并返回特定位置的箭矢
+    arrows.removeOne(removedArrow); // 从 arrows 向量中移除指定的箭矢
 }
 
 MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
@@ -181,15 +206,14 @@ MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
         oldMelee->unmount(); //卸载旧近战武器
         oldMelee->setPos(newMelee->pos()); //设置旧近战武器位置为新近战武器位置
         oldMelee->setParentItem(parentItem());  //设置旧近战武器的父节点为当前节点
-    }
-    if (oldMelee == nullptr) {
-        newMelee->setParentItem(this); //设置新近战武器的父节点为当前节点
-        newMelee->mountToParent(); //挂载新近战武器到父节点
-        melee = newMelee; //设置新近战武器
+        oldMelee->setVisible(1);
     }
     newMelee->setParentItem(this); //设置新近战武器的父节点为当前节点
     newMelee->mountToParent(); //挂载新近战武器到父节点
     melee = newMelee; //设置新近战武器
+    if(bow != nullptr && bow->isVisible()){
+        melee->setVisible(0);
+    }
     return oldMelee; //返回旧近战武器
 } //拾取近战武器
 
@@ -199,15 +223,14 @@ Bow *Character::pickupBow(Bow *newBow){
         oldBow->unmount();
         oldBow->setPos(newBow->pos());
         oldBow->setParentItem(parentItem());
-    }
-    if(oldBow == nullptr){
-        newBow->setParentItem(this);
-        newBow->mountToParent();
-        bow = newBow;
+        oldBow->setVisible(1);
     }
     newBow->setParentItem(this);
     newBow->mountToParent();
     bow = newBow;
+    if(melee != nullptr && melee->isVisible()){
+        bow->setVisible(0);
+    }
     return oldBow;
 }
 
@@ -246,7 +269,7 @@ void Character::throwWeapon() {
         //qDebug() << "Throwing weapon, melee is not null";
         melee->unmount();
         melee->setParentItem(parentItem());
-        melee->setPos(QPointF(pos().x(), pos().y()-50));
+        melee->setPos(QPointF(pos().x()+100, pos().y()-50));
         melee->startThrown();
         melee->beThrown = true;
         //qDebug() << "Setting melee pos to:" << pos();
@@ -260,5 +283,87 @@ void Character::throwWeapon() {
         melee->downAcceleration = gravity.getGravity();
         //qDebug() << "Setting melee downAcceleration to:" << gravity.getGravity();
         melee = nullptr;
+    }
+}
+
+void Character::archery() {
+    if(bow == nullptr){
+        return;
+    }
+    bool allNull = true;
+    Arrow* selected = nullptr;
+    for (Arrow* pointer : arrows) {
+        if (pointer != nullptr) {
+            allNull = false;
+            break;
+        }
+    }
+    if(allNull){
+        return;
+    }
+    for(Arrow* arrow : arrows){
+        if(arrow->isVisible() && arrow!=nullptr){
+            selected = arrow;
+            break;
+        }
+    }
+    if(selected != nullptr){
+        removeArrow(selected);
+        selected->setRotation(45);
+        //selected->setScale(0.3);
+        selected->unmount();
+        selected->setParentItem(parentItem());
+        QPointF direction = getDirection();
+        selected->setPos(QPointF(pos().x()+100, pos().y()-100));
+        selected->startThrown();
+        selected->beThrown = true;
+        if(direction.x()>0){
+            selected->setTransform(QTransform().scale(-1, 1), true); // 设置武器的水平翻转
+        }
+        selected->speed = direction * 0.5;
+        selected->downAcceleration = gravity.getGravity();
+    }
+}
+
+void Character::changeWeapon() {
+    // 提前返回，避免后续判断
+    if (melee == nullptr || bow == nullptr) {
+        return;
+    }
+
+    if (melee->isVisible()) {
+        // 如果当前显示的是近战武器，切换到弓箭
+        melee->setVisible(false);
+        bow->setVisible(true);
+        setChangeDown(false);
+    } else if (bow->isVisible()) {
+        // 如果当前显示的是弓箭，切换到近战武器
+        bow->setVisible(false);
+        melee->setVisible(true);
+        setChangeDown(false);
+    }
+}
+
+void Character::changeArrow() {
+    static int arrowNum = 0;  // 静态变量，用于追踪当前选择的箭矢
+
+    if (arrows.isEmpty()) {  // 如果箭矢列表为空，直接返回
+        return;
+    }
+
+    // 隐藏当前箭矢
+    if (arrows[arrowNum] != nullptr) {
+        arrows[arrowNum]->setVisible(false);
+    }
+
+    // 递增箭矢索引
+    arrowNum++;
+    if (arrowNum >= arrows.size()) {
+        arrowNum = 0;  // 如果超过箭矢数量，重置为第一个箭矢
+    }
+
+    // 显示下一个箭矢
+    if (arrows[arrowNum] != nullptr) {
+        arrows[arrowNum]->setVisible(true);
     }
 }

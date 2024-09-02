@@ -43,6 +43,14 @@ public:
 
     void setThrowDown(bool throwDown); //设置投掷键是否按下
 
+    [[nodiscard]] bool isChangeDown() const; //是否按下切换武器键
+
+    void setChangeDown(bool changeDown); //设置切换武器键是否按下
+
+    [[nodiscard]] bool isChangeArrowDown() const; //是否按下切换箭键
+
+    void setChangeArrowDown(bool changeArrowDown); //设置切换箭键是否按下
+
     [[nodiscard]] const QPointF &getVelocity() const; //获取速度
 
     [[nodiscard]] bool isPicking() const; //是否在拾取
@@ -71,7 +79,7 @@ public:
 
     QVector<Arrow*> removeAllArrows(); //移除所有箭
 
-    Arrow* removeArrow(int index); //移除箭
+    void removeArrow(Arrow* selected); //移除箭
 
     qreal health = 100.0; //生命值
 
@@ -83,7 +91,13 @@ public:
 
     void throwWeapon(); //投掷武器
 
+    void archery(); //射箭
+
     bool checkCollision(); //检查碰撞
+
+    void changeWeapon(); //切换武器
+
+    void changeArrow(); //切换箭
 
 protected:
     HeadEquipment *headEquipment{}; //头部装备
@@ -95,7 +109,7 @@ protected:
 
     //    QGraphicsEllipseItem *ellipseItem; //椭圆图形项，用于绘制角色的碰撞体积，debug用
 private:
-    bool leftDown{}, rightDown{}, pickDown{}, jumpDown{}, attackDown{}, throwDown{}; //左键、右键、拾取键是否按下
+    bool leftDown{}, rightDown{}, pickDown{}, jumpDown{}, attackDown{}, throwDown{}, changeDown{}, changeArrowDown{}; //左键、右键、拾取键是否按下
     bool lastPickDown{}; //上一次拾取键是否按下
     bool picking{}; //是否在拾取
     bool onGround{}; //是否在地面上

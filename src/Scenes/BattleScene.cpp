@@ -46,11 +46,13 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     woodShortSword = new WoodShortSword(); //创建一个木短剑对象
     ironBow = new IronBow(); //创建一个铁弓对象
     normalArrow = new NormalArrow(); //创建一个普通箭对象
-    //dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
-    //dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
+    fireArrow = new FireArrow(); //创建一个火箭对象
+    dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
+    dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
     dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
     dropItems.push_back(ironBow);
     dropItems.push_back(normalArrow);
+    dropItems.push_back(fireArrow);
     Melees.push_back(ironShortSword);
     Melees.push_back(woodShortSword);
     Armors.push_back(spareArmor);
@@ -97,6 +99,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     addItem(woodShortSword); //添加木短剑
     addItem(ironBow); //添加铁弓
     addItem(normalArrow);
+    addItem(fireArrow);
     //addItem(healthBarForLink); //添加角色血条 先前已添加过
     //addItem(healthBarForRival); //添加对手血条
     map->scaleToFitScene(this); //地图适应场景
@@ -115,6 +118,9 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     normalArrow->unmount();
     normalArrow->setScale(0.2);
     normalArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
+    fireArrow->unmount();
+    fireArrow->setScale(0.2);
+    fireArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.65, map->getFloorHeight()*0.5);
 } //构造函数，传入父节点
 
 void BattleScene::processInput() {
@@ -128,6 +134,9 @@ void BattleScene::processInput() {
 } //处理输入
 
 void BattleScene::keyPressEvent(QKeyEvent *event) {
+    if(event->isAutoRepeat()){
+        return;
+    }
     switch (event->key()) {
     case Qt::Key_A:
         if (link != nullptr) {
@@ -154,23 +163,30 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
         break;
     case Qt::Key_J:
         if (link != nullptr) {
-            //qDebug() << "link is not null.";
-            if (link->melee != nullptr) {
+            if (link->melee != nullptr && link->melee->isVisible()) {
                 link->setAttackDown(true);
-                //qDebug() << "link has a melee weapon.";
                 attackDone(link, rival);
-                //qDebug() << "link attacked rival.";
                 rival->updateHealthBar();
-            }// else {
-                //qDebug() << "link has no melee weapon.";
-            //}
-        } //else {
-           // qDebug() << "link is null.";
-        //}
+            }
+            else if(link->bow != nullptr && link->bow->isVisible()){
+                link->setThrowDown(true);
+            }
+        }
         break;
     case Qt::Key_Q:
         if (link != nullptr) {
             link->setThrowDown(true);
+        }
+        break;
+    case Qt::Key_L:
+        if (link!=nullptr){
+            link->setChangeDown(true);
+        }
+        break;
+    case Qt::Key_K:
+        if (link!=nullptr){
+            link->setChangeArrowDown(true);
+            link->changeArrow();
         }
         break;
     case Qt::Key_Left:
@@ -211,6 +227,9 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
 } //按键按下事件
 
 void BattleScene::keyReleaseEvent(QKeyEvent *event) {
+    if(event->isAutoRepeat()){
+        return;
+    }
     switch (event->key()) {
     case Qt::Key_A:
         if (link != nullptr) {
@@ -233,25 +252,28 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
         }
         break;
     case::Qt::Key_J:
-        //qDebug() << "Releasing J key.";
         if (link != nullptr) {
-            //qDebug() << "Releasing J key, link is not null.";
             link->setAttackDown(false);
             if (link->melee != nullptr) {
-                //qDebug() << "link has a melee weapon, stopping attack.";
                 if (!link->isAttackDown()) {
                     link->melee->attackStoped();
                 }
-            } //else {
-                //qDebug() << "link has no melee weapon.";
-            //}
-        } //else {
-            //qDebug() << "Releasing J key, link is null.";
-        //}
+            }
+        }
         break;
     case Qt::Key_Q:
         if (link != nullptr) {
             link->setThrowDown(false);
+        }
+        break;
+    case Qt::Key_L:
+        if (link != nullptr) {
+            link->setChangeDown(false);
+        }
+        break;
+    case Qt::Key_K:
+        if (link != nullptr) {
+            link->setChangeArrowDown(false);
         }
         break;
     case Qt::Key_Left:
@@ -344,31 +366,24 @@ void BattleScene::processMovement() {
             if(item->isOnGround(item)){
                 item->downSpeed = 0;
                 item->downAcceleration = 0;
-                /*if(auto throwable = dynamic_cast<Throwable *>(item)){
-                    if(throwable->isThrown()){
-                    qDebug() << "Thrown item is on ground.";
-                    throwable->endThrown();
-                    //itemsToDelete.append(throwable);  // 将投掷物添加到待删除列表
-                    //qDebug() << "Thrown item deleted.";
-                    qDebug() << "Deleting throwable item.";
-                    itemsToDelete.removeOne(throwable); // 从待删除列表中移除投掷物
-                    Melees.removeOne(throwable);
-                    qDebug() << "Deleting throwable item.";
-                    delete throwable;
-                    //throwable = nullptr;
-                    qDebug() << "Thrown item is nullptr.";
-                    }
-                }*/
             }
             else if (auto throwable = dynamic_cast<Throwable *>(item))
             { //如果是可投掷物品
                 if (throwable->isThrown()) {
                     auto melee = dynamic_cast<MeleeWeapon *>(throwable);
                     if(melee!=nullptr){
-                    melee->setPos(item->pos() + melee->getSpeed() * (double) deltaTime);
-                    gravity.setVelocity(melee, deltaTime);
-                    auto y = melee->downSpeed * deltaTime + 0.5 * 0.005 * deltaTime * deltaTime;
-                    melee->setPos(melee->pos() + QPointF(0, y));}
+                        melee->setPos(item->pos() + melee->getSpeed() * (double) deltaTime);
+                        gravity.setVelocity(melee, deltaTime);
+                        auto y = melee->downSpeed * deltaTime + 0.5 * 0.005 * deltaTime * deltaTime;
+                        melee->setPos(melee->pos() + QPointF(0, y));
+                    }
+                    auto arrow = dynamic_cast<Arrow *>(throwable);
+                    if(arrow!=nullptr){
+                        arrow->setPos(item->pos() + arrow->getSpeed() * (double) deltaTime);
+                        gravity.setVelocity(arrow, deltaTime);
+                        auto y = arrow->downSpeed * deltaTime + 0.5 * 0.005 * deltaTime * deltaTime;
+                        arrow->setPos(arrow->pos() + QPointF(0, y));
+                    }
                 }
             }
         }
@@ -399,32 +414,58 @@ void BattleScene::processMovement() {
 void BattleScene::processThrow(Item* item){
     auto throwable = dynamic_cast<Throwable *>(item);
     auto melee = dynamic_cast<MeleeWeapon *>(throwable);
-    if(melee == nullptr){
-        return;
-    }
-    QRectF throwAttackRect = QRectF(item->pos().x(), item->pos().y(), -100, 200);
-    //qDebug() << "Throwing weapon.";
-    if(melee->speed.x() < 0){
-        throwAttackRect = QRectF(item->pos().x(), item->pos().y(), 80, 180);
-        qDebug() << "Throwing weapon left.";
-    }
-    if(item->beThrown){
-        if(throwAttackRect.contains(rival->pos())){
-            qDebug() << "Throw attack hit rival.";
-            rival->setHealth(rival->health - 10);
+    auto arrow = dynamic_cast<Arrow *>(throwable);
+    if(melee != nullptr && melee->isVisible() && ((arrow == nullptr) || (arrow != nullptr && !(arrow->isVisible())))){
+        QRectF throwAttackRect = QRectF(item->pos().x(), item->pos().y(), -100, 200);
+        //qDebug() << "Throwing weapon.";
+        if(melee->speed.x() < 0){
+            throwAttackRect = QRectF(item->pos().x(), item->pos().y(), 100, 200);
+            qDebug() << "Throwing weapon left.";
+        }
+        if(item->beThrown){
+            if(throwAttackRect.contains(rival->pos())){
+                qDebug() << "Throw attack hit rival.";
+                rival->setHealth(rival->health - 10);
+                delete item;
+                item = nullptr;
+            }
+            if(throwAttackRect.contains(link->pos())){
+                qDebug() << "Throw attack hit link.";
+                link->setHealth(link->health - 10);
+                delete item;
+                item = nullptr;
+            }
+        }
+        if(item->isOnGround(item) && item->beThrown){
             delete item;
             item = nullptr;
         }
-        if(throwAttackRect.intersects(link->boundingRect())){
-            qDebug() << "Throw attack hit link.";
-            link->setHealth(link->health - 10);
+    }
+    else if(arrow != nullptr && arrow->isVisible() && ((melee == nullptr) || (melee != nullptr && !(melee->isVisible())))){
+        QRectF throwAttackRect = QRectF(item->pos().x()+50, item->pos().y(), -100, 200);
+        //qDebug() << "Throwing weapon.";
+        if(arrow->speed.x() < 0){
+            throwAttackRect = QRectF(item->pos().x(), item->pos().y(), 80, 180);
+            qDebug() << "Throwing weapon left.";
+        }
+        if(item->beThrown){
+            if(throwAttackRect.contains(rival->pos())){
+                qDebug() << "Throw attack hit rival.";
+                rival->setHealth(rival->health - 10);
+                delete item;
+                item = nullptr;
+            }
+            if(throwAttackRect.contains(link->pos())){
+                qDebug() << "Throw attack hit link.";
+                link->setHealth(link->health - 10);
+                delete item;
+                item = nullptr;
+            }
+        }
+        if(item->isOnGround(item) && item->beThrown){
             delete item;
             item = nullptr;
         }
-    }
-    if(item->isOnGround(item) && item->beThrown){
-        delete item;
-        item = nullptr;
     }
 }
 

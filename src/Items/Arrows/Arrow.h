@@ -18,11 +18,15 @@ public:
 
     void attackStoped(); //攻击停止
 
+    QPointF getSpeed() const; //获取速度
+
     qreal damage = 10; //伤害值
 
     qreal downAcceleration; //重力加速度
 
     qreal downSpeed; //下降速度
+
+    QPointF speed; //速度
 };
 
 #endif // ARROW_H

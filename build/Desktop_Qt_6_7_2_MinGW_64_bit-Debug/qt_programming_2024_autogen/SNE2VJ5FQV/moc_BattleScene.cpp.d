@@ -383,6 +383,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/Armor.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Grassblock.h \

@@ -20,6 +20,7 @@
 #include "../Items/Bows/Bow.h"
 #include "../Items/Arrows/Arrow.h"
 #include "../Items/Arrows/NormalArrow.h"
+#include "../Items/Arrows/FireArrow.h"
 
 
 class BattleScene : public Scene {
@@ -78,6 +79,7 @@ private:
     IronBow *ironBow; //铁弓
     Arrow *spareArrow; //空箭
     NormalArrow *normalArrow; //普通箭
+    FireArrow *fireArrow; //火箭
     //std::shared_ptr<MeleeWeapon> spareMelee; // 备用近战武器，使用 shared_ptr 管理内存
     QVector<Item*> dropItems; //掉落物品
     QVector<MeleeWeapon*> Melees; //近战武器

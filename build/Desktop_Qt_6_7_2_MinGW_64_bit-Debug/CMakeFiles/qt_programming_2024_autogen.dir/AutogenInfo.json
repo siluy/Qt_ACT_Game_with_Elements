@@ -251,6 +251,12 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_FireArrow.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h",
 			"MU",
 			"HAVIXRU2FU/moc_NormalArrow.cpp",
@@ -517,6 +523,11 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.cpp",
 			"MU",
 			null
 		],

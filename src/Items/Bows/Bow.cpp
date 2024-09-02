@@ -7,8 +7,8 @@ Bow::Bow(QGraphicsItem *parent, const QString &pixmapPath) : Item(parent, pixmap
 void Bow::mountToParent() {
     Mountable::mountToParent(); //调用父类的挂载函数，设置为挂载状态
     setRotation(135);
-    setScale(0.5); //设置缩放比例2.0
-    setPos(60, -90);  //设置近战武器的位置
+    setScale(0.5); //设置缩放比例
+    setPos(60, -90);  //设置弓的位置
 
     if (pixmapItem != nullptr) {
         pixmapItem->setPos(0, 0); //设置图片位置
@@ -26,12 +26,12 @@ void Bow::unmount() {
 void Bow::attack() {
     //攻击函数
     if(pixmapItem != nullptr){
-        setPos(-250,-170);}
+        setPos(30,-90);}
 }
 
 void Bow::attackStoped() {
     if (pixmapItem != nullptr) {
-        setPos(-190, -170);  //设置近战武器的位置
+        setPos(60, -90);  //设置近战武器的位置
         pixmapItem->setPos(0, 0); //设置图片位置
     }
 }
