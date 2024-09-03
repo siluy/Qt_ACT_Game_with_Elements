@@ -59,6 +59,10 @@ public:
 
     void attackDone(Character *attacker, Character *victim); //攻击
 
+    void spreadThunderEffect(Character* character); //传播雷电效果
+
+    void propagateThunderEffect(int startX, int y, int direction);
+
 protected slots:
 
     void update() override; //更新
@@ -94,7 +98,7 @@ private:
     QVector<Item*> dropItems; //掉落物品
     QVector<MeleeWeapon*> Melees; //近战武器
     QVector<Armor*> Armors; //护甲
-    QList<Throwable*> itemsToDelete; //待删除的可投掷物品
+    QVector<Character*> Characters; //角色
     Stoneblock *stoneBlock; //石头方块
     Soilblock *soilBlock; //土方块
     Blocks* blockGrid[9][16]; // 定义一个9x16的方块指针数组

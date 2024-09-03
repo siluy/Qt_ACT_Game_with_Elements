@@ -7,6 +7,7 @@
 #include <QGraphicsItem>
 #include "Character.h"
 #include "../Gravity.h"
+#include "../../Scenes/BattleScene.h"
 
 Character::Character(QGraphicsItem *parent) : Item(parent, ""), healthBar(new QGraphicsRectItem(this)) {
     //    ellipseItem = new QGraphicsEllipseItem(-5, -5, 10, 10, this); //创造一个椭圆，位置在(-5,-5)，大小为10*10，父节点为当前节点
@@ -430,21 +431,29 @@ void Character::startFrozenEffect() {
     });
 }
 
-void Character::startThunderEffect() {
+void Character::startThunderEffect(BattleScene* scene) {
     thunderTimer->start(1000);  // 每秒触发一次雷击伤害
     qDebug() << "Thunder effect started";
-    if(melee != nullptr && melee->material == 1){  // 如果角色持有金属武器
+
+    if (melee != nullptr && melee->material == 1) {  // 如果角色持有金属武器
         qDebug() << "Metal weapon detected, unmounting melee weapon";
         melee->unmount();
         melee->setParentItem(parentItem());
-        melee->setPos(QPointF(pos().x()+100, pos().y()-50));
+        melee->setPos(QPointF(pos().x() + 100, pos().y() - 50));
     }
+
+    // 传播电击效果到铁砖块
+    scene->spreadThunderEffect(this);
+
     QTimer::singleShot(5000, [this]() {  // 5秒后停止雷击效果
         this->beThundered = false;
         this->electrocutedEffect->setVisible(false);
         this->thunderTimer->stop();
     });
 }
+
+
+
 
 void Character::updateHealth(qreal damage) {
     health -= damage;

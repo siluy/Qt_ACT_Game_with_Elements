@@ -27,6 +27,8 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     rival = new Rival(); //创建一个对手对象
     link->initEffects();
     rival->initEffects();
+    Characters.push_back(link);
+    Characters.push_back(rival);
 
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
 
@@ -428,6 +430,11 @@ void BattleScene::update() {
                 processThrow(item);
         }
     }
+    for(Character* character: Characters){
+        if(character->beThundered){
+            spreadThunderEffect(character);
+        }
+    }
     map->update();
 } //更新
 
@@ -595,7 +602,7 @@ void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
         case 3:  // 雷属性
             victim->beThundered = true;
             victim->electrocutedEffect->setVisible(true);
-            victim->startThunderEffect();
+            victim->startThunderEffect(this);
             break;
         default:
             break;
@@ -635,7 +642,7 @@ void BattleScene::applyArrowEffect(Arrow* arrow, Character* victim) {
         case 3:  // 雷属性
             victim->beThundered = true;
             victim->electrocutedEffect->setVisible(true);
-            victim->startThunderEffect();
+            victim->startThunderEffect(this);
             break;
         default:
             break;
@@ -804,14 +811,41 @@ void BattleScene::attackDone(Character *attacker, Character *victim) {
                     victim->health -= damage;
                     victim->beThundered = true;
                     victim->electrocutedEffect->setVisible(true);
-                    victim->startThunderEffect();
+                    victim->startThunderEffect(this);
                 }
             }
         }
     }
 }
 
+void BattleScene::spreadThunderEffect(Character* character) {
+    QPointF pos = character->pos();
+    int x = pos.x() / 80;
+    int y = pos.y() / 80;
 
+    // 检查角色是否站在铁砖块上
+    if (blocks[y][x] == 3 && blockGrid[y][x]->electrocuted != nullptr) {
+        // 设置当前铁砖块的雷电效果为可见
+        blockGrid[y][x]->electrocuted->setVisible(true);
+
+        // 向左和向右传播雷电效果
+        propagateThunderEffect(x, y, -1); // 向左传播
+        propagateThunderEffect(x, y, 1);  // 向右传播
+    }
+}
+
+void BattleScene::propagateThunderEffect(int startX, int y, int direction) {
+    int x = startX + direction;
+    while (x >= 0 && x < 16) {
+        // 检查是否为铁砖块
+        if (blocks[y][x] == 3 && blockGrid[y][x]->electrocuted != nullptr) {
+            blockGrid[y][x]->electrocuted->setVisible(true);
+        } else {
+            break;  // 不是铁砖块，停止传播
+        }
+        x += direction;
+    }
+}
 
 const int BattleScene::blocks[9][16] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},

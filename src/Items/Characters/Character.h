@@ -20,6 +20,8 @@
 #include "../Conditions/Electrocuted.h"
 #include "../../Items/Item.h"
 
+class BattleScene;
+
 class Character : public Item, public QObject {
     Q_OBJECT
 public:
@@ -131,6 +133,10 @@ public:
     void startThunderEffect();
     void stopAllEffects();
     void updateHealth(qreal damage);
+
+    bool isOnMetalPlatform() const; //是否在金属平台上
+
+    void startThunderEffect(BattleScene* scene);
 
 
 
