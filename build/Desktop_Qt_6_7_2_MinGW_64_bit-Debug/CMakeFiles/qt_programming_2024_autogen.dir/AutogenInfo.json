@@ -419,6 +419,12 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IceSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_IceSword.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.h",
 			"MU",
 			"EPP3YG7A3A/moc_IronShortSword.cpp",
@@ -428,6 +434,12 @@
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/MeleeWeapon.h",
 			"MU",
 			"EPP3YG7A3A/moc_MeleeWeapon.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/ThunderSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_ThunderSword.cpp",
 			null
 		],
 		[
@@ -692,12 +704,22 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IceSword.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.cpp",
 			"MU",
 			null
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/MeleeWeapon.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/ThunderSword.cpp",
 			"MU",
 			null
 		],

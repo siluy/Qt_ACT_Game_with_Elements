@@ -25,24 +25,37 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
 
     link = new Link(); //创建一个林克对象
     rival = new Rival(); //创建一个对手对象
+    link->initEffects();
+    rival->initEffects();
 
     spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
 
     ironShortSword = new IronShortSword(); //创建一个铁短剑对象
     woodShortSword = new WoodShortSword(); //创建一个木短剑对象
     fireSword = new FireSword(); //创建一个火焰剑对象
+    iceSword = new IceSword(); //创建一个冰剑对象
+    thunderSword = new ThunderSword(); //创建一个雷剑对象
 
     ironBow = new IronBow(); //创建一个铁弓对象
-    normalArrow = new NormalArrow(); //创建一个普通箭对象
 
+    normalArrow = new NormalArrow(); //创建一个普通箭对象
     fireArrow = new FireArrow(); //创建一个火箭对象
 
-    fireOfLink = new Fire(); //创建一个火焰对象
-    fireOfRival = new Fire(); //创建一个火焰对象
-    electrocutedOfLink = new Electrocuted(); //创建一个电击对象
-    electrocutedOfRival = new Electrocuted(); //创建一个电击对象
-    frozenOfLink = new Frozen(); //创建一个冰冻对象
-    frozenOfRival = new Frozen(); //创建一个冰冻对象
+    fireOfLink = new Fire();
+    frozenOfLink = new Frozen();
+    electrocutedOfLink = new Electrocuted();
+
+    fireOfRival = new Fire();
+    frozenOfRival = new Frozen();
+    electrocutedOfRival = new Electrocuted();
+
+    link->fireEffect = fireOfLink;
+    link->frozenEffect = frozenOfLink;
+    link->electrocutedEffect = electrocutedOfLink;
+
+    rival->fireEffect = fireOfRival;
+    rival->frozenEffect = frozenOfRival;
+    rival->electrocutedEffect = electrocutedOfRival;
 
     dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
     dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
@@ -57,33 +70,59 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //spareMelee = std::make_shared<IronShortSword>(); // 创建一个铁短剑对象，并赋值给 spareMelee
 
     addItem(map); //添加地图
-    for(int i=0; i<9; i++) {
-        for(int j=0; j<16; j++) {
+    for(int i = 0; i < 9; i++) {
+        for(int j = 0; j < 16; j++) {
             switch (blocks[i][j]) {
             case 1:
                 blockGrid[i][j] = new Soilblock();
-                //blockGrid[i][j] = std::make_shared<Soilblock>();
                 break;
             case 2:
                 blockGrid[i][j] = new Grassblock();
-                //blockGrid[i][j] = std::make_shared<Grassblock>();
                 break;
             case 3:
                 blockGrid[i][j] = new Ironblock();
-                //blockGrid[i][j] = std::make_shared<Ironblock>();
+                blockGrid[i][j]->electrocuted = new Electrocuted();
+                blockGrid[i][j]->electrocuted->setScale(1.5);
+                blockGrid[i][j]->electrocuted->setParentItem(blockGrid[i][j]);
+                blockGrid[i][j]->electrocuted->setPos(20 - blockGrid[i][j]->electrocuted->boundingRect().width() / 2,
+                                                      20 - blockGrid[i][j]->electrocuted->boundingRect().height() / 2);
+                blockGrid[i][j]->electrocuted->setVisible(0);
+                //blockGrid[i][j]->electrocuted->setZValue(1);
                 break;
             case 4:
                 blockGrid[i][j] = new Stoneblock();
-                //blockGrid[i][j] = std::make_shared<Stoneblock>();
+                blockGrid[i][j]->fire = new Fire();
+                blockGrid[i][j]->fire->setScale(0.6);
+                blockGrid[i][j]->fire->setParentItem(blockGrid[i][j]);
+                blockGrid[i][j]->fire->setPos(80 - blockGrid[i][j]->fire->boundingRect().width() / 2,
+                                              90 - blockGrid[i][j]->fire->boundingRect().height() / 2);
+                blockGrid[i][j]->fire->setVisible(0);
+                //blockGrid[i][j]->fire->setZValue(1);
                 break;
             default:
                 blockGrid[i][j] = nullptr;
                 continue;
             }
+
+            // 在将效果添加到场景之前设置方块的位置
             blockGrid[i][j]->setPos(j * blockWidth, i * blockWidth);
-            addItem(blockGrid[i][j]); // 将方块添加到场景中
+
+            //将方块添加到场景
+            addItem(blockGrid[i][j]);
+
+            //现在添加效果（只添加一次，作为开关情况的一部分）
+            if (blockGrid[i][j]->electrocuted != nullptr) {
+                addItem(blockGrid[i][j]->electrocuted);
+            }
+
+            if (blockGrid[i][j]->fire != nullptr) {
+                addItem(blockGrid[i][j]->fire);
+            }
         }
     }
+
+
+
     addItem(link); //添加角色
     addItem(rival); //添加对手
 
@@ -93,6 +132,8 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     addItem(ironShortSword); //添加铁短剑
     addItem(woodShortSword); //添加木短剑
     addItem(fireSword); //添加火剑
+    addItem(iceSword); //添加冰剑
+    addItem(thunderSword); //添加雷剑
 
     addItem(ironBow); //添加铁弓
 
@@ -117,9 +158,13 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     ironShortSword->unmount(); //卸载铁短剑
     woodShortSword->unmount(); //卸载木短剑
     fireSword->unmount(); //卸载火剑
+    iceSword->unmount(); //卸载冰剑
+    thunderSword->unmount(); //卸载雷剑
     ironShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.85, map->getFloorHeight()); //设置铁短剑位置
     woodShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木短剑位置
     fireSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.65, map->getFloorHeight()); //设置火剑位置
+    iceSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置冰剑位置
+    thunderSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.05, map->getFloorHeight()); //设置雷剑位置
 
     ironBow->unmount(); //卸载铁弓
     ironBow->setScale(0.2); //设置缩放比
@@ -170,22 +215,22 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
     }
     switch (event->key()) {
     case Qt::Key_A:
-        if (link != nullptr) {
+        if (link != nullptr && link->beFrozen == false) {
             link->setLeftDown(true);
         }
         break;
     case Qt::Key_D:
-        if (link != nullptr) {
+        if (link != nullptr && link->beFrozen == false) {
             link->setRightDown(true);
         }
         break;
     case Qt::Key_S:
-        if (link != nullptr) {
+        if (link != nullptr && link->beFrozen == false) {
             link->setPickDown(true);
         }
         break;
     case Qt::Key_W:
-        if (link != nullptr) {
+        if (link != nullptr && link->beFrozen == false) {
             link->setJumpDown(true);
             link->downSpeed = -1;
             link->downAcceleration = gravity.getGravity();
@@ -193,7 +238,7 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
         }
         break;
     case Qt::Key_J:
-        if (link != nullptr) {
+        if (link != nullptr && link->beFrozen == false) {
             if (link->melee != nullptr && link->melee->isVisible()) {
                 link->setAttackDown(true);
                 attackDone(link, rival);
@@ -205,38 +250,38 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
         }
         break;
     case Qt::Key_Q:
-        if (link != nullptr) {
+        if (link != nullptr && link->beFrozen == false) {
             link->setThrowDown(true);
         }
         break;
     case Qt::Key_L:
-        if (link!=nullptr){
+        if (link != nullptr && link->beFrozen == false){
             link->setChangeDown(true);
         }
         break;
     case Qt::Key_K:
-        if (link!=nullptr){
+        if (link!=nullptr && link->beFrozen == false){
             link->setChangeArrowDown(true);
             link->changeArrow();
         }
         break;
     case Qt::Key_Left:
-        if (rival != nullptr) {
+        if (rival != nullptr && rival->beFrozen == false) {
             rival->setLeftDown(true);
         }
         break;
     case Qt::Key_Right:
-        if (rival != nullptr) {
+        if (rival != nullptr && rival->beFrozen == false) {
             rival->setRightDown(true);
         }
         break;
     case Qt::Key_Down:
-        if (rival != nullptr) {
+        if (rival != nullptr && rival->beFrozen == false) {
             rival->setPickDown(true);
         }
         break;
     case Qt::Key_Up:
-        if (rival != nullptr) {
+        if (rival != nullptr && rival->beFrozen == false) {
             rival->setJumpDown(true);
             rival->downSpeed = -1;
             rival->downAcceleration = gravity.getGravity();
@@ -244,7 +289,7 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
         }
         break;
     case Qt::Key_Shift:
-        if (rival != nullptr) {
+        if (rival != nullptr && rival->beFrozen == false) {
             if (rival->melee != nullptr) {
             rival->setAttackDown(true);
             attackDone(rival, link);
@@ -446,61 +491,6 @@ void BattleScene::processMovement() {
 } //处理移动
 
 void BattleScene::processThrow(Item* item){
-    /*auto throwable = dynamic_cast<Throwable *>(item);
-    auto melee = dynamic_cast<MeleeWeapon *>(throwable);
-    auto arrow = dynamic_cast<Arrow *>(throwable);
-    if(melee != nullptr && melee->isVisible() && ((arrow == nullptr) || (arrow != nullptr && !(arrow->isVisible())))){
-        QRectF throwAttackRect = QRectF(item->pos().x(), item->pos().y(), -100, 200);
-        //qDebug() << "Throwing weapon.";
-        if(melee->speed.x() < 0){
-            throwAttackRect = QRectF(item->pos().x(), item->pos().y(), 100, 200);
-            qDebug() << "Throwing weapon left.";
-        }
-        if(item->beThrown){
-            if(throwAttackRect.contains(rival->pos())){
-                qDebug() << "Throw attack hit rival.";
-                rival->setHealth(rival->health - 10);
-                delete item;
-                item = nullptr;
-            }
-            if(throwAttackRect.contains(link->pos())){
-                qDebug() << "Throw attack hit link.";
-                link->setHealth(link->health - 10);
-                delete item;
-                item = nullptr;
-            }
-        }
-        if(item->isOnGround(item) && item->beThrown){
-            delete item;
-            item = nullptr;
-        }
-    }
-    else if(arrow != nullptr && arrow->isVisible() && ((melee == nullptr) || (melee != nullptr && !(melee->isVisible())))){
-        QRectF throwAttackRect = QRectF(item->pos().x()+50, item->pos().y(), -100, 200);
-        //qDebug() << "Throwing weapon.";
-        if(arrow->speed.x() < 0){
-            throwAttackRect = QRectF(item->pos().x()-100, item->pos().y(), -100, 200);
-            qDebug() << "Throwing weapon left.";
-        }
-        if(item->beThrown){
-            if(throwAttackRect.contains(rival->pos())){
-                qDebug() << "Throw attack hit rival.";
-                rival->setHealth(rival->health - 10);
-                delete item;
-                item = nullptr;
-            }
-            if(throwAttackRect.contains(link->pos())){
-                qDebug() << "Throw attack hit link.";
-                link->setHealth(link->health - 10);
-                delete item;
-                item = nullptr;
-            }
-        }
-        if(item->isOnGround(item) && item->beThrown){
-            delete item;
-            item = nullptr;
-        }
-    }*/
     if (auto throwable = dynamic_cast<Throwable*>(item)) {
         // 基于不同类型的投掷物进行处理
         if (auto melee = dynamic_cast<MeleeWeapon*>(throwable)) {
@@ -531,10 +521,11 @@ void BattleScene::processMeleeThrow(MeleeWeapon* melee) {
                 melee = nullptr;
             }
         }
-
-        if (melee->isOnGround(melee) && melee->beThrown) {
-            delete melee;
-            melee = nullptr;
+        if(melee){
+            if (melee->isOnGround(melee) && melee->beThrown) {
+                delete melee;
+                melee = nullptr;
+            }
         }
     }
 }
@@ -559,74 +550,96 @@ void BattleScene::processArrowThrow(Arrow* arrow) {
                 arrow = nullptr;
             }
         }
-
-        if (arrow->isOnGround(arrow) && arrow->beThrown) {
-            delete arrow;
-            arrow = nullptr;
+        if(arrow){
+            if (arrow->isOnGround(arrow) && arrow->beThrown) {
+                delete arrow;
+                arrow = nullptr;
+            }
         }
     }
 }
 
 void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
-    // 基础伤害
-    if(melee){
-    victim->setHealth(victim->health -= melee->damage);
-    // 根据 element 属性应用效果
-    int element = melee->element;
-    if (auto fireWeapon = dynamic_cast<FireSword*>(melee)) {
-        element = fireWeapon->element;
-    } /*else if (auto iceWeapon = dynamic_cast<IceSword*>(melee)) {
-                element = iceWeapon->element;
-            } else if (auto thunderWeapon = dynamic_cast<ThunderSword*>(melee)) {
-                element = thunderWeapon->element;
-            }*/
-    switch (element) {
-    case 1:  // 火属性
-        victim->onFire = true;
-        qDebug() << "Victim is on fire!";
-        break;
-    case 2:  // 冰属性
-        victim->beFrozen = true;
-        qDebug() << "Victim is frozen!";
-        break;
-    case 3:  // 雷属性
-        victim->beThundered = true;
-        qDebug() << "Victim is thundered!";
-        break;
-    default:
-        // 无属性（或其他处理）
-        break;
-    }}
+    if (melee) {
+        int damage = melee->damage;
+        if (victim->beFrozen) {
+            damage *= 2;  // 冻结状态下双倍伤害
+            victim->beFrozen = false;
+            victim->frozenEffect->setVisible(false);
+            victim->setMovable(true);  // 恢复移动能力
+        }
+        victim->setHealth(victim->health - damage);
+        qDebug() << "Victim health: " << victim->health;
+
+        // 根据 element 属性应用效果
+        int element = melee->element;
+        if (auto fireWeapon = dynamic_cast<FireSword*>(melee)) {
+            element = fireWeapon->element;
+        } else if (auto iceWeapon = dynamic_cast<IceSword*>(melee)) {
+            element = iceWeapon->element;
+        } else if (auto thunderWeapon = dynamic_cast<ThunderSword*>(melee)) {
+            element = thunderWeapon->element;
+        }
+
+        switch (element) {
+        case 1:  // 火属性
+            victim->onFire = true;
+            victim->fireEffect->setVisible(true);
+            victim->startFireEffect();
+            break;
+        case 2:  // 冰属性
+            victim->beFrozen = true;
+            victim->frozenEffect->setVisible(true);
+            victim->startFrozenEffect();
+            break;
+        case 3:  // 雷属性
+            victim->beThundered = true;
+            victim->electrocutedEffect->setVisible(true);
+            victim->startThunderEffect();
+            break;
+        default:
+            break;
+        }
+    }
 }
 
-void BattleScene::applyArrowEffect(Arrow* arrow, Character* victim) {
-    // 基础伤害
-    victim->setHealth(victim->health -= arrow->damage);
 
-    // 根据 element 属性应用效果
-    int element = arrow->element;
-    if(auto fireArrow = dynamic_cast<FireArrow*>(arrow)){
-        element = fireArrow->element;
-    }/*else if (auto iceArrow = dynamic_cast<IceArrow*>(arrow)) {
-                element = iceArrow->element;
-            } else if (auto thunderArrow = dynamic_cast<ThunderArrow*>(arrow)) {
-                element = thunderArrow->element;}*/
-    switch (element) {
-    case 1:  // 火属性
-        victim->onFire = true;
-        qDebug() << "Victim is on fire!";
-        break;
-    case 2:  // 冰属性
-        victim->beFrozen = true;
-        qDebug() << "Victim is frozen!";
-        break;
-    case 3:  // 雷属性
-        victim->beThundered = true;
-        qDebug() << "Victim is thundered!";
-        break;
-    default:
-        // 无属性（或其他处理）
-        break;
+void BattleScene::applyArrowEffect(Arrow* arrow, Character* victim) {
+    if (arrow) {
+        int damage = arrow->damage;
+        if (victim->beFrozen) {
+            damage *= 2;  // 冻结状态下双倍伤害
+            victim->beFrozen = false;
+            victim->frozenEffect->setVisible(false);
+            victim->setMovable(true);  // 恢复移动能力
+        }
+        victim->setHealth(victim->health - damage);
+
+        // 根据 element 属性应用效果
+        int element = arrow->element;
+        if (auto fireArrow = dynamic_cast<FireArrow*>(arrow)) {
+            element = fireArrow->element;
+        }
+
+        switch (element) {
+        case 1:  // 火属性
+            victim->onFire = true;
+            victim->fireEffect->setVisible(true);
+            victim->startFireEffect();
+            break;
+        case 2:  // 冰属性
+            victim->beFrozen = true;
+            victim->frozenEffect->setVisible(true);
+            victim->startFrozenEffect();
+            break;
+        case 3:  // 雷属性
+            victim->beThundered = true;
+            victim->electrocutedEffect->setVisible(true);
+            victim->startThunderEffect();
+            break;
+        default:
+            break;
+        }
     }
 }
 
@@ -653,7 +666,7 @@ void BattleScene::processPicking() {
         auto mountable = findNearestUnmountedMountable(rival->pos(), 100.); //查找最近的未挂载的可挂载物品，距禒阈值为100
         if (mountable != nullptr) {
             Item* tempItem;
-            tempItem = dynamic_cast<Item*>(pickupMountable(link, mountable)); //拾取可挂载物品
+            tempItem = dynamic_cast<Item*>(pickupMountable(rival, mountable)); //拾取可挂载物品
             if(tempItem != nullptr){
                 dropItems.push_back(tempItem);
             }
@@ -707,6 +720,7 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
 } //拾取可挂载物品
 
 bool BattleScene::attackTrue(Character *attacker, Character *victim){
+    qDebug() << "Attacking!";
     if(attacker->melee == nullptr){
         return false;
     } else {
@@ -736,6 +750,7 @@ bool BattleScene::attackTrue(Character *attacker, Character *victim){
 
             // 判断夹角是否在定义的攻击弧内
             if(angleRadians <= attackArcAngleRadians){
+                qDebug() << "Attacked!";
                 return true; // 被攻击者在攻击者的前方弧内
             }
         }
@@ -746,38 +761,50 @@ bool BattleScene::attackTrue(Character *attacker, Character *victim){
 void BattleScene::attackDone(Character *attacker, Character *victim) {
     if (attacker != nullptr && victim != nullptr) {
         if (attacker->melee != nullptr) {
-            int element = attacker->melee->element; // 默认获取父类的element
+            int element = attacker->melee->element;  // 获取 element 属性
 
-            // 检查并获取派生类的element值
+            // 检查并获取派生类的 element 值
             if (auto fireWeapon = dynamic_cast<FireSword*>(attacker->melee)) {
                 element = fireWeapon->element;
-            } /*else if (auto iceWeapon = dynamic_cast<IceSword*>(attacker->melee)) {
+            } else if (auto iceWeapon = dynamic_cast<IceSword*>(attacker->melee)) {
                 element = iceWeapon->element;
             } else if (auto thunderWeapon = dynamic_cast<ThunderSword*>(attacker->melee)) {
                 element = thunderWeapon->element;
-            }*/
+            }
+
+            int damage = attacker->melee->damage;
+            if (victim->beFrozen) {
+                damage *= 2;  // 冻结状态下双倍伤害
+                victim->beFrozen = false;
+                victim->frozenEffect->setVisible(false);
+                victim->setMovable(true);  // 恢复移动能力
+                qDebug() << "Victim unfrozen.";
+            }
 
             if (element == 0) {
                 if (attackTrue(attacker, victim)) {
-                    victim->health -= attacker->melee->damage;
+                    victim->health -= damage;
                 }
-            }
-            else if (element == 1) {
+            } else if (element == 1) {
                 if (attackTrue(attacker, victim)) {
-                    victim->health -= attacker->melee->damage;
+                    victim->health -= damage;
                     victim->onFire = true;
+                    victim->fireEffect->setVisible(true);
+                    victim->startFireEffect();
                 }
-            }
-            else if (element == 2) {
+            } else if (element == 2) {
                 if (attackTrue(attacker, victim)) {
-                    victim->health -= attacker->melee->damage;
+                    victim->health -= damage;
                     victim->beFrozen = true;
+                    victim->frozenEffect->setVisible(true);
+                    victim->startFrozenEffect();
                 }
-            }
-            else if (element == 3) {
+            } else if (element == 3) {
                 if (attackTrue(attacker, victim)) {
-                    victim->health -= attacker->melee->damage;
+                    victim->health -= damage;
                     victim->beThundered = true;
+                    victim->electrocutedEffect->setVisible(true);
+                    victim->startThunderEffect();
                 }
             }
         }
@@ -796,3 +823,4 @@ const int BattleScene::blocks[9][16] = {
     {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //方块数组初始化
+

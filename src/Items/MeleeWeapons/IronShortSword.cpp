@@ -1,7 +1,9 @@
 #include "IronShortSword.h"
 
 IronShortSword::IronShortSword(QGraphicsItem *parent) :MeleeWeapon(parent, ":/Items/Weapons/MeleeWeapons/IronShortSword/Iron_Short_Sword.png")
-{}
+{
+    material = 1; //设置材质为铁质
+}
 
 void IronShortSword::mountToParent() {
     MeleeWeapon::mountToParent(); //调用父类的挂载函数，设置为挂载状态

@@ -71,7 +71,9 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/Conditions/Fire.h src/Items/Conditions/Fire.cpp
         src/Items/Conditions/Electrocuted.h src/Items/Conditions/Electrocuted.cpp
         src/Items/Conditions/Condition.h src/Items/Conditions/Condition.cpp
-        src/Items/MeleeWeapons/FireSword.h src/Items/MeleeWeapons/FireSword.cpp)
+        src/Items/MeleeWeapons/FireSword.h src/Items/MeleeWeapons/FireSword.cpp
+        src/Items/MeleeWeapons/IceSword.h src/Items/MeleeWeapons/IceSword.cpp
+        src/Items/MeleeWeapons/ThunderSword.h src/Items/MeleeWeapons/ThunderSword.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

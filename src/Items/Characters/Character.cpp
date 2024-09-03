@@ -4,6 +4,7 @@
 
 #include <QTransform>
 #include <qgraphicsscene.h>
+#include <QGraphicsItem>
 #include "Character.h"
 #include "../Gravity.h"
 
@@ -391,3 +392,92 @@ void Character::changeArrow() {
     isArrowFired = false;
     setChangeArrowDown(false);
 }
+
+void Character::initEffects() {
+    fireTimer = new QTimer(this);
+    freezeTimer = new QTimer(this);
+    thunderTimer = new QTimer(this);
+
+    QGraphicsScene::connect(fireTimer, &QTimer::timeout, [this]() {
+        this->updateHealth(1);  // 火焰每秒减少1点血量
+    });
+
+    QGraphicsScene::connect(freezeTimer, &QTimer::timeout, [this]() {
+        this->beFrozen = false;
+        this->frozenEffect->setVisible(false);  // 冻结结束，隐藏特效
+        freezeTimer->stop();
+    });
+
+    QGraphicsScene::connect(thunderTimer, &QTimer::timeout, [this]() {
+        this->updateHealth(1);  // 雷击每秒减少1点血量
+    });
+}
+
+void Character::startFireEffect() {
+    fireTimer->start(1000);  // 每秒触发一次火焰伤害
+    QTimer::singleShot(5000, [this]() {  // 5秒后停止火焰效果
+        this->onFire = false;
+        this->fireEffect->setVisible(false);
+        this->fireTimer->stop();
+    });
+}
+
+void Character::startFrozenEffect() {
+    freezeTimer->start(3000);  // 3秒后解除冰冻
+    this->setMovable(false);   // 冰冻期间不能移动
+    QTimer::singleShot(3000, [this]() {
+        this->setMovable(true);  // 3秒后恢复移动能力
+    });
+}
+
+void Character::startThunderEffect() {
+    thunderTimer->start(1000);  // 每秒触发一次雷击伤害
+    qDebug() << "Thunder effect started";
+    if(melee != nullptr && melee->material == 1){  // 如果角色持有金属武器
+        qDebug() << "Metal weapon detected, unmounting melee weapon";
+        melee->unmount();
+        melee->setParentItem(parentItem());
+        melee->setPos(QPointF(pos().x()+100, pos().y()-50));
+    }
+    QTimer::singleShot(5000, [this]() {  // 5秒后停止雷击效果
+        this->beThundered = false;
+        this->electrocutedEffect->setVisible(false);
+        this->thunderTimer->stop();
+    });
+}
+
+void Character::updateHealth(qreal damage) {
+    health -= damage;
+    if (health <= 0) {
+        stopAllEffects();  // 人物死亡时停止所有特效
+        // 处理人物死亡逻辑
+    }
+    updateHealthBar();  // 更新血条
+}
+
+void Character::stopAllEffects() {
+    onFire = false;
+    beFrozen = false;
+    beThundered = false;
+
+    fireEffect->setVisible(false);
+    frozenEffect->setVisible(false);
+    electrocutedEffect->setVisible(false);
+
+    fireTimer->stop();
+    freezeTimer->stop();
+    thunderTimer->stop();
+}
+
+void Character::setMovable(bool movable) {
+    if (movable) {
+        if (!flags().testFlag(QGraphicsItem::ItemIsMovable)) {
+            setFlag(QGraphicsItem::ItemIsMovable, true);
+        }
+    } else {
+        if (flags().testFlag(QGraphicsItem::ItemIsMovable)) {
+            setFlag(QGraphicsItem::ItemIsMovable, false);
+        }
+    }
+}
+

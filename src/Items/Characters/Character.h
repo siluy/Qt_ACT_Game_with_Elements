@@ -14,8 +14,14 @@
 #include "../MeleeWeapons/MeleeWeapon.h"
 #include "../Bows/Bow.h"
 #include "../Arrows/Arrow.h"
+#include <QTimer>
+#include "../Conditions/Fire.h"
+#include "../Conditions/Frozen.h"
+#include "../Conditions/Electrocuted.h"
+#include "../../Items/Item.h"
 
-class Character : public Item {
+class Character : public Item, public QObject {
+    Q_OBJECT
 public:
     explicit Character(QGraphicsItem *parent); //构造函数，传入父节点
 
@@ -109,6 +115,23 @@ public:
 
     bool beFrozen = false; //是否被冻结
 
+    void setMovable(bool movable); //设置是否可移动
+
+    Fire* fireEffect = nullptr;    // 火焰特效
+    Frozen* frozenEffect = nullptr;  // 冰冻特效
+    Electrocuted* electrocutedEffect = nullptr; // 雷电特效
+
+    QTimer* fireTimer = nullptr;
+    QTimer* freezeTimer = nullptr;
+    QTimer* thunderTimer = nullptr;
+
+    void initEffects();
+    void startFireEffect();
+    void startFrozenEffect();
+    void startThunderEffect();
+    void stopAllEffects();
+    void updateHealth(qreal damage);
+
 
 
 protected:
@@ -125,6 +148,7 @@ private:
     bool lastPickDown{}; //上一次拾取键是否按下
     bool picking{}; //是否在拾取
     bool onGround{}; //是否在地面上
+    bool movable = true; //是否可移动
 
 };
 

@@ -20,7 +20,7 @@ public:
 
     QPointF getSpeed() const; //获取速度
 
-    int material; //材质，0表示木质，1表示铁质
+    int material; //材质，0无，1铁质，2木质
 
     int element; //元素，0表示无元素，1表示火元素，2表示冰元素，3表示雷元素
 

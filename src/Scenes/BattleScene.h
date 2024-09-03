@@ -17,6 +17,8 @@
 #include "../Items/MeleeWeapons/IronShortSword.h"
 #include "../Items/MeleeWeapons/WoodShortSword.h"
 #include "../Items/MeleeWeapons/FireSword.h"
+#include "../Items/MeleeWeapons/IceSword.h"
+#include "../Items/MeleeWeapons/ThunderSword.h"
 #include "../Items/Bows/IronBow.h"
 #include "../Items/Bows/Bow.h"
 #include "../Items/Arrows/Arrow.h"
@@ -82,6 +84,8 @@ private:
     IronShortSword *ironShortSword; //铁短剑
     WoodShortSword *woodShortSword; //木短剑
     FireSword *fireSword; //火剑
+    IceSword *iceSword; //冰剑
+    ThunderSword *thunderSword; //雷剑
     Bow *spareBow; //空弓
     IronBow *ironBow; //铁弓
     Arrow *spareArrow; //空箭
@@ -94,6 +98,7 @@ private:
     Stoneblock *stoneBlock; //石头方块
     Soilblock *soilBlock; //土方块
     Blocks* blockGrid[9][16]; // 定义一个9x16的方块指针数组
+    Condition *conditions[9][16]; // 定义一个9x16的状态指针数组
     Fire *fireOfLink; //火
     Electrocuted *electrocutedOfLink; //电
     Frozen *frozenOfLink; //冰

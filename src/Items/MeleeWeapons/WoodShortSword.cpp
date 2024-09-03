@@ -1,7 +1,9 @@
 #include "WoodShortSword.h"
 
 WoodShortSword::WoodShortSword(QGraphicsItem *parent) :MeleeWeapon(parent, ":/Items/Weapons/MeleeWeapons/WoodShortSword/WoodShortSword.png")
-{}
+{
+    material = 2; //设置材质为木质
+}
 
 void WoodShortSword::mountToParent() {
     MeleeWeapon::mountToParent(); //调用父类的挂载函数，设置为挂载状态
