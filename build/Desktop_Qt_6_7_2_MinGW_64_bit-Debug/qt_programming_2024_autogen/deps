@@ -607,6 +607,14 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Rival.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Rival.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.h \

@@ -21,6 +21,9 @@
 #include "../Items/Arrows/Arrow.h"
 #include "../Items/Arrows/NormalArrow.h"
 #include "../Items/Arrows/FireArrow.h"
+#include "../Items/Conditions/Fire.h"
+#include "../Items/Conditions/Electrocuted.h"
+#include "../Items/Conditions/Frozen.h"
 
 
 class BattleScene : public Scene {
@@ -61,17 +64,11 @@ private:
     static Mountable * pickupMountable(Character *character, Mountable *mountable); //拾取可挂载物品
 
     Map *map; //地图
-    //std::shared_ptr<Map> map; // 地图，使用 shared_ptr 管理内存
     Character *link;   //角色
-    //std::shared_ptr<Character> link; // 角色，使用 shared_ptr 管理内存
     Character *rival; //对手
-    //std::shared_ptr<Character> rival; // 对手，使用 shared_ptr 管理内存
     Armor *spareArmor; //备用护甲
-    //std::shared_ptr<Armor> spareArmor; // 备用护甲，使用 shared_ptr 管理内存
     Grassblock *grassBlock; //草方块
-    //std::shared_ptr<Grassblock> grassBlock; // 草方块，使用 shared_ptr 管理内存
     Ironblock *ironBlock; //铁方块
-    //std::shared_ptr<Ironblock> ironBlock; // 铁方块，使用 shared_ptr 管理内存
     MeleeWeapon *spareMelee; //空近战武器
     IronShortSword *ironShortSword; //铁短剑
     WoodShortSword *woodShortSword; //木短剑
@@ -80,22 +77,19 @@ private:
     Arrow *spareArrow; //空箭
     NormalArrow *normalArrow; //普通箭
     FireArrow *fireArrow; //火箭
-    //std::shared_ptr<MeleeWeapon> spareMelee; // 备用近战武器，使用 shared_ptr 管理内存
     QVector<Item*> dropItems; //掉落物品
     QVector<MeleeWeapon*> Melees; //近战武器
     QVector<Armor*> Armors; //护甲
     QList<Throwable*> itemsToDelete; //待删除的可投掷物品
-    //Battlebackground *battlebackground; //战斗背景
     Stoneblock *stoneBlock; //石头方块
-    //std::shared_ptr<Stoneblock> stoneBlock; // 石头方块，使用 shared_ptr 管理内存
     Soilblock *soilBlock; //土方块
-    //std::shared_ptr<Soilblock> soilBlock; // 土方块，使用 shared_ptr 管理内存
     Blocks* blockGrid[9][16]; // 定义一个9x16的方块指针数组
-    //std::shared_ptr<Blocks> blockGrid[9][16]; // 方块指针数组，使用 shared_ptr 管理内存
-    //HealthBar *healthBarForLink; //角色的生命值条
-    //std::shared_ptr<HealthBar> healthBarForLink; // 角色的生命值条，使用 shared_ptr 管理内存
-    //HealthBar *healthBarForRival; //对手的生命值条
-    //std::shared_ptr<HealthBar> healthBarForRival; // 对手的生命值条，使用 shared_ptr 管理内存
+    Fire *fireOfLink; //火
+    Electrocuted *electrocutedOfLink; //电
+    Frozen *frozenOfLink; //冰
+    Fire *fireOfRival; //火
+    Electrocuted *electrocutedOfRival; //电
+    Frozen *frozenOfRival; //冰
 };  //BattleScene类继承自Scene类，表示战斗场景
 
 

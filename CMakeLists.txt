@@ -66,7 +66,11 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/Bows/IronBow.h src/Items/Bows/IronBow.cpp
         src/Items/Arrows/Arrow.h src/Items/Arrows/Arrow.cpp
         src/Items/Arrows/NormalArrow.h src/Items/Arrows/NormalArrow.cpp
-        src/Items/Arrows/FireArrow.h src/Items/Arrows/FireArrow.cpp)
+        src/Items/Arrows/FireArrow.h src/Items/Arrows/FireArrow.cpp
+        src/Items/Conditions/Frozen.h src/Items/Conditions/Frozen.cpp
+        src/Items/Conditions/Fire.h src/Items/Conditions/Fire.cpp
+        src/Items/Conditions/Electrocuted.h src/Items/Conditions/Electrocuted.cpp
+        src/Items/Conditions/Condition.h src/Items/Conditions/Condition.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

@@ -75,6 +75,10 @@ public:
 
     QVector<Arrow*> arrows; //箭
 
+    int arrowNum = 0; //箭数量
+
+    bool isArrowFired = false;  // 用于标记是否已射箭
+
     Arrow* pickupArrow(Arrow* newArrow); //拾取箭
 
     QVector<Arrow*> removeAllArrows(); //移除所有箭
@@ -99,6 +103,14 @@ public:
 
     void changeArrow(); //切换箭
 
+    bool onFire = false; //是否着火
+
+    bool beThundered = false; //是否被雷击
+
+    bool beFrozen = false; //是否被冻结
+
+
+
 protected:
     HeadEquipment *headEquipment{}; //头部装备
     LegEquipment *legEquipment{}; //腿部装备
@@ -113,6 +125,7 @@ private:
     bool lastPickDown{}; //上一次拾取键是否按下
     bool picking{}; //是否在拾取
     bool onGround{}; //是否在地面上
+
 };
 
 

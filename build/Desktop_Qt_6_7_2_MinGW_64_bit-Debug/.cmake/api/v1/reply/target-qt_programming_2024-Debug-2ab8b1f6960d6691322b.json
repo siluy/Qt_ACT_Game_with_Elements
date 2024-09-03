@@ -166,7 +166,7 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 70,
+				"line" : 74,
 				"parent" : 0
 			}
 		]
@@ -305,7 +305,11 @@
 				68,
 				70,
 				72,
-				74
+				74,
+				76,
+				78,
+				80,
+				82
 			]
 		}
 	],
@@ -434,7 +438,11 @@
 				68,
 				70,
 				72,
-				74
+				74,
+				76,
+				78,
+				80,
+				82
 			]
 		},
 		{
@@ -475,7 +483,11 @@
 				65,
 				67,
 				69,
-				71
+				71,
+				73,
+				75,
+				77,
+				79
 			]
 		},
 		{
@@ -483,15 +495,15 @@
 			"sourceIndexes" : 
 			[
 				26,
-				73
+				81
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				75,
-				76
+				83,
+				84
 			]
 		}
 	],
@@ -898,6 +910,50 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Items/Arrows/FireArrow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Conditions/Frozen.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Conditions/Frozen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Conditions/Fire.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Conditions/Fire.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Conditions/Electrocuted.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Conditions/Electrocuted.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Conditions/Condition.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Conditions/Condition.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

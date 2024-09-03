@@ -393,6 +393,10 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/Bow.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronBow.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HeadEquipment.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h \

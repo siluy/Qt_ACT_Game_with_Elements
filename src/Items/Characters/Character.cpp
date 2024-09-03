@@ -196,8 +196,13 @@ QVector<Arrow*> Character::removeAllArrows() {
 }
 
 void Character::removeArrow(Arrow* selected) {
-    Arrow* removedArrow = selected; // 移除并返回特定位置的箭矢
-    arrows.removeOne(removedArrow); // 从 arrows 向量中移除指定的箭矢
+    int removedIndex = arrows.indexOf(selected);
+    if (removedIndex != -1) {
+        arrows.removeAt(removedIndex);
+        if (arrowNum >= arrows.size()) {
+            arrowNum = 0;  // 如果当前索引超出范围，重置为 0
+        }
+    }
 }
 
 MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
@@ -318,10 +323,15 @@ void Character::archery() {
         selected->startThrown();
         selected->beThrown = true;
         if(direction.x()>0){
+            selected->setTransform(QTransform().scale(1, 1), true); // 设置武器的水平翻转
+        }
+        if(direction.x()<0){
             selected->setTransform(QTransform().scale(-1, 1), true); // 设置武器的水平翻转
         }
         selected->speed = direction * 0.5;
         selected->downAcceleration = gravity.getGravity();
+
+        isArrowFired = true;  // 标记为已射箭
     }
 }
 
@@ -340,30 +350,44 @@ void Character::changeWeapon() {
         // 如果当前显示的是弓箭，切换到近战武器
         bow->setVisible(false);
         melee->setVisible(true);
+        if(!arrows.isEmpty()){
+            arrows[arrowNum]->setVisible(false);
+        }
         setChangeDown(false);
     }
 }
 
 void Character::changeArrow() {
-    static int arrowNum = 0;  // 静态变量，用于追踪当前选择的箭矢
+    //static int arrowNum = 0;  // 静态变量，用于追踪当前选择的箭矢
 
     if (arrows.isEmpty()) {  // 如果箭矢列表为空，直接返回
         return;
     }
-
+    qDebug() << "Arrow is not empty";
     // 隐藏当前箭矢
     if (arrows[arrowNum] != nullptr) {
+        qDebug() << "ArrowNum is:" << arrowNum;
         arrows[arrowNum]->setVisible(false);
     }
 
     // 递增箭矢索引
     arrowNum++;
+    qDebug() << "ArrowNum is increased to:" << arrowNum;
     if (arrowNum >= arrows.size()) {
         arrowNum = 0;  // 如果超过箭矢数量，重置为第一个箭矢
+        qDebug() << "ArrowNum is reset to 0";
     }
 
     // 显示下一个箭矢
     if (arrows[arrowNum] != nullptr) {
+        arrows[arrowNum]->setParentItem(this);
+        arrows[arrowNum]->mountToParent();
         arrows[arrowNum]->setVisible(true);
     }
+    qDebug() << "ArrowNum is now:" << arrowNum;
+    qDebug() << "Finish change";
+
+    // 重置射箭状态，防止切换箭矢后自动射出
+    isArrowFired = false;
+    setChangeArrowDown(false);
 }

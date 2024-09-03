@@ -323,6 +323,30 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.h",
+			"MU",
+			"B2U6TKB4P2/moc_Condition.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.h",
+			"MU",
+			"B2U6TKB4P2/moc_Electrocuted.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.h",
+			"MU",
+			"B2U6TKB4P2/moc_Fire.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.h",
+			"MU",
+			"B2U6TKB4P2/moc_Frozen.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h",
 			"MU",
 			"7O23G427QC/moc_Gravity.cpp",
@@ -583,6 +607,26 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Rival.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.cpp",
 			"MU",
 			null
 		],

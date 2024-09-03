@@ -31,5 +31,15 @@
         <file>Items/Weapons/BowsAndArrows/FireArrow/FireArrow.png</file>
         <file>Items/Weapons/BowsAndArrows/IceArrow/IceArrow.png</file>
         <file>Items/Weapons/BowsAndArrows/ThunderArrow/ThunderArrow.png</file>
+        <file>Items/Conditions/Electrocuted/be_thunder.png</file>
+        <file>Items/Conditions/OnFire/be_fire.png</file>
+        <file>Items/Weapons/MeleeWeapons/IronLongSword/iron_long_sword.png</file>
+        <file>Items/Weapons/MeleeWeapons/FireSword/fire_sword.png</file>
+        <file>Items/Weapons/MeleeWeapons/IceSword/freeze_sword.png</file>
+        <file>Items/Weapons/MeleeWeapons/IronStaff/iron_staff.png</file>
+        <file>Items/Weapons/MeleeWeapons/ThunderSword/thunder_sword.png</file>
+        <file>Items/Weapons/MeleeWeapons/WoodLongSword/wooden_long_sword.png</file>
+        <file>Items/Weapons/MeleeWeapons/WoodStaff/wooden_staff.png</file>
+        <file>Items/Conditions/BeFrozen/BeFrozen.png</file>
     </qresource>
 </RCC>

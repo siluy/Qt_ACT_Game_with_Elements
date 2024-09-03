@@ -8,6 +8,7 @@ class NormalArrow: public Arrow
 public:
     explicit NormalArrow(QGraphicsItem *parent = nullptr);
 
+    bool beThrown = false;
 };
 
 #endif // NORMALARROW_H

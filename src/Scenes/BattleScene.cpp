@@ -39,7 +39,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //link = std::make_shared<Link>(); // 创建一个林克对象，并赋值给 link
     rival = new Rival(); //创建一个对手对象
     //rival = std::make_shared<Rival>(); // 创建一个对手对象，并赋值给 rival
-    spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+    spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象  删除
     //spareArmor = std::make_shared<FlamebreakerArmor>(); // 创建一个火焰护甲对象，并赋值给 spareArmor
     //spareMelee = new WoodShortSword(); //创建一个铁短剑对象
     ironShortSword = new IronShortSword(); //创建一个铁短剑对象
@@ -47,6 +47,12 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     ironBow = new IronBow(); //创建一个铁弓对象
     normalArrow = new NormalArrow(); //创建一个普通箭对象
     fireArrow = new FireArrow(); //创建一个火箭对象
+    fireOfLink = new Fire(); //创建一个火焰对象
+    fireOfRival = new Fire(); //创建一个火焰对象
+    electrocutedOfLink = new Electrocuted(); //创建一个电击对象
+    electrocutedOfRival = new Electrocuted(); //创建一个电击对象
+    frozenOfLink = new Frozen(); //创建一个冰冻对象
+    frozenOfRival = new Frozen(); //创建一个冰冻对象
     dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
     dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
     dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
@@ -100,8 +106,12 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     addItem(ironBow); //添加铁弓
     addItem(normalArrow);
     addItem(fireArrow);
-    //addItem(healthBarForLink); //添加角色血条 先前已添加过
-    //addItem(healthBarForRival); //添加对手血条
+    addItem(fireOfLink); //添加火焰
+    addItem(fireOfRival); //添加火焰
+    addItem(electrocutedOfLink); //添加电击
+    addItem(electrocutedOfRival); //添加电击
+    addItem(frozenOfLink); //添加冰冻
+    addItem(frozenOfRival); //添加冰冻
     map->scaleToFitScene(this); //地图适应场景
     link->setPos(map->getSpawnPosForLink()); //设置角色位置为出生点
     rival->setPos(map->getSpawnPosForRival()); //设置对手位置为出生点
@@ -121,6 +131,25 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     fireArrow->unmount();
     fireArrow->setScale(0.2);
     fireArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.65, map->getFloorHeight()*0.5);
+    fireOfLink->unmount(); //卸载火焰
+    fireOfLink->setParentItem(link); //设置火焰父节点为角色
+    fireOfLink->mountToParent(); //装载火焰
+    fireOfRival->unmount(); //卸载火焰
+    fireOfRival->setParentItem(rival); //设置火焰父节点为对手
+    fireOfRival->mountToParent(); //装载火焰
+    electrocutedOfLink->unmount(); //卸载电击
+    electrocutedOfLink->setParentItem(link); //设置电击父节点为角色
+    electrocutedOfLink->mountToParent(); //装载电击
+    electrocutedOfRival->unmount();
+    electrocutedOfRival->setParentItem(rival); //设置电击父节点为对手
+    electrocutedOfRival->mountToParent(); //装载电击
+    frozenOfLink->unmount(); //卸载冰冻
+    frozenOfLink->setParentItem(link); //设置冰冻父节点为角色
+    frozenOfLink->mountToParent(); //装载冰冻
+    frozenOfRival->unmount(); //卸载冰冻
+    frozenOfRival->setParentItem(rival); //设置冰冻父节点为对手
+    frozenOfRival->mountToParent(); //装载冰冻
+
 } //构造函数，传入父节点
 
 void BattleScene::processInput() {
@@ -445,7 +474,7 @@ void BattleScene::processThrow(Item* item){
         QRectF throwAttackRect = QRectF(item->pos().x()+50, item->pos().y(), -100, 200);
         //qDebug() << "Throwing weapon.";
         if(arrow->speed.x() < 0){
-            throwAttackRect = QRectF(item->pos().x(), item->pos().y(), 80, 180);
+            throwAttackRect = QRectF(item->pos().x()-100, item->pos().y(), -100, 200);
             qDebug() << "Throwing weapon left.";
         }
         if(item->beThrown){
@@ -475,23 +504,33 @@ void BattleScene::processPicking() {
     if (link->isPicking()) {
         auto mountable = findNearestUnmountedMountable(link->pos(), 100.); //查找最近的未挂载的可挂载物品，距离阈值为100
         if (mountable != nullptr) {
-            spareArmor = dynamic_cast<Armor *>(pickupMountable(link, mountable)); //拾取可挂载护甲
-            spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(link, mountable)); //拾取可挂载近战武器
-            spareBow = dynamic_cast<Bow *>(pickupMountable(link, mountable)); //拾取可挂载弓
-            if(link->bow != nullptr){
-                spareArrow = dynamic_cast<Arrow *>(pickupMountable(link, mountable)); //拾取可挂载箭
+            Item* tempItem;
+            tempItem = dynamic_cast<Item*>(pickupMountable(link, mountable)); //拾取可挂载物品
+            if(tempItem != nullptr){
+                dropItems.push_back(tempItem);
             }
+            //spareArmor = dynamic_cast<Armor *>(pickupMountable(link, mountable)); //拾取可挂载护甲
+            //spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(link, mountable)); //拾取可挂载近战武器
+            //spareBow = dynamic_cast<Bow *>(pickupMountable(link, mountable)); //拾取可挂载弓
+            //if(link->bow != nullptr){
+                //spareArrow = dynamic_cast<Arrow *>(pickupMountable(link, mountable)); //拾取可挂载箭
+            //}
         }
     }
     if (rival->isPicking()) {
         auto mountable = findNearestUnmountedMountable(rival->pos(), 100.); //查找最近的未挂载的可挂载物品，距禒阈值为100
         if (mountable != nullptr) {
-            spareArmor = dynamic_cast<Armor *>(pickupMountable(rival, mountable)); //拾取可挂载护甲
-            spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(rival, mountable)); //拾取可挂载近战武器
-            spareBow = dynamic_cast<Bow *>(pickupMountable(rival, mountable)); //拾取可挂载弓
-            if(rival->bow != nullptr){
-            spareArrow = dynamic_cast<Arrow *>(pickupMountable(rival, mountable)); //拾取可挂载箭
+            Item* tempItem;
+            tempItem = dynamic_cast<Item*>(pickupMountable(link, mountable)); //拾取可挂载物品
+            if(tempItem != nullptr){
+                dropItems.push_back(tempItem);
             }
+            //spareArmor = dynamic_cast<Armor *>(pickupMountable(rival, mountable)); //拾取可挂载护甲
+            //spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(rival, mountable)); //拾取可挂载近战武器
+            //spareBow = dynamic_cast<Bow *>(pickupMountable(rival, mountable)); //拾取可挂载弓
+            //if(rival->bow != nullptr){
+            //spareArrow = dynamic_cast<Arrow *>(pickupMountable(rival, mountable)); //拾取可挂载箭
+            //}
         }
     }
 } //处理拾取
@@ -528,8 +567,10 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
     }
     if (auto arrow = dynamic_cast<Arrow *>(mountable) ) {
         if(character->bow != nullptr)
+        {
             return character->pickupArrow(arrow);
-    }        //拾取箭
+        }        //拾取箭
+    }
         return nullptr;
 } //拾取可挂载物品
 
