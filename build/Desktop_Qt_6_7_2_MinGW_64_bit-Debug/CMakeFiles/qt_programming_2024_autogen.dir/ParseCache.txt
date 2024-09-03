@@ -806,6 +806,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.h
+ mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/MeleeWeapon.h
  mdp:C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.h
@@ -1218,3 +1219,5 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.cpp
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/main.cpp
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.h
+C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.cpp

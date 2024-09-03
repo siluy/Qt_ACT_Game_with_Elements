@@ -20,39 +20,30 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     // This is useful if you want the scene to have the exact same dimensions as the view
     setSceneRect(0, 0, 1280, 720); //设置场景矩形区域为(0,0,1280,720)
     const int blockWidth = 80; //方块宽度为80
-    /*BattleScene::blocks[9][16] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                         {0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0},
-                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                         {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3},
-                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                         {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
-                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //方块数组初始化*/
-    //grassBlock = new Grassblock(); //创建一个草方块对象
-    //ironBlock = new Ironblock(); //创建一个铁方块对象
-    //soilBlock = new Soilblock(); //创建一个土方块对象
-    //stoneBlock = new Stoneblock(); //创建一个石方块对象
+
     map = new Battlebackground(); //创建一个战场对象
-    //map = std::make_shared<Battlebackground>(); // 创建一个战场对象，并赋值给 map
+
     link = new Link(); //创建一个林克对象
-    //link = std::make_shared<Link>(); // 创建一个林克对象，并赋值给 link
     rival = new Rival(); //创建一个对手对象
-    //rival = std::make_shared<Rival>(); // 创建一个对手对象，并赋值给 rival
-    spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象  删除
-    //spareArmor = std::make_shared<FlamebreakerArmor>(); // 创建一个火焰护甲对象，并赋值给 spareArmor
-    //spareMelee = new WoodShortSword(); //创建一个铁短剑对象
+
+    spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+
     ironShortSword = new IronShortSword(); //创建一个铁短剑对象
     woodShortSword = new WoodShortSword(); //创建一个木短剑对象
+    fireSword = new FireSword(); //创建一个火焰剑对象
+
     ironBow = new IronBow(); //创建一个铁弓对象
     normalArrow = new NormalArrow(); //创建一个普通箭对象
+
     fireArrow = new FireArrow(); //创建一个火箭对象
+
     fireOfLink = new Fire(); //创建一个火焰对象
     fireOfRival = new Fire(); //创建一个火焰对象
     electrocutedOfLink = new Electrocuted(); //创建一个电击对象
     electrocutedOfRival = new Electrocuted(); //创建一个电击对象
     frozenOfLink = new Frozen(); //创建一个冰冻对象
     frozenOfRival = new Frozen(); //创建一个冰冻对象
+
     dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
     dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
     dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
@@ -64,10 +55,6 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     Armors.push_back(spareArmor);
     //dropItems.push_back(spareMelee); //添加备用近战武器到掉落物品
     //spareMelee = std::make_shared<IronShortSword>(); // 创建一个铁短剑对象，并赋值给 spareMelee
-    //healthBarForLink = new HealthBar(link, 100, 10, -50, -220); //创建一个角色血条对象
-    //healthBarForLink = std::make_shared<HealthBar>(link, link->health, 10, -50, -220); // 创建一个角色血条对象，并赋值给 healthBarForLink
-    //healthBarForRival = new HealthBar(rival, 100, 10, -50, -220); //创建一个对手血条对象
-    //healthBarForRival = std::make_shared<HealthBar>(rival, rival->health, 10, -50, -220); // 创建一个对手血条对象，并赋值给 healthBarForRival
 
     addItem(map); //添加地图
     for(int i=0; i<9; i++) {
@@ -99,38 +86,53 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     }
     addItem(link); //添加角色
     addItem(rival); //添加对手
+
     addItem(spareArmor); //添加空护甲
-    //addItem(spareMelee); //添加空近战武器
+
+
     addItem(ironShortSword); //添加铁短剑
     addItem(woodShortSword); //添加木短剑
+    addItem(fireSword); //添加火剑
+
     addItem(ironBow); //添加铁弓
+
     addItem(normalArrow);
     addItem(fireArrow);
+
     addItem(fireOfLink); //添加火焰
     addItem(fireOfRival); //添加火焰
     addItem(electrocutedOfLink); //添加电击
     addItem(electrocutedOfRival); //添加电击
     addItem(frozenOfLink); //添加冰冻
     addItem(frozenOfRival); //添加冰冻
+
     map->scaleToFitScene(this); //地图适应场景
+
     link->setPos(map->getSpawnPosForLink()); //设置角色位置为出生点
     rival->setPos(map->getSpawnPosForRival()); //设置对手位置为出生点
+
     spareArmor->unmount(); //卸载空护甲
     spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置空护甲位置
-    //spareMelee->unmount(); //卸载空近战武器
+
     ironShortSword->unmount(); //卸载铁短剑
     woodShortSword->unmount(); //卸载木短剑
+    fireSword->unmount(); //卸载火剑
     ironShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.85, map->getFloorHeight()); //设置铁短剑位置
     woodShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木短剑位置
+    fireSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.65, map->getFloorHeight()); //设置火剑位置
+
     ironBow->unmount(); //卸载铁弓
     ironBow->setScale(0.2); //设置缩放比
     ironBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置铁弓位置
+
     normalArrow->unmount();
     normalArrow->setScale(0.2);
     normalArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
+
     fireArrow->unmount();
     fireArrow->setScale(0.2);
     fireArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.65, map->getFloorHeight()*0.5);
+
     fireOfLink->unmount(); //卸载火焰
     fireOfLink->setParentItem(link); //设置火焰父节点为角色
     fireOfLink->mountToParent(); //装载火焰
@@ -288,6 +290,9 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
                     link->melee->attackStoped();
                 }
             }
+            else if(link->bow != nullptr && link->bow->isVisible()){
+                link->setThrowDown(false);
+            }
         }
         break;
     case Qt::Key_Q:
@@ -441,7 +446,7 @@ void BattleScene::processMovement() {
 } //处理移动
 
 void BattleScene::processThrow(Item* item){
-    auto throwable = dynamic_cast<Throwable *>(item);
+    /*auto throwable = dynamic_cast<Throwable *>(item);
     auto melee = dynamic_cast<MeleeWeapon *>(throwable);
     auto arrow = dynamic_cast<Arrow *>(throwable);
     if(melee != nullptr && melee->isVisible() && ((arrow == nullptr) || (arrow != nullptr && !(arrow->isVisible())))){
@@ -495,6 +500,133 @@ void BattleScene::processThrow(Item* item){
             delete item;
             item = nullptr;
         }
+    }*/
+    if (auto throwable = dynamic_cast<Throwable*>(item)) {
+        // 基于不同类型的投掷物进行处理
+        if (auto melee = dynamic_cast<MeleeWeapon*>(throwable)) {
+            processMeleeThrow(melee);
+        } else if (auto arrow = dynamic_cast<Arrow*>(throwable)) {
+            processArrowThrow(arrow);
+        }
+    }
+}
+
+void BattleScene::processMeleeThrow(MeleeWeapon* melee) {
+    if (melee != nullptr && melee->isVisible()) {
+        QRectF throwAttackRect = QRectF(melee->pos().x(), melee->pos().y(), -100, 200);
+        if (melee->speed.x() < 0) {
+            throwAttackRect = QRectF(melee->pos().x(), melee->pos().y(), 100, 200);
+            qDebug() << "Throwing weapon left.";
+        }
+
+        if (melee->beThrown) {
+            if (throwAttackRect.contains(rival->pos())) {
+                applyMeleeEffect(melee, rival);
+                delete melee;
+                melee = nullptr;
+            }
+            if (throwAttackRect.contains(link->pos())) {
+                applyMeleeEffect(melee, link);
+                delete melee;
+                melee = nullptr;
+            }
+        }
+
+        if (melee->isOnGround(melee) && melee->beThrown) {
+            delete melee;
+            melee = nullptr;
+        }
+    }
+}
+
+void BattleScene::processArrowThrow(Arrow* arrow) {
+    if (arrow != nullptr && arrow->isVisible()) {
+        QRectF throwAttackRect = QRectF(arrow->pos().x() + 50, arrow->pos().y(), -100, 200);
+        if (arrow->speed.x() < 0) {
+            throwAttackRect = QRectF(arrow->pos().x() - 100, arrow->pos().y(), -100, 200);
+            qDebug() << "Throwing arrow left.";
+        }
+
+        if (arrow->beThrown) {
+            if (throwAttackRect.contains(rival->pos())) {
+                applyArrowEffect(arrow, rival);
+                delete arrow;
+                arrow = nullptr;
+            }
+            if (throwAttackRect.contains(link->pos())) {
+                applyArrowEffect(arrow, link);
+                delete arrow;
+                arrow = nullptr;
+            }
+        }
+
+        if (arrow->isOnGround(arrow) && arrow->beThrown) {
+            delete arrow;
+            arrow = nullptr;
+        }
+    }
+}
+
+void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
+    // 基础伤害
+    if(melee){
+    victim->setHealth(victim->health -= melee->damage);
+    // 根据 element 属性应用效果
+    int element = melee->element;
+    if (auto fireWeapon = dynamic_cast<FireSword*>(melee)) {
+        element = fireWeapon->element;
+    } /*else if (auto iceWeapon = dynamic_cast<IceSword*>(melee)) {
+                element = iceWeapon->element;
+            } else if (auto thunderWeapon = dynamic_cast<ThunderSword*>(melee)) {
+                element = thunderWeapon->element;
+            }*/
+    switch (element) {
+    case 1:  // 火属性
+        victim->onFire = true;
+        qDebug() << "Victim is on fire!";
+        break;
+    case 2:  // 冰属性
+        victim->beFrozen = true;
+        qDebug() << "Victim is frozen!";
+        break;
+    case 3:  // 雷属性
+        victim->beThundered = true;
+        qDebug() << "Victim is thundered!";
+        break;
+    default:
+        // 无属性（或其他处理）
+        break;
+    }}
+}
+
+void BattleScene::applyArrowEffect(Arrow* arrow, Character* victim) {
+    // 基础伤害
+    victim->setHealth(victim->health -= arrow->damage);
+
+    // 根据 element 属性应用效果
+    int element = arrow->element;
+    if(auto fireArrow = dynamic_cast<FireArrow*>(arrow)){
+        element = fireArrow->element;
+    }/*else if (auto iceArrow = dynamic_cast<IceArrow*>(arrow)) {
+                element = iceArrow->element;
+            } else if (auto thunderArrow = dynamic_cast<ThunderArrow*>(arrow)) {
+                element = thunderArrow->element;}*/
+    switch (element) {
+    case 1:  // 火属性
+        victim->onFire = true;
+        qDebug() << "Victim is on fire!";
+        break;
+    case 2:  // 冰属性
+        victim->beFrozen = true;
+        qDebug() << "Victim is frozen!";
+        break;
+    case 3:  // 雷属性
+        victim->beThundered = true;
+        qDebug() << "Victim is thundered!";
+        break;
+    default:
+        // 无属性（或其他处理）
+        break;
     }
 }
 
@@ -611,41 +743,47 @@ bool BattleScene::attackTrue(Character *attacker, Character *victim){
     return false;
 }
 
-/*bool BattleScene::attackTrue(Character *attacker, Character *victim){
-    if(attacker->melee == nullptr){
-        return false;
-    }else{
-        QPointF pos1 = attacker->pos();
-        QPointF pos2 = victim->pos();
-        qreal minDistance = attacker->melee->attackRange;
-
-        qreal distance = QLineF(pos1, pos2).length();
-        if(distance < minDistance){
-            return true;
-        }
-    }
-    return false;
-}*/
-
 void BattleScene::attackDone(Character *attacker, Character *victim) {
     if (attacker != nullptr && victim != nullptr) {
-        //qDebug() << "Attacker and victim are valid.";
         if (attacker->melee != nullptr) {
-            //qDebug() << "Attacker has a melee weapon.";
-            if (attackTrue(attacker, victim)) {
-                //qDebug() << "Attack is successful.";
-                victim->health -= attacker->melee->damage;
-                //qDebug() << "Victim health is now:" << victim->health;
-                //victim->setHealth(victim->health);
+            int element = attacker->melee->element; // 默认获取父类的element
+
+            // 检查并获取派生类的element值
+            if (auto fireWeapon = dynamic_cast<FireSword*>(attacker->melee)) {
+                element = fireWeapon->element;
+            } /*else if (auto iceWeapon = dynamic_cast<IceSword*>(attacker->melee)) {
+                element = iceWeapon->element;
+            } else if (auto thunderWeapon = dynamic_cast<ThunderSword*>(attacker->melee)) {
+                element = thunderWeapon->element;
+            }*/
+
+            if (element == 0) {
+                if (attackTrue(attacker, victim)) {
+                    victim->health -= attacker->melee->damage;
+                }
             }
-        } //else {
-            //qDebug() << "Attacker has no melee weapon.";
-        //}
-    } //else {
-        //if (attacker == nullptr) qDebug() << "Attacker is null.";
-        //if (victim == nullptr) qDebug() << "Victim is null.";
-    //}
+            else if (element == 1) {
+                if (attackTrue(attacker, victim)) {
+                    victim->health -= attacker->melee->damage;
+                    victim->onFire = true;
+                }
+            }
+            else if (element == 2) {
+                if (attackTrue(attacker, victim)) {
+                    victim->health -= attacker->melee->damage;
+                    victim->beFrozen = true;
+                }
+            }
+            else if (element == 3) {
+                if (attackTrue(attacker, victim)) {
+                    victim->health -= attacker->melee->damage;
+                    victim->beThundered = true;
+                }
+            }
+        }
+    }
 }
+
 
 
 const int BattleScene::blocks[9][16] = {

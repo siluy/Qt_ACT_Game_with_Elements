@@ -413,6 +413,12 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_FireSword.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.h",
 			"MU",
 			"EPP3YG7A3A/moc_IronShortSword.cpp",
@@ -677,6 +683,11 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/battlebackground.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.cpp",
 			"MU",
 			null
 		],

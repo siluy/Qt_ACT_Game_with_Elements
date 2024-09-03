@@ -14,13 +14,15 @@ public:
 
     void unmount() override; //卸载
 
-    virtual qreal attack(); //攻击函数
+    virtual void attack(); //攻击函数
 
     virtual void attackStoped(); //攻击停止
 
     QPointF getSpeed() const; //获取速度
 
     int material; //材质，0表示木质，1表示铁质
+
+    int element; //元素，0表示无元素，1表示火元素，2表示冰元素，3表示雷元素
 
     qreal damage = 10; //伤害值
 

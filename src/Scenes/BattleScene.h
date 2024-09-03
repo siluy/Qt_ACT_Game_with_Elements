@@ -16,6 +16,7 @@
 #include "../Items/Gravity.h"
 #include "../Items/MeleeWeapons/IronShortSword.h"
 #include "../Items/MeleeWeapons/WoodShortSword.h"
+#include "../Items/MeleeWeapons/FireSword.h"
 #include "../Items/Bows/IronBow.h"
 #include "../Items/Bows/Bow.h"
 #include "../Items/Arrows/Arrow.h"
@@ -39,6 +40,14 @@ public:
     void processPicking() override; //处理拾取
 
     void processThrow(Item* item) override; //处理投掷
+
+    void processMeleeThrow(MeleeWeapon* meleeWeapon); //处理近战投掷
+
+    void processArrowThrow(Arrow* arrow); //处理箭投掷
+
+    void applyMeleeEffect(MeleeWeapon* melee, Character* victim); //应用元素效果
+
+    void applyArrowEffect(Arrow* arrow, Character* victim); //应用元素效果
 
     static const int blocks[9][16];
 
@@ -72,6 +81,7 @@ private:
     MeleeWeapon *spareMelee; //空近战武器
     IronShortSword *ironShortSword; //铁短剑
     WoodShortSword *woodShortSword; //木短剑
+    FireSword *fireSword; //火剑
     Bow *spareBow; //空弓
     IronBow *ironBow; //铁弓
     Arrow *spareArrow; //空箭
