@@ -15,7 +15,7 @@ public:
 
     void mountToParent() override; //挂载到父节点
 
-    int index;
+    int antiElement; //抗性，0表示无抗性，1表示火焰抗性，2表示冰霜抗性，3表示雷电抗性
 }; //HeadEquipment类继承自Item类和Mountable类，表示头部装备，可以挂载到父节点
 
 

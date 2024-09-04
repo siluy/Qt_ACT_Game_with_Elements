@@ -515,3 +515,29 @@ void Character::setMovable(bool movable) {
     }
 }
 
+void Character::updateAntiElement(){
+    int combinedResistance = 0;
+
+    // 直接读取装备的抗性值并组合它们
+    if (headEquipment) {
+        combinedResistance |= headEquipment->antiElement;
+    }
+    if (legEquipment) {
+        combinedResistance |= legEquipment->antiElement;
+    }
+    if (armor) {
+        combinedResistance |= armor->antiElement;
+    }
+
+    // 根据组合后的抗性值更新角色的抗性
+    switch (combinedResistance) {
+    case 0: antiElement = 0; break; // 无抗性
+    case 1: antiElement = 1; break; // 抗火
+    case 2: antiElement = 2; break; // 抗冰
+    case 3: antiElement = 3; break; // 抗雷
+    case 4: antiElement = 4; break; // 有火有冰
+    case 5: antiElement = 5; break; // 有火有雷
+    case 6: antiElement = 6; break; // 有冰有雷
+    case 7: antiElement = 7; break; // 有火有冰有雷
+    }
+}

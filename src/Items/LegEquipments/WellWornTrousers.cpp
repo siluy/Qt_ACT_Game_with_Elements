@@ -5,4 +5,5 @@
 #include "WellWornTrousers.h"
 
 WellWornTrousers::WellWornTrousers(QGraphicsItem *parent) : LegEquipment(parent, ":/Items/LegEquipments/WellWornTrousers/BotW_Well-Worn_Trousers_Icon.png") {
+    antiElement = 0; //无抗性
 }

@@ -31,7 +31,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     Characters.push_back(rival);
 
     //spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
-    flamebreakerArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+    //flamebreakerArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
     //oldShirt = new OldShirt(); //创建一个旧衬衫对象
     //iceArmor = new IceArmor(); //创建一个冰护甲对象
     //thunderArmor = new ThunderArmor(); //创建一个雷护甲对象
@@ -44,26 +44,26 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //woodStaff = new WoodStaff(); //创建一个木杖对象
     //fireSword = new FireSword(); //创建一个火焰剑对象
     //iceSword = new IceSword(); //创建一个冰剑对象
-    thunderSword = new ThunderSword(); //创建一个雷剑对象
+    //thunderSword = new ThunderSword(); //创建一个雷剑对象
 
     //ironBow = new IronBow(); //创建一个铁弓对象
     //woodBow = new WoodBow(); //创建一个木弓对象
     //ironStrongBow = new IronStrongBow(); //创建一个铁强弓对象
     //woodStrongBow = new WoodStrongBow(); //创建一个木强弓对象
     //ironHandBow = new IronHandBow(); //创建一个铁手弓对象
-    woodHandBow = new WoodHandBow(); //创建一个木手弓对象
+    //woodHandBow = new WoodHandBow(); //创建一个木手弓对象
 
     //normalArrow = new NormalArrow(); //创建一个普通箭对象
     //fireArrow = new FireArrow(); //创建一个火箭对象
-    iceArrow = new IceArrow(); //创建一个冰箭对象
+    //iceArrow = new IceArrow(); //创建一个冰箭对象
     //thunderArrow = new ThunderArrow(); //创建一个雷箭对象
 
-    flameCap = new FlameCap(); //创建一个火帽对象
+    //flameCap = new FlameCap(); //创建一个火帽对象
     //iceCap = new IceCap(); //创建一个冰帽对象
     //thunderCap = new ThunderCap(); //创建一个雷帽对象
     //capOfTheHero = new CapOfTheHero(); //创建一个英雄帽对象
 
-    flameTrousers = new FlameTrousers(); //创建一个火裤对象
+    //flameTrousers = new FlameTrousers(); //创建一个火裤对象
     //iceTrousers = new IceTrousers(); //创建一个冰裤对象
     //thunderTrousers = new ThunderTrousers(); //创建一个雷裤对象
     //wellWornTrousers = new WellWornTrousers(); //创建一个破旧裤对象
@@ -92,29 +92,29 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //dropItems.push_back(woodStaff); //添加木杖到掉落物品
     //dropItems.push_back(fireSword); //添加火剑到掉落物品
     //dropItems.push_back(iceSword); //添加冰剑到掉落物品
-    dropItems.push_back(thunderSword); //添加雷剑到掉落物品
+    //dropItems.push_back(thunderSword); //添加雷剑到掉落物品
 
     //dropItems.push_back(ironBow); //添加铁弓到掉落物品
     //dropItems.push_back(woodBow);
     //dropItems.push_back(ironStrongBow); //添加铁强弓到掉落物品
     //dropItems.push_back(woodStrongBow); //添加木强弓到掉落物品
     //dropItems.push_back(ironHandBow); //添加铁手弓到掉落物品
-    dropItems.push_back(woodHandBow); //添加木手弓到掉落物品
+    //dropItems.push_back(woodHandBow); //添加木手弓到掉落物品
 
     //dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
-    dropItems.push_back(flamebreakerArmor);
+    //dropItems.push_back(flamebreakerArmor);
     //dropItems.push_back(oldShirt); //添加旧衬衫到掉落物品
     //dropItems.push_back(iceArmor); //添加冰护甲到掉落物品
     //dropItems.push_back(thunderArmor); //添加雷护甲到掉落物品
 
     //dropItems.push_back(iceCap); //添加冰帽到掉落物品
     //dropItems.push_back(thunderCap); //添加雷帽到掉落物品
-    dropItems.push_back(flameCap);
+    //dropItems.push_back(flameCap);
     //dropItems.push_back(capOfTheHero); //添加英雄帽到掉落物品
 
     //dropItems.push_back(normalArrow);
     //dropItems.push_back(fireArrow);
-    dropItems.push_back(iceArrow);
+    //dropItems.push_back(iceArrow);
     //dropItems.push_back(thunderArrow);
 
     //Melees.push_back(ironShortSword);
@@ -181,17 +181,17 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     addItem(rival); //添加对手
 
     //addItem(spareArmor); //添加空护甲
-    addItem(flamebreakerArmor); //添加火焰护甲
+    //addItem(flamebreakerArmor); //添加火焰护甲
     //addItem(oldShirt); //添加旧衬衫
     //addItem(iceArmor); //添加冰护甲
     //addItem(thunderArmor); //添加雷护甲
 
-    addItem(flameCap); //添加火帽
+    //addItem(flameCap); //添加火帽
     //addItem(iceCap); //添加冰帽
     //addItem(thunderCap); //添加雷帽
     //addItem(capOfTheHero); //添加英雄帽
 
-    addItem(flameTrousers); //添加火裤
+    //addItem(flameTrousers); //添加火裤
     //addItem(iceTrousers); //添加冰裤
     //addItem(thunderTrousers); //添加雷裤
     //addItem(wellWornTrousers); //添加破旧裤
@@ -204,18 +204,18 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //addItem(woodStaff); //添加木杖
     //addItem(fireSword); //添加火剑
     //addItem(iceSword); //添加冰剑
-    addItem(thunderSword); //添加雷剑
+    //addItem(thunderSword); //添加雷剑
 
     //addItem(ironBow); //添加铁弓
     //addItem(woodBow); //添加木弓
     //addItem(ironStrongBow); //添加铁强弓
     //addItem(woodStrongBow); //添加木强弓
     //addItem(ironHandBow); //添加铁手弓
-    addItem(woodHandBow); //添加木手弓
+    //addItem(woodHandBow); //添加木手弓
 
     //addItem(normalArrow);
     //addItem(fireArrow);
-    addItem(iceArrow);
+    //addItem(iceArrow);
     //addItem(thunderArrow);
 
     addItem(fireOfLink); //添加火焰
@@ -232,8 +232,8 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
 
     //spareArmor->unmount(); //卸载空护甲
     //spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置空护甲位置
-    flamebreakerArmor->unmount(); //卸载火焰护甲
-    flamebreakerArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置火焰护甲位置
+    //flamebreakerArmor->unmount(); //卸载火焰护甲
+    //flamebreakerArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置火焰护甲位置
     //iceArmor->unmount(); //卸载冰护甲
     //iceArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置冰护甲位置
     //thunderArmor->unmount(); //卸载雷护甲
@@ -249,7 +249,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //woodStaff->unmount(); //卸载木杖
     //fireSword->unmount(); //卸载火剑
     //iceSword->unmount(); //卸载冰剑
-    thunderSword->unmount(); //卸载雷剑
+    //thunderSword->unmount(); //卸载雷剑
     //ironShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置铁短剑位置
     //woodShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木短剑位置
     //ironLongSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置铁长剑位置
@@ -258,7 +258,7 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //woodStaff->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木杖位置
     //fireSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置火剑位置
     //iceSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置冰剑位置
-    thunderSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置雷剑位置
+    //thunderSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置雷剑位置
 
     //ironBow->unmount(); //卸载铁弓
     //ironBow->setScale(0.2); //设置缩放比
@@ -275,9 +275,9 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //ironHandBow->unmount(); //卸载铁手弓
     //ironHandBow->setScale(0.2); //设置缩放比
     //ironHandBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置铁手弓位置
-    woodHandBow->unmount(); //卸载木手弓
-    woodHandBow->setScale(0.2); //设置缩放比
-    woodHandBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置木手弓位置
+    //woodHandBow->unmount(); //卸载木手弓
+    //woodHandBow->setScale(0.2); //设置缩放比
+    //woodHandBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置木手弓位置
 
     //normalArrow->unmount();
     //normalArrow->setScale(0.2);
@@ -285,15 +285,15 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //fireArrow->unmount();
     //fireArrow->setScale(0.2);
     //fireArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
-    iceArrow->unmount();
-    iceArrow->setScale(0.2);
-    iceArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
+    //iceArrow->unmount();
+    //iceArrow->setScale(0.2);
+    //iceArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
     //thunderArrow->unmount();
     //thunderArrow->setScale(0.2);
     //thunderArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
 
-    flameCap->unmount(); //卸载火帽
-    flameCap->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置火帽位置
+    //flameCap->unmount(); //卸载火帽
+    //flameCap->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置火帽位置
     //iceCap->unmount(); //卸载冰帽
     //iceCap->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置冰帽位置
     //thunderCap->unmount(); //卸载雷帽
@@ -301,8 +301,8 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     //capOfTheHero->unmount(); //卸载英雄帽
     //capOfTheHero->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置英雄帽位置
 
-    flameTrousers->unmount(); //卸载火裤
-    flameTrousers->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置火裤位置
+    //flameTrousers->unmount(); //卸载火裤
+    //flameTrousers->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置火裤位置
     //iceTrousers->unmount(); //卸载冰裤
     //iceTrousers->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置冰裤位置
     //thunderTrousers->unmount(); //卸载雷裤
@@ -545,7 +545,7 @@ void BattleScene::update() {
         gravity.setVelocity(rival, deltaTime); //设置速度
         gravity.setPos(rival, deltaTime); //设置位置
     }
-    for(Item* item: dropItems){
+    /*for(Item* item: dropItems){
         if(!item->isOnGround(item))
             gravity.setVelocity(item, deltaTime); //设置速度
         gravity.setPos(item, deltaTime); //设置位置
@@ -553,7 +553,7 @@ void BattleScene::update() {
             item->downSpeed = 0;
             item->downAcceleration = 0;
         }
-    }
+    }*/
     Scene::update();
     for(QGraphicsItem *Qitem: items()){
         if(auto item = dynamic_cast<Item *>(Qitem)){
@@ -561,6 +561,7 @@ void BattleScene::update() {
         }
     }
     for(Character* character: Characters){
+        character->updateAntiElement();
         if(character->beThundered){
             spreadThunderEffect(character);
         }
@@ -737,12 +738,16 @@ void BattleScene::processArrowThrow(Arrow* arrow) {
 void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
     if (melee) {
         int damage = melee->damage;
+
+        // 如果角色被冻结，造成双倍伤害并解除冻结状态
         if (victim->beFrozen) {
-            damage *= 2;  // 冻结状态下双倍伤害
+            damage *= 2;
             victim->beFrozen = false;
             victim->frozenEffect->setVisible(false);
-            victim->setMovable(true);  // 恢复移动能力
+            victim->setMovable(true);
         }
+
+        // 检查并应用伤害
         victim->setHealth(victim->health - damage);
 
         // 根据 element 属性应用效果
@@ -757,27 +762,25 @@ void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
 
         switch (element) {
         case 1:  // 火属性
-            victim->onFire = true;
-            victim->fireEffect->setVisible(true);
-            victim->startFireEffect();
-            // 仅对石头砖块触发火焰扩散
-            //{
-                //int i = victim->y() / 80;
-                //int j = victim->x() / 80;
-                //if (blocks[i][j] == 4) {
-                    //spreadFire(i, j);
-                //}
-            //}
+            if (victim->antiElement != 1 && victim->antiElement != 4 && victim->antiElement != 5 && victim->antiElement != 7) {  // 如果没有火焰抗性
+                victim->onFire = true;
+                victim->fireEffect->setVisible(true);
+                victim->startFireEffect();
+            }
             break;
         case 2:  // 冰属性
-            victim->beFrozen = true;
-            victim->frozenEffect->setVisible(true);
-            victim->startFrozenEffect();
+            if (victim->antiElement != 2 && victim->antiElement != 4 && victim->antiElement != 6 && victim->antiElement != 7) {  // 如果没有冰霜抗性
+                victim->beFrozen = true;
+                victim->frozenEffect->setVisible(true);
+                victim->startFrozenEffect();
+            }
             break;
         case 3:  // 雷属性
-            victim->beThundered = true;
-            victim->electrocutedEffect->setVisible(true);
-            victim->startThunderEffect(this);
+            if (victim->antiElement != 3 && victim->antiElement != 5&& victim->antiElement != 6 && victim->antiElement != 7) {  // 如果没有雷电抗性
+                victim->beThundered = true;
+                victim->electrocutedEffect->setVisible(true);
+                victim->startThunderEffect(this);
+            }
             break;
         default:
             break;
@@ -785,59 +788,59 @@ void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
     }
 }
 
-
 void BattleScene::applyArrowEffect(Arrow* arrow, Character* victim) {
     if (arrow) {
         int damage = arrow->damage;
+
+        // 如果角色被冻结，造成双倍伤害并解除冻结状态
         if (victim->beFrozen) {
-            damage *= 2;  // 冻结状态下双倍伤害
+            damage *= 2;
             victim->beFrozen = false;
             victim->frozenEffect->setVisible(false);
-            victim->setMovable(true);  // 恢复移动能力
+            victim->setMovable(true);
         }
+
+        // 检查并应用伤害
         victim->setHealth(victim->health - damage);
-        qDebug() << "Victim health: " << victim->health;
 
         // 根据 element 属性应用效果
         int element = arrow->element;
         if (auto fireArrow = dynamic_cast<FireArrow*>(arrow)) {
             element = fireArrow->element;
-
-        }else if(auto iceArrow = dynamic_cast<IceArrow*>(arrow)){
+        } else if (auto iceArrow = dynamic_cast<IceArrow*>(arrow)) {
             element = iceArrow->element;
-        }else if(auto thunderArrow = dynamic_cast<ThunderArrow*>(arrow)){
+        } else if (auto thunderArrow = dynamic_cast<ThunderArrow*>(arrow)) {
             element = thunderArrow->element;
         }
 
         switch (element) {
         case 1:  // 火属性
-            victim->onFire = true;
-            victim->fireEffect->setVisible(true);
-            victim->startFireEffect();
-            //{
-            // 仅对石头砖块触发火焰扩散
-                //int i = victim->y() / 80;
-                //int j = victim->x() / 80;
-                //if (blocks[i][j] == 4) {
-                    //spreadFire(i, j);
-                //}
-            //}
+            if (victim->antiElement != 1 && victim->antiElement != 4 && victim->antiElement != 5 && victim->antiElement != 7) {  // 如果没有火焰抗性
+                victim->onFire = true;
+                victim->fireEffect->setVisible(true);
+                victim->startFireEffect();
+            }
             break;
         case 2:  // 冰属性
-            victim->beFrozen = true;
-            victim->frozenEffect->setVisible(true);
-            victim->startFrozenEffect();
+            if (victim->antiElement != 2 && victim->antiElement != 4 && victim->antiElement != 6 && victim->antiElement != 7) {  // 如果没有冰霜抗性
+                victim->beFrozen = true;
+                victim->frozenEffect->setVisible(true);
+                victim->startFrozenEffect();
+            }
             break;
         case 3:  // 雷属性
-            victim->beThundered = true;
-            victim->electrocutedEffect->setVisible(true);
-            victim->startThunderEffect(this);
+            if (victim->antiElement != 3 && victim->antiElement != 5&& victim->antiElement != 6 && victim->antiElement != 7) {  // 如果没有雷电抗性
+                victim->beThundered = true;
+                victim->electrocutedEffect->setVisible(true);
+                victim->startThunderEffect(this);
+            }
             break;
         default:
             break;
         }
     }
 }
+
 
 void BattleScene::processPicking() {
     Scene::processPicking();
@@ -918,7 +921,7 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
             return character->pickupArrow(arrow);
         }        //拾取箭
     }
-        return nullptr;
+    return nullptr;
 } //拾取可挂载物品
 
 bool BattleScene::attackTrue(Character *attacker, Character *victim){
@@ -990,24 +993,30 @@ void BattleScene::attackDone(Character *attacker, Character *victim) {
             } else if (element == 1) {
                 if (attackTrue(attacker, victim)) {
                     victim->health -= damage;
-                    victim->onFire = true;
-                    victim->fireEffect->setVisible(true);
-                    victim->startFireEffect();
+                    if(victim->antiElement != 1 && victim->antiElement != 4 && victim->antiElement != 5 && victim->antiElement != 7){
+                        victim->onFire = true;
+                        victim->fireEffect->setVisible(true);
+                        victim->startFireEffect();
+                    }
 
                 }
             } else if (element == 2) {
                 if (attackTrue(attacker, victim)) {
                     victim->health -= damage;
-                    victim->beFrozen = true;
-                    victim->frozenEffect->setVisible(true);
-                    victim->startFrozenEffect();
+                    if(victim->antiElement != 2 && victim->antiElement != 4 && victim->antiElement != 6 && victim->antiElement != 7){
+                        victim->beFrozen = true;
+                        victim->frozenEffect->setVisible(true);
+                        victim->startFrozenEffect();
+                    }
                 }
             } else if (element == 3) {
                 if (attackTrue(attacker, victim)) {
                     victim->health -= damage;
-                    victim->beThundered = true;
-                    victim->electrocutedEffect->setVisible(true);
-                    victim->startThunderEffect(this);
+                    if(victim->antiElement != 3 && victim->antiElement != 5&& victim->antiElement != 6 && victim->antiElement != 7){
+                        victim->beThundered = true;
+                        victim->electrocutedEffect->setVisible(true);
+                        victim->startThunderEffect(this);
+                    }
                 }
             }
         }
@@ -1284,10 +1293,12 @@ void BattleScene::spawnRandomItem() {
 
     if (newItem) {
         newItem->setPos(randomXPosition, 0); // 设置物品初始位置
+        //newItem->setPos(newItem->pos() + QPointF(0, -newItem->boundingRect().height())); // 使物品显示在地面上
+        newItem->setZValue(1);
         addItem(newItem); // 添加到场景
         dropItems.append(newItem);
 
-        //applyGravity(newItem);
+        applyGravity(newItem);
 
         // 在3秒后移除物品，如果未被拾取
         QTimer::singleShot(3000, [this, newItem]() {
@@ -1297,9 +1308,26 @@ void BattleScene::spawnRandomItem() {
 }
 
 void BattleScene::removeItemAfterDelay(Item* item) {
-    if (dropItems.contains(item)) {
-        dropItems.removeOne(item);
-        removeItem(item);
-        delete item;
+    if (item) {  // 如果物品存在且未被拾取
+        auto mountable = dynamic_cast<Mountable *>(item);
+        if(mountable->isMounted()){
+            return;
+        }
+
+        dropItems.removeOne(item);  // 从掉落物品列表中移除
+        removeItem(item);  // 从场景中移除
+        delete item;  // 删除物品
     }
+}
+
+void BattleScene::applyGravity(Item* item) {
+    QTimer *gravityTimer = new QTimer(this);
+    connect(gravityTimer, &QTimer::timeout, [this, item, gravityTimer]() {
+        item->setPos(item->pos().x(), item->pos().y() + 10); // 使物品每帧向下移动
+        if (item->pos().y() >= 720 || item->isOnGround(item)) { // 检测是否落地
+            gravityTimer->stop();
+            gravityTimer->deleteLater();
+        }
+    });
+    gravityTimer->start(16); // 每16ms（约60帧每秒）更新位置
 }

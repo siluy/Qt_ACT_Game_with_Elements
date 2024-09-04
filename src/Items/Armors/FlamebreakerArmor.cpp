@@ -6,5 +6,5 @@
 
 FlamebreakerArmor::FlamebreakerArmor(QGraphicsItem *parent) : Armor(parent,
                                                                     ":/Items/Armors/FlamebreakerArmor/BotW_Flamebreaker_Armor_Icon.png") {
-
+    antiElement = 1; //火焰抗性
 }

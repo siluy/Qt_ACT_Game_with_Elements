@@ -142,6 +142,10 @@ public:
 
     void startThunderEffect(BattleScene* scene);
 
+    int antiElement = 0; //抗性，0表示无抗性，1表示火焰抗性，2表示冰霜抗性，3表示雷电抗性，4表示有火有冰，5表示有火有雷，6表示有冰有雷，7表示有火有冰有雷
+
+    void updateAntiElement(); //更新抗性
+
 
 
 protected:

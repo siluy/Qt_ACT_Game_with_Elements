@@ -8,6 +8,7 @@ Item::Item(QGraphicsItem *parent, const QString &pixmapPath) : QGraphicsItem(par
     if (pixmapPath != "") {
         pixmapItem = new QGraphicsPixmapItem(QPixmap(pixmapPath), this);
     } //如果图片路径不为空，创建一个QGraphicsPixmapItem对象
+    //pickedUp = false;  // 初始化为未拾取
 }
 
 bool Item::isOnGround(Item *item) {

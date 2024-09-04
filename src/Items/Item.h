@@ -40,6 +40,8 @@ public:
 
     static int blocks[9][16];
 
+    //bool pickedUp = false;  // 标志位：物品是否已被拾取
+
 protected:
     QGraphicsPixmapItem *pixmapItem{}; //QGraphicsPixmapItem对象指针，用于绘制图片
 };
