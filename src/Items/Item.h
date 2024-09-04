@@ -36,7 +36,9 @@ public:
 
     void setAcceleration(); //设置加速度
 
-        bool beThrown = false; //是否已投掷
+    bool beThrown = false; //是否已投掷
+
+    static int blocks[9][16];
 
 protected:
     QGraphicsPixmapItem *pixmapItem{}; //QGraphicsPixmapItem对象指针，用于绘制图片

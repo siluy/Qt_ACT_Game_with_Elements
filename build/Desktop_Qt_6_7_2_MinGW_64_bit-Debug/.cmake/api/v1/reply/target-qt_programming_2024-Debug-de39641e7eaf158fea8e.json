@@ -166,7 +166,7 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 76,
+				"line" : 80,
 				"parent" : 0
 			}
 		]
@@ -311,18 +311,22 @@
 				80,
 				82,
 				84,
-				86
+				86,
+				88,
+				90,
+				92,
+				94
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "qt_programming_2024_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "qt_programming_2024_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "qt_programming_2024_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "qt_programming_2024::@6890427a1f51a3e7e1df",
@@ -446,7 +450,11 @@
 				80,
 				82,
 				84,
-				86
+				86,
+				88,
+				90,
+				92,
+				94
 			]
 		},
 		{
@@ -493,7 +501,11 @@
 				77,
 				79,
 				81,
-				83
+				83,
+				85,
+				87,
+				89,
+				91
 			]
 		},
 		{
@@ -501,15 +513,15 @@
 			"sourceIndexes" : 
 			[
 				26,
-				85
+				93
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				87,
-				88
+				95,
+				96
 			]
 		}
 	],
@@ -982,6 +994,50 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Items/MeleeWeapons/IceSword.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/MeleeWeapons/ThunderSword.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/MeleeWeapons/ThunderSword.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Arrows/IceArrow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Arrows/IceArrow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Arrows/ThunderArrow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Arrows/ThunderArrow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Scenes/CommandDialog.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Scenes/CommandDialog.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

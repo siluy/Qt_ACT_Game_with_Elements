@@ -257,9 +257,21 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_IceArrow.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h",
 			"MU",
 			"HAVIXRU2FU/moc_NormalArrow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_ThunderArrow.cpp",
 			null
 		],
 		[
@@ -473,6 +485,12 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.h",
+			"MU",
+			"SNE2VJ5FQV/moc_CommandDialog.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h",
 			"MU",
 			"SNE2VJ5FQV/moc_Scene.cpp",
@@ -574,7 +592,17 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.cpp",
 			"MU",
 			null
 		],
@@ -750,6 +778,11 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.cpp",
 			"MU",
 			null
 		],

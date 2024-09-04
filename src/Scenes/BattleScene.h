@@ -24,6 +24,8 @@
 #include "../Items/Arrows/Arrow.h"
 #include "../Items/Arrows/NormalArrow.h"
 #include "../Items/Arrows/FireArrow.h"
+#include "../Items/Arrows/IceArrow.h"
+#include "../Items/Arrows/ThunderArrow.h"
 #include "../Items/Conditions/Fire.h"
 #include "../Items/Conditions/Electrocuted.h"
 #include "../Items/Conditions/Frozen.h"
@@ -63,6 +65,10 @@ public:
 
     void propagateThunderEffect(int startX, int y, int direction);
 
+    void spreadFire(int i, int j); //传播火焰
+
+    void igniteBlockIfLanded(Item* item); //如果物品落地，点燃方块
+
 protected slots:
 
     void update() override; //更新
@@ -95,6 +101,8 @@ private:
     Arrow *spareArrow; //空箭
     NormalArrow *normalArrow; //普通箭
     FireArrow *fireArrow; //火箭
+    IceArrow *iceArrow; //冰箭
+    ThunderArrow *thunderArrow; //雷箭
     QVector<Item*> dropItems; //掉落物品
     QVector<MeleeWeapon*> Melees; //近战武器
     QVector<Armor*> Armors; //护甲

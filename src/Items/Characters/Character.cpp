@@ -365,19 +365,15 @@ void Character::changeArrow() {
     if (arrows.isEmpty()) {  // 如果箭矢列表为空，直接返回
         return;
     }
-    qDebug() << "Arrow is not empty";
     // 隐藏当前箭矢
     if (arrows[arrowNum] != nullptr) {
-        qDebug() << "ArrowNum is:" << arrowNum;
         arrows[arrowNum]->setVisible(false);
     }
 
     // 递增箭矢索引
     arrowNum++;
-    qDebug() << "ArrowNum is increased to:" << arrowNum;
     if (arrowNum >= arrows.size()) {
         arrowNum = 0;  // 如果超过箭矢数量，重置为第一个箭矢
-        qDebug() << "ArrowNum is reset to 0";
     }
 
     // 显示下一个箭矢
@@ -386,8 +382,6 @@ void Character::changeArrow() {
         arrows[arrowNum]->mountToParent();
         arrows[arrowNum]->setVisible(true);
     }
-    qDebug() << "ArrowNum is now:" << arrowNum;
-    qDebug() << "Finish change";
 
     // 重置射箭状态，防止切换箭矢后自动射出
     isArrowFired = false;
@@ -415,8 +409,12 @@ void Character::initEffects() {
 }
 
 void Character::startFireEffect() {
-    fireTimer->start(1000);  // 每秒触发一次火焰伤害
-    QTimer::singleShot(5000, [this]() {  // 5秒后停止火焰效果
+    fireTimer->start(1000);
+    if (melee != nullptr && melee->material == 2) {  // 如果是木质武器
+        delete melee;
+        melee = nullptr;
+    }
+    QTimer::singleShot(5000, [this]() {
         this->onFire = false;
         this->fireEffect->setVisible(false);
         this->fireTimer->stop();

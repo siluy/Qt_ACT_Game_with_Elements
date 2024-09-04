@@ -393,15 +393,15 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
 void BattleScene::update() {
     if(link != nullptr){
         if(link->downSpeed >= 0){
-        link->setAcceleration(); //设置加速度
+            link->setAcceleration(); //设置加速度
         }
         if(!link->isOnGround()){
             link->downAcceleration = gravity.getGravity();
         }
-    //if(character->downSpeed >= 0){
+        //if(character->downSpeed >= 0){
         //gravity.setVelocity(character, deltaTime); //设置速度
         //gravity.setPos(character, deltaTime); //设置位置
-    //}
+        //}
         gravity.setVelocity(link, deltaTime); //设置速度
         gravity.setPos(link, deltaTime); //设置位置
     }
@@ -417,7 +417,7 @@ void BattleScene::update() {
     }
     for(Item* item: dropItems){
         if(!item->isOnGround(item))
-        gravity.setVelocity(item, deltaTime); //设置速度
+            gravity.setVelocity(item, deltaTime); //设置速度
         gravity.setPos(item, deltaTime); //设置位置
         if(item->isOnGround(item)){
             item->downSpeed = 0;
@@ -427,12 +427,30 @@ void BattleScene::update() {
     Scene::update();
     for(QGraphicsItem *Qitem: items()){
         if(auto item = dynamic_cast<Item *>(Qitem)){
-                processThrow(item);
+            processThrow(item);
         }
     }
     for(Character* character: Characters){
         if(character->beThundered){
             spreadThunderEffect(character);
+        }
+        if(character->onFire){
+            spreadFire(character->pos().y()/80, character->pos().x()/80);
+        }
+        // 检查是否在燃烧的石头方块上
+        if(character->onFire==false){
+            int blockX = static_cast<int>(character->pos().x()) / 80;
+            int blockY = static_cast<int>(character->pos().y()) / 80;
+            int absence = 30;
+            int n_blockY = static_cast<int>(character->pos().y() + absence) / 80;
+            int n_blockX = static_cast<int>(character->pos().x() + absence) / 80;
+            if (blockGrid[blockY][blockX] != nullptr && (blocks[blockY][blockX] == 4 || blocks[n_blockY][blockX] == 4
+                                                         || blocks[n_blockY][n_blockX] == 4 || blocks[blockY][n_blockX] == 4)
+                && blockGrid[blockY][blockX]->fire->isVisible()) {
+                character->onFire = true;
+                character->fireEffect->setVisible(1);
+                character->startFireEffect();
+            }
         }
     }
     map->update();
@@ -530,6 +548,7 @@ void BattleScene::processMeleeThrow(MeleeWeapon* melee) {
         }
         if(melee){
             if (melee->isOnGround(melee) && melee->beThrown) {
+                igniteBlockIfLanded(melee);
                 delete melee;
                 melee = nullptr;
             }
@@ -559,6 +578,7 @@ void BattleScene::processArrowThrow(Arrow* arrow) {
         }
         if(arrow){
             if (arrow->isOnGround(arrow) && arrow->beThrown) {
+                igniteBlockIfLanded(arrow);
                 delete arrow;
                 arrow = nullptr;
             }
@@ -576,7 +596,6 @@ void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
             victim->setMovable(true);  // 恢复移动能力
         }
         victim->setHealth(victim->health - damage);
-        qDebug() << "Victim health: " << victim->health;
 
         // 根据 element 属性应用效果
         int element = melee->element;
@@ -593,6 +612,14 @@ void BattleScene::applyMeleeEffect(MeleeWeapon* melee, Character* victim) {
             victim->onFire = true;
             victim->fireEffect->setVisible(true);
             victim->startFireEffect();
+            // 仅对石头砖块触发火焰扩散
+            //{
+                //int i = victim->y() / 80;
+                //int j = victim->x() / 80;
+                //if (blocks[i][j] == 4) {
+                    //spreadFire(i, j);
+                //}
+            //}
             break;
         case 2:  // 冰属性
             victim->beFrozen = true;
@@ -621,11 +648,17 @@ void BattleScene::applyArrowEffect(Arrow* arrow, Character* victim) {
             victim->setMovable(true);  // 恢复移动能力
         }
         victim->setHealth(victim->health - damage);
+        qDebug() << "Victim health: " << victim->health;
 
         // 根据 element 属性应用效果
         int element = arrow->element;
         if (auto fireArrow = dynamic_cast<FireArrow*>(arrow)) {
             element = fireArrow->element;
+
+        }else if(auto iceArrow = dynamic_cast<IceArrow*>(arrow)){
+            element = iceArrow->element;
+        }else if(auto thunderArrow = dynamic_cast<ThunderArrow*>(arrow)){
+            element = thunderArrow->element;
         }
 
         switch (element) {
@@ -633,6 +666,14 @@ void BattleScene::applyArrowEffect(Arrow* arrow, Character* victim) {
             victim->onFire = true;
             victim->fireEffect->setVisible(true);
             victim->startFireEffect();
+            //{
+            // 仅对石头砖块触发火焰扩散
+                //int i = victim->y() / 80;
+                //int j = victim->x() / 80;
+                //if (blocks[i][j] == 4) {
+                    //spreadFire(i, j);
+                //}
+            //}
             break;
         case 2:  // 冰属性
             victim->beFrozen = true;
@@ -798,6 +839,7 @@ void BattleScene::attackDone(Character *attacker, Character *victim) {
                     victim->onFire = true;
                     victim->fireEffect->setVisible(true);
                     victim->startFireEffect();
+
                 }
             } else if (element == 2) {
                 if (attackTrue(attacker, victim)) {
@@ -846,6 +888,52 @@ void BattleScene::propagateThunderEffect(int startX, int y, int direction) {
         x += direction;
     }
 }
+
+void BattleScene::spreadFire(int i, int j) {
+    if (i < 0 || i >= 9 || j < 0 || j >= 16 || blocks[i][j] != 4) {
+        return;  // 确保只处理石头砖块
+    }
+    qDebug() << "Spreading fire to block (" << i << ", " << j << ")";
+    auto stoneBlock = dynamic_cast<Stoneblock*>(blockGrid[i][j]);
+    if (stoneBlock == nullptr) {
+        return;  // 如果砖块已经燃烧或不是石头，退出
+    }else{
+        if(stoneBlock->fire == nullptr || stoneBlock->fire->isVisible()){
+            return;
+        }
+    }
+
+    // 设置火焰可见
+    stoneBlock->fire->setVisible(true);
+
+    // 延时扩散火焰到相邻的石头砖块
+    QTimer::singleShot(1000, [this, i, j]() {
+        //spreadFire(i + 1, j);
+        //spreadFire(i - 1, j);
+        spreadFire(i, j + 1);
+        spreadFire(i, j - 1);
+    });
+
+    // 延时删除燃尽的砖块
+    QTimer::singleShot(5000, [this, i, j]() {
+        if (blockGrid[i][j] != nullptr) {  // 确保砖块仍然存在
+            delete blockGrid[i][j];
+            blockGrid[i][j] = nullptr;
+            Item::blocks[i][j] = 0;
+        }
+    });
+}
+
+
+void BattleScene::igniteBlockIfLanded(Item* item) {
+    int blockX = static_cast<int>(item->pos().x()) / 80;
+    int blockY = static_cast<int>(item->pos().y()) / 80;
+    if (blockGrid[blockY][blockX] != nullptr && blocks[blockY][blockX] == 4) {
+        //blockGrid[blockY][blockX]->fire->setVisible(true);
+        spreadFire(blockY, blockX);
+    }
+}
+
 
 const int BattleScene::blocks[9][16] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},

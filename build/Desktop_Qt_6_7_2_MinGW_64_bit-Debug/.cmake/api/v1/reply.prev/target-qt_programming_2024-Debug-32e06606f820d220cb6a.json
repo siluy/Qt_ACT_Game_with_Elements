@@ -166,7 +166,7 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 77,
+				"line" : 79,
 				"parent" : 0
 			}
 		]
@@ -312,7 +312,9 @@
 				82,
 				84,
 				86,
-				88
+				88,
+				90,
+				92
 			]
 		}
 	],
@@ -448,7 +450,9 @@
 				82,
 				84,
 				86,
-				88
+				88,
+				90,
+				92
 			]
 		},
 		{
@@ -496,7 +500,9 @@
 				79,
 				81,
 				83,
-				85
+				85,
+				87,
+				89
 			]
 		},
 		{
@@ -504,15 +510,15 @@
 			"sourceIndexes" : 
 			[
 				26,
-				87
+				91
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				89,
-				90
+				93,
+				94
 			]
 		}
 	],
@@ -996,6 +1002,28 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Items/MeleeWeapons/ThunderSword.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Arrows/IceArrow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Arrows/IceArrow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/Arrows/ThunderArrow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/Arrows/ThunderArrow.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

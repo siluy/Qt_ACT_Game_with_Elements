@@ -384,7 +384,9 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/Armor.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Grassblock.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Ironblock.h \

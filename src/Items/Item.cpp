@@ -11,34 +11,27 @@ Item::Item(QGraphicsItem *parent, const QString &pixmapPath) : QGraphicsItem(par
 }
 
 bool Item::isOnGround(Item *item) {
-    if(item != nullptr){
+    if (item != nullptr) {
         QPointF Position = item->pos();
-        bool onGround = false;
-        int blockX = (int)Position.x() / 80;
-        int blockY = (int)Position.y() / 80;
+        int blockX = static_cast<int>(Position.x()) / 80;
+        int blockY = static_cast<int>(Position.y()) / 80;
         double absence = 30;
-        //int n_blockX = (int)(Position.x() + absence) / 80;
-        int n_blockY = (int)(Position.y() + absence) / 80;
-        int blocks[9][16] = {
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
-        if (blocks[blockY][blockX] != 0) {
-            onGround = true;
+        int n_blockY = static_cast<int>(Position.y() + absence) / 80;
+
+        if (blockY < 0 || blockY >= 9 || blockX < 0 || blockX >= 16) {
+            return false;  // 防止越界访问
         }
-    //判断当前位置是否为空
+
+        if (blocks[blockY][blockX] != 0) {
+            return true;
+        }
+
         if (blocks[blockY][blockX] == 0 && blocks[n_blockY][blockX] != 0) {
-            onGround = false;}
-        return onGround;
+            return false;
+        }
     }
     return false;
-} //判断item是否在地面上
+}
 
 void Item::setAcceleration() {
     if(isOnGround(this)) {
@@ -48,3 +41,14 @@ void Item::setAcceleration() {
         downAcceleration = 0.03;
     }
 } //设置加速度
+
+int Item::blocks[9][16] = {
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //地图

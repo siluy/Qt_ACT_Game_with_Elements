@@ -585,8 +585,12 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Grassblock.cpp \
@@ -657,6 +661,8 @@ qt_programming_2024_autogen/timestamp: \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/MyGame.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.h \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.cpp \
+	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.cpp \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h \
 	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/main.cpp \
