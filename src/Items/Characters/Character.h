@@ -73,6 +73,10 @@ public:
 
     Bow* pickupBow(Bow* newBow); //拾取弓
 
+    HeadEquipment* pickupHeadEquipment(HeadEquipment* newHeadEquipment); //拾取头部装备
+
+    LegEquipment* pickupLegEquipment(LegEquipment* newLegEquipment); //拾取腿部装备
+
     Gravity gravity; //重力
 
     bool isOnGround() const; //是否在地面上

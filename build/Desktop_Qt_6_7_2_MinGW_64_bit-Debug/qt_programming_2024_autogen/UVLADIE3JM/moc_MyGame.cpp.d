@@ -1,6 +1,12 @@
 C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/UVLADIE3JM/moc_MyGame.cpp: C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/MyGame.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/moc_predefs.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QList \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QObject \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/QPointF \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QRandomGenerator \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QRect \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QSize \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/QSizeF \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/QTimer \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
@@ -32,10 +38,16 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcoreapplication.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qeventloop.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qflags.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
@@ -47,12 +59,14 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qline.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qlogging.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmalloc.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
@@ -62,6 +76,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qminmax.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qnativeinterface.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qnumeric.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
@@ -71,6 +86,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qpoint.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qrandom.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qrect.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
@@ -115,23 +131,33 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/QKeyEvent \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/QShortcut \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/QTransform \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qcursor.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qinputdevice.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
@@ -140,27 +166,50 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qscreen.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qshortcut.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtextcursor.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtextformat.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtextoption.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QDialog \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QHBoxLayout \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlineedit.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -216,6 +265,8 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/postypes.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/predefined_ops.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ptr_traits.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/random.tcc \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/range_access.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h \
@@ -293,6 +344,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/random \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h \
@@ -327,11 +379,17 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/pmmintrin.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h \
+  C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -367,6 +425,61 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/D/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/Armor.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/FlamebreakerArmor.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/IceArmor.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/ThunderArmor.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Blocks.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Grassblock.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Ironblock.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Soilblock.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Blocks/Stoneblock.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/Bow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronBow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronHandBow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronStrongBow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodBow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodHandBow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodStrongBow.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Link.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Rival.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/FlameCap.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/HeadEquipment.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/IceCap.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/ThunderCap.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Item.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/FlameTrousers.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/IceTrousers.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/ThunderTrousers.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/WellWornTrousers.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/Map.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Maps/battlebackground.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IceSword.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronLongSword.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronStaff.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/MeleeWeapon.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/ThunderSword.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodLongSword.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodStaff.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h

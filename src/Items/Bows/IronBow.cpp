@@ -1,6 +1,8 @@
 #include "IronBow.h"
 
-IronBow::IronBow(QGraphicsItem *parent) :Bow(parent, "://Items/Weapons/BowsAndArrows/IronBow/IronBow.png"){}
+IronBow::IronBow(QGraphicsItem *parent) :Bow(parent, "://Items/Weapons/BowsAndArrows/IronBow/IronBow.png"){
+    material = 1; //设置材质为铁质
+}
 
 //void IronBow::mountToParent() {
     //Bow::mountToParent(); //调用父类的挂载函数，设置为挂载状态

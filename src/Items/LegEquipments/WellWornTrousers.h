@@ -10,7 +10,7 @@
 
 class WellWornTrousers : public LegEquipment {
 public:
-    explicit WellWornTrousers(QGraphicsItem *parent); //构造函数，传入父节点
+    explicit WellWornTrousers(QGraphicsItem *parent = nullptr); //构造函数，传入父节点
 }; //WellWornTrousers类继承自LegEquipment类，表示破旧的裤子
 
 

@@ -4,10 +4,7 @@
 
 #include <QDebug>
 #include "BattleScene.h"
-#include "../Items/Characters/Link.h"
-#include "../Items/Characters/Rival.h"
-#include "../Items/Maps/battlebackground.h"
-#include "../Items/Armors/FlamebreakerArmor.h"
+
 #include "../Items/Gravity.h"
 #include "../Items/Blocks/Blocks.h"
 #include "../Items/Blocks/Grassblock.h"
@@ -19,6 +16,9 @@
 BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     // This is useful if you want the scene to have the exact same dimensions as the view
     setSceneRect(0, 0, 1280, 720); //设置场景矩形区域为(0,0,1280,720)
+    spawnTimer = new QTimer(this);
+    connect(spawnTimer, &QTimer::timeout, this, &BattleScene::spawnRandomItem);
+    spawnTimer->start(2000); // 两秒触发一次
     const int blockWidth = 80; //方块宽度为80
 
     map = new Battlebackground(); //创建一个战场对象
@@ -30,18 +30,43 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     Characters.push_back(link);
     Characters.push_back(rival);
 
-    spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+    //spareArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+    flamebreakerArmor = new FlamebreakerArmor(); //创建一个火焰护甲对象
+    //oldShirt = new OldShirt(); //创建一个旧衬衫对象
+    //iceArmor = new IceArmor(); //创建一个冰护甲对象
+    //thunderArmor = new ThunderArmor(); //创建一个雷护甲对象
 
-    ironShortSword = new IronShortSword(); //创建一个铁短剑对象
-    woodShortSword = new WoodShortSword(); //创建一个木短剑对象
-    fireSword = new FireSword(); //创建一个火焰剑对象
-    iceSword = new IceSword(); //创建一个冰剑对象
+    //ironShortSword = new IronShortSword(); //创建一个铁短剑对象
+    //woodShortSword = new WoodShortSword(); //创建一个木短剑对象
+    //ironLongSword = new IronLongSword(); //创建一个铁长剑对象
+    //woodLongSword = new WoodLongSword(); //创建一个木长剑对象
+    //ironStaff = new IronStaff(); //创建一个铁杖对象
+    //woodStaff = new WoodStaff(); //创建一个木杖对象
+    //fireSword = new FireSword(); //创建一个火焰剑对象
+    //iceSword = new IceSword(); //创建一个冰剑对象
     thunderSword = new ThunderSword(); //创建一个雷剑对象
 
-    ironBow = new IronBow(); //创建一个铁弓对象
+    //ironBow = new IronBow(); //创建一个铁弓对象
+    //woodBow = new WoodBow(); //创建一个木弓对象
+    //ironStrongBow = new IronStrongBow(); //创建一个铁强弓对象
+    //woodStrongBow = new WoodStrongBow(); //创建一个木强弓对象
+    //ironHandBow = new IronHandBow(); //创建一个铁手弓对象
+    woodHandBow = new WoodHandBow(); //创建一个木手弓对象
 
-    normalArrow = new NormalArrow(); //创建一个普通箭对象
-    fireArrow = new FireArrow(); //创建一个火箭对象
+    //normalArrow = new NormalArrow(); //创建一个普通箭对象
+    //fireArrow = new FireArrow(); //创建一个火箭对象
+    iceArrow = new IceArrow(); //创建一个冰箭对象
+    //thunderArrow = new ThunderArrow(); //创建一个雷箭对象
+
+    flameCap = new FlameCap(); //创建一个火帽对象
+    //iceCap = new IceCap(); //创建一个冰帽对象
+    //thunderCap = new ThunderCap(); //创建一个雷帽对象
+    //capOfTheHero = new CapOfTheHero(); //创建一个英雄帽对象
+
+    flameTrousers = new FlameTrousers(); //创建一个火裤对象
+    //iceTrousers = new IceTrousers(); //创建一个冰裤对象
+    //thunderTrousers = new ThunderTrousers(); //创建一个雷裤对象
+    //wellWornTrousers = new WellWornTrousers(); //创建一个破旧裤对象
 
     fireOfLink = new Fire();
     frozenOfLink = new Frozen();
@@ -59,15 +84,42 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     rival->frozenEffect = frozenOfRival;
     rival->electrocutedEffect = electrocutedOfRival;
 
-    dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
-    dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
-    dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
-    dropItems.push_back(ironBow);
-    dropItems.push_back(normalArrow);
-    dropItems.push_back(fireArrow);
-    Melees.push_back(ironShortSword);
-    Melees.push_back(woodShortSword);
-    Armors.push_back(spareArmor);
+    //dropItems.push_back(ironShortSword); //添加铁短剑到掉落物品
+    //dropItems.push_back(woodShortSword); //添加木短剑到掉落物品
+    //dropItems.push_back(ironLongSword);
+    //dropItems.push_back(woodLongSword); //添加木长剑到掉落物品
+    //dropItems.push_back(ironStaff); //添加铁杖到掉落物品
+    //dropItems.push_back(woodStaff); //添加木杖到掉落物品
+    //dropItems.push_back(fireSword); //添加火剑到掉落物品
+    //dropItems.push_back(iceSword); //添加冰剑到掉落物品
+    dropItems.push_back(thunderSword); //添加雷剑到掉落物品
+
+    //dropItems.push_back(ironBow); //添加铁弓到掉落物品
+    //dropItems.push_back(woodBow);
+    //dropItems.push_back(ironStrongBow); //添加铁强弓到掉落物品
+    //dropItems.push_back(woodStrongBow); //添加木强弓到掉落物品
+    //dropItems.push_back(ironHandBow); //添加铁手弓到掉落物品
+    dropItems.push_back(woodHandBow); //添加木手弓到掉落物品
+
+    //dropItems.push_back(spareArmor); //添加备用护甲到掉落物品
+    dropItems.push_back(flamebreakerArmor);
+    //dropItems.push_back(oldShirt); //添加旧衬衫到掉落物品
+    //dropItems.push_back(iceArmor); //添加冰护甲到掉落物品
+    //dropItems.push_back(thunderArmor); //添加雷护甲到掉落物品
+
+    //dropItems.push_back(iceCap); //添加冰帽到掉落物品
+    //dropItems.push_back(thunderCap); //添加雷帽到掉落物品
+    dropItems.push_back(flameCap);
+    //dropItems.push_back(capOfTheHero); //添加英雄帽到掉落物品
+
+    //dropItems.push_back(normalArrow);
+    //dropItems.push_back(fireArrow);
+    dropItems.push_back(iceArrow);
+    //dropItems.push_back(thunderArrow);
+
+    //Melees.push_back(ironShortSword);
+    //Melees.push_back(woodShortSword);
+    //Armors.push_back(spareArmor);
     //dropItems.push_back(spareMelee); //添加备用近战武器到掉落物品
     //spareMelee = std::make_shared<IronShortSword>(); // 创建一个铁短剑对象，并赋值给 spareMelee
 
@@ -128,19 +180,43 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     addItem(link); //添加角色
     addItem(rival); //添加对手
 
-    addItem(spareArmor); //添加空护甲
+    //addItem(spareArmor); //添加空护甲
+    addItem(flamebreakerArmor); //添加火焰护甲
+    //addItem(oldShirt); //添加旧衬衫
+    //addItem(iceArmor); //添加冰护甲
+    //addItem(thunderArmor); //添加雷护甲
 
+    addItem(flameCap); //添加火帽
+    //addItem(iceCap); //添加冰帽
+    //addItem(thunderCap); //添加雷帽
+    //addItem(capOfTheHero); //添加英雄帽
 
-    addItem(ironShortSword); //添加铁短剑
-    addItem(woodShortSword); //添加木短剑
-    addItem(fireSword); //添加火剑
-    addItem(iceSword); //添加冰剑
+    addItem(flameTrousers); //添加火裤
+    //addItem(iceTrousers); //添加冰裤
+    //addItem(thunderTrousers); //添加雷裤
+    //addItem(wellWornTrousers); //添加破旧裤
+
+    //addItem(ironShortSword); //添加铁短剑
+    //addItem(woodShortSword); //添加木短剑
+    //addItem(ironLongSword); //添加铁长剑
+    //addItem(woodLongSword); //添加木长剑
+    //addItem(ironStaff); //添加铁杖
+    //addItem(woodStaff); //添加木杖
+    //addItem(fireSword); //添加火剑
+    //addItem(iceSword); //添加冰剑
     addItem(thunderSword); //添加雷剑
 
-    addItem(ironBow); //添加铁弓
+    //addItem(ironBow); //添加铁弓
+    //addItem(woodBow); //添加木弓
+    //addItem(ironStrongBow); //添加铁强弓
+    //addItem(woodStrongBow); //添加木强弓
+    //addItem(ironHandBow); //添加铁手弓
+    addItem(woodHandBow); //添加木手弓
 
-    addItem(normalArrow);
-    addItem(fireArrow);
+    //addItem(normalArrow);
+    //addItem(fireArrow);
+    addItem(iceArrow);
+    //addItem(thunderArrow);
 
     addItem(fireOfLink); //添加火焰
     addItem(fireOfRival); //添加火焰
@@ -154,31 +230,85 @@ BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     link->setPos(map->getSpawnPosForLink()); //设置角色位置为出生点
     rival->setPos(map->getSpawnPosForRival()); //设置对手位置为出生点
 
-    spareArmor->unmount(); //卸载空护甲
-    spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置空护甲位置
+    //spareArmor->unmount(); //卸载空护甲
+    //spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置空护甲位置
+    flamebreakerArmor->unmount(); //卸载火焰护甲
+    flamebreakerArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置火焰护甲位置
+    //iceArmor->unmount(); //卸载冰护甲
+    //iceArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置冰护甲位置
+    //thunderArmor->unmount(); //卸载雷护甲
+    //thunderArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置雷护甲位置
+    //oldShirt->unmount(); //卸载旧衬衫
+    //oldShirt->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight()); //设置旧衬衫位置
 
-    ironShortSword->unmount(); //卸载铁短剑
-    woodShortSword->unmount(); //卸载木短剑
-    fireSword->unmount(); //卸载火剑
-    iceSword->unmount(); //卸载冰剑
+    //ironShortSword->unmount(); //卸载铁短剑
+    //woodShortSword->unmount(); //卸载木短剑
+    //ironLongSword->unmount(); //卸载铁长剑
+    //woodLongSword->unmount(); //卸载木长剑
+    //ironStaff->unmount(); //卸载铁杖
+    //woodStaff->unmount(); //卸载木杖
+    //fireSword->unmount(); //卸载火剑
+    //iceSword->unmount(); //卸载冰剑
     thunderSword->unmount(); //卸载雷剑
-    ironShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.85, map->getFloorHeight()); //设置铁短剑位置
-    woodShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木短剑位置
-    fireSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.65, map->getFloorHeight()); //设置火剑位置
-    iceSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置冰剑位置
-    thunderSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.05, map->getFloorHeight()); //设置雷剑位置
+    //ironShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置铁短剑位置
+    //woodShortSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木短剑位置
+    //ironLongSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置铁长剑位置
+    //woodLongSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木长剑位置
+    //ironStaff->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置铁杖位置
+    //woodStaff->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置木杖位置
+    //fireSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置火剑位置
+    //iceSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置冰剑位置
+    thunderSword->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.25, map->getFloorHeight()); //设置雷剑位置
 
-    ironBow->unmount(); //卸载铁弓
-    ironBow->setScale(0.2); //设置缩放比
-    ironBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置铁弓位置
+    //ironBow->unmount(); //卸载铁弓
+    //ironBow->setScale(0.2); //设置缩放比
+    //ironBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置铁弓位置
+    //woodBow->unmount(); //卸载木弓
+    //woodBow->setScale(0.2); //设置缩放比
+    //woodBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置木弓位置
+    //ironStrongBow->unmount(); //卸载铁强弓
+    //ironStrongBow->setScale(0.2); //设置缩放比
+    //ironStrongBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置铁强弓位置
+    //woodStrongBow->unmount(); //卸载木强弓
+    //woodStrongBow->setScale(0.2); //设置缩放比
+    //woodStrongBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置木强弓位置
+    //ironHandBow->unmount(); //卸载铁手弓
+    //ironHandBow->setScale(0.2); //设置缩放比
+    //ironHandBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置铁手弓位置
+    woodHandBow->unmount(); //卸载木手弓
+    woodHandBow->setScale(0.2); //设置缩放比
+    woodHandBow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.5, map->getFloorHeight()*0.5); //设置木手弓位置
 
-    normalArrow->unmount();
-    normalArrow->setScale(0.2);
-    normalArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
+    //normalArrow->unmount();
+    //normalArrow->setScale(0.2);
+    //normalArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
+    //fireArrow->unmount();
+    //fireArrow->setScale(0.2);
+    //fireArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
+    iceArrow->unmount();
+    iceArrow->setScale(0.2);
+    iceArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
+    //thunderArrow->unmount();
+    //thunderArrow->setScale(0.2);
+    //thunderArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.35, map->getFloorHeight()*0.5);
 
-    fireArrow->unmount();
-    fireArrow->setScale(0.2);
-    fireArrow->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.65, map->getFloorHeight()*0.5);
+    flameCap->unmount(); //卸载火帽
+    flameCap->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置火帽位置
+    //iceCap->unmount(); //卸载冰帽
+    //iceCap->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置冰帽位置
+    //thunderCap->unmount(); //卸载雷帽
+   // thunderCap->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置雷帽位置
+    //capOfTheHero->unmount(); //卸载英雄帽
+    //capOfTheHero->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.15, map->getFloorHeight()); //设置英雄帽位置
+
+    flameTrousers->unmount(); //卸载火裤
+    flameTrousers->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置火裤位置
+    //iceTrousers->unmount(); //卸载冰裤
+    //iceTrousers->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置冰裤位置
+    //thunderTrousers->unmount(); //卸载雷裤
+    //thunderTrousers->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置雷裤位置
+    //wellWornTrousers->unmount(); //卸载破旧裤
+    //wellWornTrousers->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.45, map->getFloorHeight()); //设置破旧裤位置
 
     fireOfLink->unmount(); //卸载火焰
     fireOfLink->setParentItem(link); //设置火焰父节点为角色
@@ -436,6 +566,24 @@ void BattleScene::update() {
         }
         if(character->onFire){
             spreadFire(character->pos().y()/80, character->pos().x()/80);
+            if(character->melee != nullptr && character->melee->isVisible()){
+                qDebug() << "Character have a melee.";
+                if(character->melee->material == 2){
+                    qDebug() << "Character have a wood melee.";
+                    character->melee->unmount();
+                    delete character->melee;
+                    character->melee = nullptr;
+                }
+            }
+            if(character->bow != nullptr && character->bow->isVisible()){
+                qDebug() << "Character have a bow.";
+                if(character->bow->material == 2){
+                    qDebug() << "Character have a wood bow.";
+                    character->bow->unmount();
+                    delete character->bow;
+                    character->bow = nullptr;
+                }
+            }
         }
         // 检查是否在燃烧的石头方块上
         if(character->onFire==false){
@@ -752,6 +900,12 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
     if (auto armor = dynamic_cast<Armor *>(mountable)) {
         return character->pickupArmor(armor); //拾取护甲
     }
+    if (auto cap = dynamic_cast<HeadEquipment *>(mountable)) {
+        return character->pickupHeadEquipment(cap); //拾取帽子
+    }
+    if (auto trousers = dynamic_cast<LegEquipment *>(mountable)) {
+        return character->pickupLegEquipment(trousers); //拾取裤子
+    }
     if (auto melee = dynamic_cast<MeleeWeapon *>(mountable)) {
         return character->pickupMelee(melee); //拾取近战武器
     }
@@ -895,12 +1049,8 @@ void BattleScene::spreadFire(int i, int j) {
     }
     qDebug() << "Spreading fire to block (" << i << ", " << j << ")";
     auto stoneBlock = dynamic_cast<Stoneblock*>(blockGrid[i][j]);
-    if (stoneBlock == nullptr) {
+    if (stoneBlock == nullptr || stoneBlock->fire == nullptr || stoneBlock->fire->isVisible()) {
         return;  // 如果砖块已经燃烧或不是石头，退出
-    }else{
-        if(stoneBlock->fire == nullptr || stoneBlock->fire->isVisible()){
-            return;
-        }
     }
 
     // 设置火焰可见
@@ -946,3 +1096,210 @@ const int BattleScene::blocks[9][16] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}; //方块数组初始化
 
+void BattleScene::spawnItem(const QString &itemType) {
+    Item *newItem = nullptr;
+
+    if (itemType == "WoodShortSword") {
+        newItem = new WoodShortSword();
+    } else if (itemType == "IronShortSword") {
+        newItem = new IronShortSword();
+    } else if (itemType == "IronLongSword"){
+        newItem = new IronLongSword();
+    } else if (itemType == "WoodLongSword") {
+        newItem = new WoodLongSword();
+    } else if (itemType == "IronStaff") {
+        newItem = new IronStaff();
+    } else if (itemType == "WoodStaff") {
+        newItem = new WoodStaff();
+    } else if (itemType == "IronBow") {
+        newItem = new IronBow();
+    } else if (itemType == "NormalArrow") {
+        newItem = new NormalArrow();
+    } else if (itemType == "FireArrow") {
+        newItem = new FireArrow();
+    } else if (itemType == "IceArrow") {
+        newItem = new IceArrow();
+    } else if (itemType == "ThunderArrow") {
+        newItem = new ThunderArrow();
+    } else if (itemType == "FlameArmor") {
+        newItem = new FlamebreakerArmor();
+    } else if (itemType == "OldShirt") {
+        newItem = new OldShirt();
+    } else if (itemType == "FireSword") {
+        newItem = new FireSword();
+    } else if (itemType == "IceArmor") {
+        newItem = new IceArmor();
+    } else if (itemType == "ThunderArmor") {
+        newItem = new ThunderArmor();
+    } else if (itemType == "IceSword") {
+        newItem = new IceSword();
+    } else if (itemType == "ThunderSword") {
+        newItem = new ThunderSword();
+    } else if (itemType == "IronBow") {
+        newItem = new IronBow();
+    } else if (itemType == "WoodBow") {
+        newItem = new WoodBow();
+    } else if (itemType == "IronStrongBow") {
+        newItem = new IronStrongBow();
+    } else if (itemType == "WoodStrongBow") {
+        newItem = new WoodStrongBow();
+    } else if (itemType == "IronHandBow") {
+        newItem = new IronHandBow();
+    } else if (itemType == "WoodHandBow") {
+        newItem = new WoodHandBow();
+    } else if (itemType == "CapOfTheHero") {
+        newItem = new CapOfTheHero();
+    } else if (itemType == "FlameCap") {
+        newItem = new FlameCap();
+    } else if (itemType == "IceCap") {
+        newItem = new IceCap();
+    } else if (itemType == "ThunderCap") {
+        newItem = new ThunderCap();
+    } else if (itemType == "FlameTrousers") {
+        newItem = new FlameTrousers();
+    } else if (itemType == "IceTrousers") {
+        newItem = new IceTrousers();
+    } else if (itemType == "ThunderTrousers") {
+        newItem = new ThunderTrousers();
+    } else if (itemType == "WellWornTrousers") {
+        newItem = new WellWornTrousers();
+    } else {
+        qDebug() << "Unknown cheat code:" << itemType;
+    }
+    auto newMountable = dynamic_cast<Mountable *>(newItem);
+    if (newMountable) {
+        newItem->setPos(100, 100);  // Example position
+        addItem(newItem);
+        dropItems.append(newItem);
+        newMountable->unmount();
+    } else {
+        qDebug() << "Unknown cheat code:" << itemType;
+    }
+}
+
+void BattleScene::spawnRandomItem() {
+    int randomItemIndex = QRandomGenerator::global()->bounded(0, 31); // 生成0到11之间的随机数
+    int randomXPosition = QRandomGenerator::global()->bounded(0, 1280); // 随机生成X位置
+
+    Item *newItem = nullptr;
+
+    switch (randomItemIndex) {
+    case 0:
+        newItem = new WoodShortSword();
+        break;
+    case 1:
+        newItem = new WoodLongSword();
+        break;
+    case 2:
+        newItem = new WoodStaff();
+        break;
+    case 3:
+        newItem = new ThunderSword();
+        break;
+    case 4:
+        newItem = new FireSword();
+        break;
+    case 5:
+        newItem = new IceSword();
+        break;
+    case 6:
+        newItem = new IronStaff();
+        break;
+    case 7:
+        newItem = new IronLongSword();
+        break;
+    case 8:
+        newItem = new IronShortSword();
+        break;
+    case 9:
+        newItem = new IronBow();
+        break;
+    case 10:
+        newItem = new IronStrongBow();
+        break;
+    case 11:
+        newItem = new IronHandBow();
+        break;
+    case 12:
+        newItem = new WoodBow();
+        break;
+    case 13:
+        newItem = new WoodStrongBow();
+        break;
+    case 14:
+        newItem = new WoodHandBow();
+        break;
+    case 15:
+        newItem = new NormalArrow();
+        break;
+    case 16:
+        newItem = new FireArrow();
+        break;
+    case 17:
+        newItem = new IceArrow();
+        break;
+    case 18:
+        newItem = new ThunderArrow();
+        break;
+    case 19:
+        newItem = new FlamebreakerArmor();
+        break;
+    case 20:
+        newItem = new IceArmor();
+        break;
+    case 21:
+        newItem = new ThunderArmor();
+        break;
+    case 22:
+        newItem = new OldShirt();
+        break;
+    case 23:
+        newItem = new CapOfTheHero();
+        break;
+    case 24:
+        newItem = new FlameCap();
+        break;
+    case 25:
+        newItem = new IceCap();
+        break;
+    case 26:
+        newItem = new ThunderCap();
+        break;
+    case 27:
+        newItem = new FlameTrousers();
+        break;
+    case 28:
+        newItem = new IceTrousers();
+        break;
+    case 29:
+        newItem = new ThunderTrousers();
+        break;
+    case 30:
+        newItem = new WellWornTrousers();
+        break;
+    default:
+        //newItem = new Item(); // 默认物品，防止出错
+        break;
+    }
+
+    if (newItem) {
+        newItem->setPos(randomXPosition, 0); // 设置物品初始位置
+        addItem(newItem); // 添加到场景
+        dropItems.append(newItem);
+
+        //applyGravity(newItem);
+
+        // 在3秒后移除物品，如果未被拾取
+        QTimer::singleShot(3000, [this, newItem]() {
+            removeItemAfterDelay(newItem);
+        });
+    }
+}
+
+void BattleScene::removeItemAfterDelay(Item* item) {
+    if (dropItems.contains(item)) {
+        dropItems.removeOne(item);
+        removeItem(item);
+        delete item;
+    }
+}

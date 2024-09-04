@@ -28,6 +28,8 @@ public:
 
     int attackRange; //攻击范围
 
+    int material; //材质，0无，1铁质，2木质
+
 
 };
 

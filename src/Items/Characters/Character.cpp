@@ -172,6 +172,33 @@ Armor *Character::pickupArmor(Armor *newArmor) {
     armor = newArmor; //设置新护甲
     return oldArmor; //返回旧护甲
 } //拾取护甲
+
+HeadEquipment *Character::pickupHeadEquipment(HeadEquipment * newHeadEquipment) {
+    auto oldHeadEquipment = headEquipment; //旧头部装备
+    if (oldHeadEquipment != nullptr) { //如果旧头部装备不为空
+        oldHeadEquipment->unmount(); //卸载旧头部装备
+        oldHeadEquipment->setPos(newHeadEquipment->pos()); //设置旧头部装备位置为新头部装备位置
+        oldHeadEquipment->setParentItem(parentItem());  //设置旧头部装备的父节点为当前节点
+    }
+    newHeadEquipment->setParentItem(this); //设置新头部装备的父节点为当前节点
+    newHeadEquipment->mountToParent(); //挂载新头部装备到父节点
+    headEquipment = newHeadEquipment; //设置新头部装备
+    return oldHeadEquipment; //返回旧头部装备
+}
+
+LegEquipment *Character::pickupLegEquipment(LegEquipment * newLegEquipment) {
+    auto oldLegEquipment = legEquipment; //旧腿部装备
+    if (oldLegEquipment != nullptr) { //如果旧腿部装备不为空
+        oldLegEquipment->unmount(); //卸载旧腿部装备
+        oldLegEquipment->setPos(newLegEquipment->pos()); //设置旧腿部装备位置为新腿部装备位置
+        oldLegEquipment->setParentItem(parentItem());  //设置旧腿部装备的父节点为当前节点
+    }
+    newLegEquipment->setParentItem(this); //设置新腿部装备的父节点为当前节点
+    newLegEquipment->mountToParent(); //挂载新腿部装备到父节点
+    legEquipment = newLegEquipment; //设置新腿部装备
+    return oldLegEquipment; //返回旧腿部装备
+}
+
 Arrow* Character::pickupArrow(Arrow* newArrow) {
     // 假设你想保留原有的箭矢，这里直接添加新的箭矢到 arrows 中
     newArrow->setParentItem(this); // 设置新箭矢的父节点为当前角色

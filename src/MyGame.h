@@ -2,23 +2,31 @@
 // Created by gerw on 8/20/24.
 //
 
-#ifndef QT_PROGRAMMING_2024_MYGAME_H
-#define QT_PROGRAMMING_2024_MYGAME_H
+#ifndef MYGAME_H
+#define MYGAME_H
 
-#include <QGraphicsView>
 #include <QMainWindow>
+#include <QGraphicsView>
+#include <QShortcut>
+#include "Scenes/BattleScene.h"
 #include "Scenes/Scene.h"
+#include "Scenes/CommandDialog.h"
 
 class MyGame : public QMainWindow {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-    explicit MyGame(QWidget *parent = nullptr); //构造函数，传入父节点
+    explicit MyGame(QWidget *parent = nullptr);
+
+private slots:
+    void showCommandDialog();
+    void processCommand(const QString &command);
 
 private:
-    Scene *battleScene;  //战斗场景
-    QGraphicsView *view; //视图
-}; //MyGame类继承自QMainWindow类，表示我的游戏
+    QGraphicsView *view;
+    BattleScene *battleScene;
+    QShortcut *cheatShortcut;
+    CommandDialog *commandDialog;
+};
 
-
-#endif //QT_PROGRAMMING_2024_MYGAME_H
+#endif // MYGAME_H

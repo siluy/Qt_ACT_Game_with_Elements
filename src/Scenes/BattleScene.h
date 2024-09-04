@@ -6,6 +6,8 @@
 #define QT_PROGRAMMING_2024_BATTLESCENE_H
 
 #include <QKeyEvent>
+#include <QTimer>
+#include <QRandomGenerator>
 #include "Scene.h"
 #include "../Items/Maps/Map.h"
 #include "../Items/Characters/Character.h"
@@ -29,6 +31,40 @@
 #include "../Items/Conditions/Fire.h"
 #include "../Items/Conditions/Electrocuted.h"
 #include "../Items/Conditions/Frozen.h"
+#include "../Items/Characters/Link.h"
+#include "../Items/Characters/Rival.h"
+#include "../Items/Maps/battlebackground.h"
+#include "../Items/Armors/FlamebreakerArmor.h"
+#include "../Items/Armors/OldShirt.h"
+#include "../Items/Armors/IceArmor.h"
+#include "../Items/Armors/ThunderArmor.h"
+#include "../Items/HeadEquipments/ThunderCap.h"
+#include "../Items/HeadEquipments/IceCap.h"
+#include "../Items/HeadEquipments/FlameCap.h"
+#include "../Items/HeadEquipments/CapOfTheHero.h"
+#include "../Items/LegEquipments/IceTrousers.h"
+#include "../Items/LegEquipments/ThunderTrousers.h"
+#include "../Items/LegEquipments/FlameTrousers.h"
+#include "../Items/LegEquipments/WellWornTrousers.h"
+#include "../Items/MeleeWeapons/IronLongSword.h"
+#include "../Items/MeleeWeapons/WoodLongSword.h"
+#include "../Items/MeleeWeapons/FireSword.h"
+#include "../Items/MeleeWeapons/IceSword.h"
+#include "../Items/MeleeWeapons/ThunderSword.h"
+#include "../Items/MeleeWeapons/IronStaff.h"
+#include "../Items/MeleeWeapons/WoodStaff.h"
+#include "../Items/MeleeWeapons/IronShortSword.h"
+#include "../Items/MeleeWeapons/WoodShortSword.h"
+#include "../Items/Bows/IronBow.h"
+#include "../Items/Bows/WoodBow.h"
+#include "../Items/Bows/IronStrongBow.h"
+#include "../Items/Bows/WoodStrongBow.h"
+#include "../Items/Bows/IronHandBow.h"
+#include "../Items/Bows/WoodHandBow.h"
+#include "../Items/Arrows/NormalArrow.h"
+#include "../Items/Arrows/FireArrow.h"
+#include "../Items/Arrows/IceArrow.h"
+#include "../Items/Arrows/ThunderArrow.h"
 
 
 class BattleScene : public Scene {
@@ -69,6 +105,12 @@ public:
 
     void igniteBlockIfLanded(Item* item); //如果物品落地，点燃方块
 
+public slots:
+    void spawnItem(const QString &itemType); //生成物品
+
+    void spawnRandomItem();
+    void removeItemAfterDelay(Item* item);
+
 protected slots:
 
     void update() override; //更新
@@ -88,21 +130,49 @@ private:
     Character *link;   //角色
     Character *rival; //对手
     Armor *spareArmor; //备用护甲
+    FlamebreakerArmor *flamebreakerArmor; //火焰护甲
+    OldShirt *oldShirt; //旧衬衫
+    IceArmor *iceArmor; //冰护甲
+    ThunderArmor *thunderArmor; //雷护甲
+
+    ThunderCap *thunderCap; //雷帽
+    IceCap *iceCap; //冰帽
+    FlameCap *flameCap; //火帽
+    CapOfTheHero *capOfTheHero; //英雄帽
+
+    IceTrousers *iceTrousers; //冰裤
+    ThunderTrousers *thunderTrousers; //雷裤
+    FlameTrousers *flameTrousers; //火裤
+    WellWornTrousers *wellWornTrousers; //破旧裤
+
     Grassblock *grassBlock; //草方块
     Ironblock *ironBlock; //铁方块
+
     MeleeWeapon *spareMelee; //空近战武器
     IronShortSword *ironShortSword; //铁短剑
     WoodShortSword *woodShortSword; //木短剑
+    IronLongSword *ironLongSword; //铁长剑
+    WoodLongSword *woodLongSword; //木长剑
+    IronStaff *ironStaff; //铁杖
+    WoodStaff *woodStaff; //木杖
     FireSword *fireSword; //火剑
     IceSword *iceSword; //冰剑
     ThunderSword *thunderSword; //雷剑
+
     Bow *spareBow; //空弓
     IronBow *ironBow; //铁弓
+    WoodBow *woodBow; //木弓
+    IronStrongBow *ironStrongBow; //铁强弓
+    WoodStrongBow *woodStrongBow; //木强弓
+    IronHandBow *ironHandBow; //铁手弓
+    WoodHandBow *woodHandBow; //木手弓
+
     Arrow *spareArrow; //空箭
     NormalArrow *normalArrow; //普通箭
     FireArrow *fireArrow; //火箭
     IceArrow *iceArrow; //冰箭
     ThunderArrow *thunderArrow; //雷箭
+
     QVector<Item*> dropItems; //掉落物品
     QVector<MeleeWeapon*> Melees; //近战武器
     QVector<Armor*> Armors; //护甲
@@ -117,6 +187,10 @@ private:
     Fire *fireOfRival; //火
     Electrocuted *electrocutedOfRival; //电
     Frozen *frozenOfRival; //冰
+
+    QTimer *spawnTimer;
+    QList<Item*> fallItems; // 用于存储掉落物品的列表
+    void applyGravity(Item* item); // 应用重力
 };  //BattleScene类继承自Scene类，表示战斗场景
 
 

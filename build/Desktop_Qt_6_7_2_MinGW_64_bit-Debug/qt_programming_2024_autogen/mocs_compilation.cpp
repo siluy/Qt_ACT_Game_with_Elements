@@ -2,4 +2,5 @@
 #include "KRBJEFP6ZJ/moc_Character.cpp"
 #include "UVLADIE3JM/moc_MyGame.cpp"
 #include "SNE2VJ5FQV/moc_BattleScene.cpp"
+#include "SNE2VJ5FQV/moc_CommandDialog.cpp"
 #include "SNE2VJ5FQV/moc_Scene.cpp"

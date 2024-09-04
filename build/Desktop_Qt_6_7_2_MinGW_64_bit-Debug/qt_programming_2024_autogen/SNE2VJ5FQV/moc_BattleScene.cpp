@@ -36,8 +36,14 @@ namespace {
 struct qt_meta_stringdata_CLASSBattleSceneENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSBattleSceneENDCLASS = QtMocHelpers::stringData(
     "BattleScene",
-    "update",
-    ""
+    "spawnItem",
+    "",
+    "itemType",
+    "spawnRandomItem",
+    "removeItemAfterDelay",
+    "Item*",
+    "item",
+    "update"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -50,7 +56,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSBattleSceneENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -58,9 +64,15 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSBattleSceneENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   20,    2, 0x09,    1 /* Protected */,
+       1,    1,   38,    2, 0x0a,    1 /* Public */,
+       4,    0,   41,    2, 0x0a,    3 /* Public */,
+       5,    1,   42,    2, 0x0a,    4 /* Public */,
+       8,    0,   45,    2, 0x09,    6 /* Protected */,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void,
 
        0        // eod
@@ -75,6 +87,14 @@ Q_CONSTINIT const QMetaObject BattleScene::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSBattleSceneENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<BattleScene, std::true_type>,
+        // method 'spawnItem'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'spawnRandomItem'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'removeItemAfterDelay'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Item *, std::false_type>,
         // method 'update'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -87,11 +107,13 @@ void BattleScene::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<BattleScene *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->update(); break;
+        case 0: _t->spawnItem((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 1: _t->spawnRandomItem(); break;
+        case 2: _t->removeItemAfterDelay((*reinterpret_cast< std::add_pointer_t<Item*>>(_a[1]))); break;
+        case 3: _t->update(); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *BattleScene::metaObject() const
@@ -113,13 +135,13 @@ int BattleScene::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 4;
     }
     return _id;
 }

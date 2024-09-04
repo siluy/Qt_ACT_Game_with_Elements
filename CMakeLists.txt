@@ -76,7 +76,24 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/MeleeWeapons/ThunderSword.h src/Items/MeleeWeapons/ThunderSword.cpp
         src/Items/Arrows/IceArrow.h src/Items/Arrows/IceArrow.cpp
         src/Items/Arrows/ThunderArrow.h src/Items/Arrows/ThunderArrow.cpp
-        src/Scenes/CommandDialog.h src/Scenes/CommandDialog.cpp)
+        src/Scenes/CommandDialog.h src/Scenes/CommandDialog.cpp
+        src/Items/Armors/IceArmor.h src/Items/Armors/IceArmor.cpp
+        src/Items/Armors/ThunderArmor.h src/Items/Armors/ThunderArmor.cpp
+        src/Items/Bows/WoodBow.h src/Items/Bows/WoodBow.cpp
+        src/Items/Bows/WoodHandBow.h src/Items/Bows/WoodHandBow.cpp
+        src/Items/Bows/WoodStrongBow.h src/Items/Bows/WoodStrongBow.cpp
+        src/Items/Bows/IronHandBow.h src/Items/Bows/IronHandBow.cpp
+        src/Items/Bows/IronStrongBow.h src/Items/Bows/IronStrongBow.cpp
+        src/Items/HeadEquipments/FlameCap.h src/Items/HeadEquipments/FlameCap.cpp
+        src/Items/HeadEquipments/IceCap.h src/Items/HeadEquipments/IceCap.cpp
+        src/Items/HeadEquipments/ThunderCap.h src/Items/HeadEquipments/ThunderCap.cpp
+        src/Items/LegEquipments/FlameTrousers.h src/Items/LegEquipments/FlameTrousers.cpp
+        src/Items/LegEquipments/IceTrousers.h src/Items/LegEquipments/IceTrousers.cpp
+        src/Items/LegEquipments/ThunderTrousers.h src/Items/LegEquipments/ThunderTrousers.cpp
+        src/Items/MeleeWeapons/IronLongSword.h src/Items/MeleeWeapons/IronLongSword.cpp
+        src/Items/MeleeWeapons/WoodLongSword.h src/Items/MeleeWeapons/WoodLongSword.cpp
+        src/Items/MeleeWeapons/WoodStaff.h src/Items/MeleeWeapons/WoodStaff.cpp
+        src/Items/MeleeWeapons/IronStaff.h src/Items/MeleeWeapons/IronStaff.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

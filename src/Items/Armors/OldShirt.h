@@ -10,7 +10,7 @@
 
 class OldShirt: public Armor {
 public:
-    explicit OldShirt(QGraphicsItem *parent);
+    explicit OldShirt(QGraphicsItem *parent = nullptr);
 }; //OldShirt类继承自Armor类，表示旧衬衫
 
 

@@ -10,7 +10,7 @@
 
 class CapOfTheHero: public HeadEquipment {
 public:
-    explicit CapOfTheHero(QGraphicsItem *parent);
+    explicit CapOfTheHero(QGraphicsItem *parent = nullptr); //构造函数，传入父节点
 }; //CapOfTheHero类继承自HeadEquipment类，表示英雄的帽子
 
 
