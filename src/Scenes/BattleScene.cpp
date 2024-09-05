@@ -12,6 +12,7 @@
 #include "../Items/Blocks/Soilblock.h"
 #include "../Items/Blocks/Stoneblock.h"
 #include <cmath>
+#include <QProcess>
 
 BattleScene::BattleScene(QObject *parent) : Scene(parent) {
     // This is useful if you want the scene to have the exact same dimensions as the view
@@ -603,6 +604,7 @@ void BattleScene::update() {
         }
     }
     map->update();
+    checkGameOver();
 } //更新
 
 void BattleScene::processMovement() {
@@ -1184,6 +1186,7 @@ void BattleScene::spawnItem(const QString &itemType) {
     } else {
         qDebug() << "Unknown cheat code:" << itemType;
     }
+    // 在3秒后移除物品，如果未被拾取
 }
 
 void BattleScene::spawnRandomItem() {
@@ -1330,4 +1333,30 @@ void BattleScene::applyGravity(Item* item) {
         }
     });
     gravityTimer->start(16); // 每16ms（约60帧每秒）更新位置
+}
+
+void BattleScene::checkGameOver() {
+    if (link->health <= 0) {
+        showGameOverDialog("P2 胜利!");
+    } else if (rival->health <= 0) {
+        showGameOverDialog("P1 胜利!");
+    }
+}
+
+void BattleScene::showGameOverDialog(const QString& winner) {
+    GameOverDialog *dialog = new GameOverDialog(winner, nullptr);
+    connect(dialog, &GameOverDialog::restartGame, this, &BattleScene::restartGame);
+    connect(dialog, &GameOverDialog::quitGame, this, &BattleScene::quitGame);
+    dialog->exec();  // 显示模态对话框
+}
+
+void BattleScene::restartGame() {
+    // 重新启动程序
+    QProcess::startDetached(QCoreApplication::applicationFilePath());
+    QCoreApplication::quit();
+}
+
+void BattleScene::quitGame() {
+    // 退出程序
+    QCoreApplication::quit();
 }

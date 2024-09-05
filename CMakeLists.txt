@@ -93,7 +93,8 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/MeleeWeapons/IronLongSword.h src/Items/MeleeWeapons/IronLongSword.cpp
         src/Items/MeleeWeapons/WoodLongSword.h src/Items/MeleeWeapons/WoodLongSword.cpp
         src/Items/MeleeWeapons/WoodStaff.h src/Items/MeleeWeapons/WoodStaff.cpp
-        src/Items/MeleeWeapons/IronStaff.h src/Items/MeleeWeapons/IronStaff.cpp)
+        src/Items/MeleeWeapons/IronStaff.h src/Items/MeleeWeapons/IronStaff.cpp
+        src/Scenes/GameOverDialog.h src/Scenes/GameOverDialog.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

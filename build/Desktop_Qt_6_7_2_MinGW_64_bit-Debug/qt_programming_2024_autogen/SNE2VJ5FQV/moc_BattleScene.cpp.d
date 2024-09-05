@@ -141,8 +141,11 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/QKeyEvent \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/QTransform \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qcursor.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
@@ -150,6 +153,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qinputdevice.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
@@ -157,7 +161,9 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
@@ -167,6 +173,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qscreen.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtextoption.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
@@ -176,14 +183,29 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QDialog \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
   C:/D/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm \
@@ -447,4 +469,5 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodStaff.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Mountable.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/GameOverDialog.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h

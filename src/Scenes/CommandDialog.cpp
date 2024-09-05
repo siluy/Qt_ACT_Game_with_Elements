@@ -1,6 +1,6 @@
 #include "CommandDialog.h"
 
-    CommandDialog::CommandDialog(QWidget *parent) : QDialog(parent) {
+CommandDialog::CommandDialog(QWidget *parent) : QDialog(parent) {
     setWindowTitle("Enter Cheat Code");
 
     commandLineEdit = new QLineEdit(this);

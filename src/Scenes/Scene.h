@@ -7,7 +7,6 @@
 
 #include <QGraphicsScene>
 #include <QTimer>
-#include "../Items/Gravity.h"
 
 class Scene : public QGraphicsScene {
 Q_OBJECT
@@ -23,7 +22,7 @@ public:
 
     virtual void processPicking();  //处理拾取
 
-    virtual void processThrow(Item* item); //处理投掷
+    //virtual void processThrow(Item* item); //处理投掷
 
 protected slots:
 

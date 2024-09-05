@@ -166,7 +166,7 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 96,
+				"line" : 98,
 				"parent" : 0
 			}
 		]
@@ -331,18 +331,20 @@
 				120,
 				122,
 				124,
-				126
+				126,
+				128,
+				130
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "qt_programming_2024_autogen::@6890427a1f51a3e7e1df"
+			"id" : "qt_programming_2024_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "qt_programming_2024_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "qt_programming_2024_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "qt_programming_2024::@6890427a1f51a3e7e1df",
@@ -486,7 +488,9 @@
 				120,
 				122,
 				124,
-				126
+				126,
+				128,
+				130
 			]
 		},
 		{
@@ -553,7 +557,9 @@
 				117,
 				119,
 				121,
-				123
+				123,
+				125,
+				127
 			]
 		},
 		{
@@ -561,15 +567,15 @@
 			"sourceIndexes" : 
 			[
 				26,
-				125
+				129
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				127,
-				128
+				131,
+				132
 			]
 		}
 	],
@@ -1262,6 +1268,28 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Items/MeleeWeapons/WoodStaff.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Items/MeleeWeapons/IronStaff.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Items/MeleeWeapons/IronStaff.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Scenes/GameOverDialog.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Scenes/GameOverDialog.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

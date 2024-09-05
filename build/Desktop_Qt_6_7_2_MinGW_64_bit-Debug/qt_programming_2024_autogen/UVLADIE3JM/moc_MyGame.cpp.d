@@ -164,6 +164,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
@@ -192,6 +193,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QHBoxLayout \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
@@ -205,6 +207,7 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/D/Qt/6.7.2/mingw_64/include/QtWidgets/qlineedit.h \
@@ -482,4 +485,5 @@ C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Throwable.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.h \
+  C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/GameOverDialog.h \
   C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h

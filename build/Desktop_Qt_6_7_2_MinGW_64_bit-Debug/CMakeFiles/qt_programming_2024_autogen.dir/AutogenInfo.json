@@ -593,6 +593,12 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/GameOverDialog.h",
+			"MU",
+			"SNE2VJ5FQV/moc_GameOverDialog.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/Scene.h",
 			"MU",
 			"SNE2VJ5FQV/moc_Scene.cpp",
@@ -970,6 +976,11 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/GameOverDialog.cpp",
 			"MU",
 			null
 		],

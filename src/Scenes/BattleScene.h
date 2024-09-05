@@ -65,6 +65,7 @@
 #include "../Items/Arrows/FireArrow.h"
 #include "../Items/Arrows/IceArrow.h"
 #include "../Items/Arrows/ThunderArrow.h"
+#include "GameOverDialog.h"
 
 
 class BattleScene : public Scene {
@@ -79,7 +80,7 @@ public:
 
     void processPicking() override; //处理拾取
 
-    void processThrow(Item* item) override; //处理投掷
+    void processThrow(Item* item); //处理投掷
 
     void processMeleeThrow(MeleeWeapon* meleeWeapon); //处理近战投掷
 
@@ -104,6 +105,14 @@ public:
     void spreadFire(int i, int j); //传播火焰
 
     void igniteBlockIfLanded(Item* item); //如果物品落地，点燃方块
+
+    void checkGameOver(); //检查游戏是否结束
+
+    void showGameOverDialog(const QString& winner); //显示游戏结束对话框
+
+    void restartGame(); //重新开始游戏
+
+    void quitGame(); //退出游戏
 
 public slots:
     void spawnItem(const QString &itemType); //生成物品
@@ -191,6 +200,8 @@ private:
     QTimer *spawnTimer;
     QList<Item*> fallItems; // 用于存储掉落物品的列表
     void applyGravity(Item* item); // 应用重力
+
+    //QGraphicsView *view; //视图
 };  //BattleScene类继承自Scene类，表示战斗场景
 
 
