@@ -2,6 +2,7 @@
 
 WoodHandBow::WoodHandBow(QGraphicsItem *parent) : Bow(parent, "://Items/Weapons/BowsAndArrows/WoodHandBow/WoodHandBow.png") {
     material = 2;
+    iniSpeed = {0.3,0};
 } //构造函数，传入父节点和图片路径
 
 void WoodHandBow::mountToParent(){
@@ -17,7 +18,7 @@ void WoodHandBow::mountToParent(){
 
 void WoodHandBow::unmount(){
     Mountable::unmount(); //调用父类的卸载函数，设置为未挂载状态
-    setScale(0.8);
+    setScale(0.2);
     if (pixmapItem != nullptr) {
         pixmapItem->setPos(0, -120); //设置图片位置
     }

@@ -13,4 +13,11 @@ void HeadEquipment::mountToParent() {
     setPos(-30, -210); //设置位置
 }
 
+void HeadEquipment::unmount() {
+    Mountable::unmount(); //调用父类的卸载函数
+    setScale(0.2);
+    if (pixmapItem != nullptr) {
+        pixmapItem->setPos(0, -120); //设置图片位置
+    }
+}
 //HeadEquipment::index=2;

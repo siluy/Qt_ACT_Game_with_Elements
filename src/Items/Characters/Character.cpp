@@ -120,8 +120,17 @@ void Character::processInput() {
         }
     }
     if (isThrowDown()) {
-        throwWeapon();
-        archery();
+        if(melee != nullptr && melee->isVisible()){
+            throwWeapon();
+        }
+        else if(bow != nullptr && bow->isVisible()){
+            archery();
+            if(bow->capacity == 2)
+            {
+                changeArrow();
+                archery();
+            }
+        }
     }
     if(isAttackDown()){
         //attack
@@ -357,7 +366,7 @@ void Character::archery() {
         if(direction.x()<0){
             selected->setTransform(QTransform().scale(-1, 1), true); // 设置武器的水平翻转
         }
-        selected->speed = direction * 0.5;
+        selected->speed = direction * 0.5 + bow->iniSpeed;
         selected->downAcceleration = gravity.getGravity();
 
         isArrowFired = true;  // 标记为已射箭

@@ -13,4 +13,12 @@ void LegEquipment::mountToParent() {
     setPos(-60, -110); //位置
 }
 
+void LegEquipment::unmount() {
+    Mountable::unmount(); //调用父类的卸载函数
+    setScale(0.2);
+    if (pixmapItem != nullptr) {
+        pixmapItem->setPos(0, -120); //图片位置
+    }
+}
+
 //LegEquipment::index=3;

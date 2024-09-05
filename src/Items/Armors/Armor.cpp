@@ -19,7 +19,7 @@ void Armor::mountToParent() {
 
 void Armor::unmount() {
     Mountable::unmount(); //调用父类的卸载函数，设置为未挂载状态
-    setScale(0.8);
+    setScale(0.2);
     if (pixmapItem != nullptr) {
         pixmapItem->setPos(0, -120); //设置图片位置
     }

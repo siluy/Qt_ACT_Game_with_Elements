@@ -1360,7 +1360,8 @@ void BattleScene::spawnRandomItem() {
         newItem->setZValue(1);
         addItem(newItem); // 添加到场景
         dropItems.append(newItem);
-
+        auto mountable = dynamic_cast<Mountable *>(newItem);
+        mountable->unmount();
         applyGravity(newItem);
 
         // 在3秒后移除物品，如果未被拾取

@@ -2,6 +2,7 @@
 
 IronHandBow::IronHandBow(QGraphicsItem *parent) : Bow(parent, "://Items/Weapons/BowsAndArrows/IronHandBow/IronHandBow.png") {
     material = 1;
+    iniSpeed = {0.3,0};
 } //构造函数，传入父节点和图片路径
 
 void IronHandBow::mountToParent(){
@@ -17,7 +18,7 @@ void IronHandBow::mountToParent(){
 
 void IronHandBow::unmount(){
     Mountable::unmount(); //调用父类的卸载函数，设置为未挂载状态
-    setScale(0.8);
+    setScale(0.2);
     if (pixmapItem != nullptr) {
         pixmapItem->setPos(0, -120); //设置图片位置
     }

@@ -24,13 +24,13 @@ public:
 
     qreal downSpeed; //下降速度
 
-    int capacity; //弓箭容量
+    int capacity = 1; //弓箭容量
 
     int attackRange; //攻击范围
 
     int material; //材质，0无，1铁质，2木质
 
-
+    QPointF iniSpeed = {0,0}; //速度
 };
 
 #endif // BOW_H
