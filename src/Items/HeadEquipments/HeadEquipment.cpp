@@ -10,7 +10,10 @@ HeadEquipment::HeadEquipment(QGraphicsItem *parent, const QString &pixmapPath) :
 void HeadEquipment::mountToParent() {
     Mountable::mountToParent(); //调用父类的挂载函数
     setScale(0.4); //设置缩放比例
-    setPos(-30, -210); //设置位置
+    setPos(-30, -210); //设置位置 30，210
+    if (pixmapItem != nullptr) {
+        pixmapItem->setPos(0, 0); //设置图片位置
+    }
 }
 
 void HeadEquipment::unmount() {

@@ -905,19 +905,19 @@ Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountab
     if (auto armor = dynamic_cast<Armor *>(mountable)) {
         return character->pickupArmor(armor); //拾取护甲
     }
-    if (auto cap = dynamic_cast<HeadEquipment *>(mountable)) {
+    else if (auto cap = dynamic_cast<HeadEquipment *>(mountable)) {
         return character->pickupHeadEquipment(cap); //拾取帽子
     }
-    if (auto trousers = dynamic_cast<LegEquipment *>(mountable)) {
+    else if (auto trousers = dynamic_cast<LegEquipment *>(mountable)) {
         return character->pickupLegEquipment(trousers); //拾取裤子
     }
-    if (auto melee = dynamic_cast<MeleeWeapon *>(mountable)) {
+    else if (auto melee = dynamic_cast<MeleeWeapon *>(mountable)) {
         return character->pickupMelee(melee); //拾取近战武器
     }
-    if (auto bow = dynamic_cast<Bow *>(mountable)) {
+    else if (auto bow = dynamic_cast<Bow *>(mountable)) {
         return character->pickupBow(bow); //拾取弓
     }
-    if (auto arrow = dynamic_cast<Arrow *>(mountable) ) {
+    else if (auto arrow = dynamic_cast<Arrow *>(mountable) ) {
         if(character->bow != nullptr)
         {
             return character->pickupArrow(arrow);
