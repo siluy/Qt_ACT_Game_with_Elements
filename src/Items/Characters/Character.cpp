@@ -99,7 +99,6 @@ bool Character::isOnGround() const {
 } //是否在地面上
 
 void Character::processInput() {
-    //auto velocity = QPointF(0, 0); //速度初始化为0
     const auto moveSpeed = 0.3; // 移动速度
     const auto jumpSpeed = 0.5; // 跳跃速度
 

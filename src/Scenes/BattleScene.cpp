@@ -367,7 +367,6 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
             link->setJumpDown(true);
             link->downSpeed = -1;
             link->downAcceleration = gravity.getGravity();
-            //character->downAcceleration = 0.03;
         }
         break;
     case Qt::Key_J:
@@ -428,6 +427,25 @@ void BattleScene::keyPressEvent(QKeyEvent *event) {
             attackDone(rival, link);
             link->updateHealthBar();
             }
+            else if(rival->bow != nullptr && rival->bow->isVisible()){
+                rival->setThrowDown(true);
+            }
+        }
+        break;
+    case Qt::Key_Call:
+        if (rival != nullptr && rival->beFrozen == false) {
+            rival->setThrowDown(true);
+        }
+        break;
+    case Qt::Key_Space:
+        if (rival != nullptr && rival->beFrozen == false) {
+            rival->setChangeDown(true);
+        }
+        break;
+    case Qt::Key_B:
+        if (rival != nullptr && rival->beFrozen == false) {
+            rival->setChangeArrowDown(true);
+            rival->changeArrow();
         }
         break;
     default:
@@ -514,6 +532,23 @@ void BattleScene::keyReleaseEvent(QKeyEvent *event) {
             if(rival->melee != nullptr){
                 rival->melee->attackStoped();
             }
+            else if(rival->bow != nullptr && rival->bow->isVisible()){
+                rival->setThrowDown(false);
+            }
+        }
+    case Qt::Key_Call:
+        if (rival != nullptr) {
+            rival->setThrowDown(false);
+        }
+        break;
+    case Qt::Key_Space:
+        if (rival != nullptr) {
+            rival->setChangeDown(false);
+        }
+        break;
+    case Qt::Key_B:
+        if (rival != nullptr) {
+            rival->setChangeArrowDown(false);
         }
         break;
     default:

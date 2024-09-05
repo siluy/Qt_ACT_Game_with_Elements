@@ -121,3 +121,10 @@
 310	2045	7472073818703943	CMakeFiles/qt_programming_2024.dir/src/Items/LegEquipments/LegEquipment.cpp.obj	dc89f1ebe99e8077
 305	2057	7472073818661992	CMakeFiles/qt_programming_2024.dir/src/Items/HeadEquipments/HeadEquipment.cpp.obj	fecdd177182d07ae
 2058	3280	7472073836197021	qt_programming_2024.exe	654ad254bc3e57fd
+154	521	7472239836078643	qt_programming_2024_autogen/timestamp	2562083c2cce8904
+154	521	7472239836078643	qt_programming_2024_autogen/mocs_compilation.cpp	2562083c2cce8904
+154	521	7472239836078643	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	2562083c2cce8904
+154	521	7472239836078643	C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	2562083c2cce8904
+523	3251	7472239839727961	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/Character.cpp.obj	31fc1f684ea31b5d
+528	3276	7472239839727961	CMakeFiles/qt_programming_2024.dir/src/Scenes/BattleScene.cpp.obj	69ca8e2895ec89d3
+3276	5330	7472239867288358	qt_programming_2024.exe	654ad254bc3e57fd
