@@ -242,7 +242,7 @@ void Character::removeArrow(Arrow* selected) {
     }
 }
 
-MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
+/*MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
     auto oldMelee = melee; //旧近战武器
     if (oldMelee != nullptr) { //如果旧近战武器不为空
         oldMelee->unmount(); //卸载旧近战武器
@@ -257,7 +257,23 @@ MeleeWeapon *Character::pickupMelee(MeleeWeapon *newMelee) {
         melee->setVisible(0);
     }
     return oldMelee; //返回旧近战武器
-} //拾取近战武器
+} //拾取近战武器*/
+
+MeleeWeapon* Character::pickupMelee(MeleeWeapon* newMelee) {
+    if (melee != nullptr) {  // 如果当前已经有近战武器，则不能拾取新的
+        return nullptr;  // 返回nullptr表示没有拾取新武器
+    }
+
+    // 如果没有近战武器，执行正常的拾取逻辑
+    newMelee->setParentItem(this); // 设置新近战武器的父节点为当前节点
+    newMelee->mountToParent(); // 挂载新近战武器到父节点
+    melee = newMelee; // 设置新近战武器
+    if (bow != nullptr && bow->isVisible()) {
+        melee->setVisible(0);  // 如果弓箭可见，则将近战武器隐藏
+    }
+    return nullptr;  // 返回nullptr表示没有替换旧武器
+}
+
 
 Bow *Character::pickupBow(Bow *newBow){
     auto oldBow = bow;
@@ -277,9 +293,6 @@ Bow *Character::pickupBow(Bow *newBow){
 }
 
 void Character::setHealth(qreal newHealth) {
-    //qDebug() << "Setting health to:" << health;
-    //healthBar->updateHealthBar(health);
-    //qDebug() << "setHealth finished.";
     this->health = newHealth;
     updateHealthBar();
 }

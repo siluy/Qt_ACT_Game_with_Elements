@@ -890,12 +890,6 @@ void BattleScene::processPicking() {
             if(tempItem != nullptr){
                 dropItems.push_back(tempItem);
             }
-            //spareArmor = dynamic_cast<Armor *>(pickupMountable(link, mountable)); //拾取可挂载护甲
-            //spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(link, mountable)); //拾取可挂载近战武器
-            //spareBow = dynamic_cast<Bow *>(pickupMountable(link, mountable)); //拾取可挂载弓
-            //if(link->bow != nullptr){
-                //spareArrow = dynamic_cast<Arrow *>(pickupMountable(link, mountable)); //拾取可挂载箭
-            //}
         }
     }
     if (rival->isPicking()) {
@@ -906,12 +900,6 @@ void BattleScene::processPicking() {
             if(tempItem != nullptr){
                 dropItems.push_back(tempItem);
             }
-            //spareArmor = dynamic_cast<Armor *>(pickupMountable(rival, mountable)); //拾取可挂载护甲
-            //spareMelee = dynamic_cast<MeleeWeapon *>(pickupMountable(rival, mountable)); //拾取可挂载近战武器
-            //spareBow = dynamic_cast<Bow *>(pickupMountable(rival, mountable)); //拾取可挂载弓
-            //if(rival->bow != nullptr){
-            //spareArrow = dynamic_cast<Arrow *>(pickupMountable(rival, mountable)); //拾取可挂载箭
-            //}
         }
     }
 } //处理拾取
