@@ -26,13 +26,15 @@ public:
 
     qreal damage = 10; //伤害值
 
-    qreal attackRange = 250; //攻击范围
+    qreal attackRange; //攻击范围
 
     QPointF speed = QPointF(0, 0); //投掷初速度
 
     qreal downAcceleration; //重力加速度
 
     qreal downSpeed; //下降速度
+
+    bool isTwoHanded = false; //是否双手持有
 
 };
 

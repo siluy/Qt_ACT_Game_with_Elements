@@ -2,6 +2,7 @@
 
 FireSword::FireSword(QGraphicsItem *parent) : MeleeWeapon(parent, "://Items/Weapons/MeleeWeapons/FireSword/fire_sword.png")
 {
+    attackRange = 250;
 }
 
 

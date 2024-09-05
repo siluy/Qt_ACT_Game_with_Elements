@@ -4,6 +4,7 @@ WoodStaff::WoodStaff(QGraphicsItem *parent) : MeleeWeapon(parent, "://Items/Weap
 {
     element = 0;
     material = 2;
+    attackRange = 350;
 }
 
 void WoodStaff::attack()

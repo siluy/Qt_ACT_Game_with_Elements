@@ -2,6 +2,9 @@
 
 ThunderSword::ThunderSword(QGraphicsItem *parent) : MeleeWeapon(parent, "://Items/Weapons/MeleeWeapons/ThunderSword/thunder_sword.png") {
     //构造函数，传入父节点和图片路径
+    attackRange = 250;
+    material = 0;
+    element = 3;
 }
 
 void ThunderSword::mountToParent() {

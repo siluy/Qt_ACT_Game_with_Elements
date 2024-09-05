@@ -4,6 +4,7 @@ IronStaff::IronStaff(QGraphicsItem *parent) : MeleeWeapon(parent, "://Items/Weap
 {
     element = 0;
     material = 1;
+    attackRange = 350;
 }
 
 void IronStaff::attack()

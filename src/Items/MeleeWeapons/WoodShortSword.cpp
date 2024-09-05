@@ -3,6 +3,8 @@
 WoodShortSword::WoodShortSword(QGraphicsItem *parent) :MeleeWeapon(parent, ":/Items/Weapons/MeleeWeapons/WoodShortSword/WoodShortSword.png")
 {
     material = 2; //设置材质为木质
+    element = 0; //设置元素为无
+    attackRange = 250; //设置攻击范围为150
 }
 
 void WoodShortSword::mountToParent() {

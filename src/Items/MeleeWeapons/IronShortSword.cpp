@@ -3,6 +3,8 @@
 IronShortSword::IronShortSword(QGraphicsItem *parent) :MeleeWeapon(parent, ":/Items/Weapons/MeleeWeapons/IronShortSword/Iron_Short_Sword.png")
 {
     material = 1; //设置材质为铁质
+    element = 0; //设置元素为无
+    attackRange = 250; //设置攻击范围为150
 }
 
 void IronShortSword::mountToParent() {

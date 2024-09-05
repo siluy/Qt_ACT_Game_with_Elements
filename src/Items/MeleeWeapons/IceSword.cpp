@@ -1,7 +1,9 @@
 #include "IceSword.h"
 
 IceSword::IceSword(QGraphicsItem *parent) : MeleeWeapon(parent,"://Items/Weapons/MeleeWeapons/IceSword/freeze_sword.png")
-{}
+{
+    attackRange = 250;
+}
 
 void IceSword::mountToParent() {
     MeleeWeapon::mountToParent();

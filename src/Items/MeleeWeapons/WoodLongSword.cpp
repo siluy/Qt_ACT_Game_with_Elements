@@ -4,6 +4,8 @@ WoodLongSword::WoodLongSword(QGraphicsItem *parent) : MeleeWeapon(parent, "://It
 {
     element = 0;
     material = 2;
+    attackRange = 250;
+    isTwoHanded = true;
 }
 
 void WoodLongSword::attack()

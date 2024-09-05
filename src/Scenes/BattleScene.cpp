@@ -931,39 +931,99 @@ bool BattleScene::attackTrue(Character *attacker, Character *victim){
     if(attacker->melee == nullptr){
         return false;
     } else {
-        QPointF pos1 = attacker->pos();
-        QPointF pos2 = victim->pos();
-        qreal attackRange = attacker->melee->attackRange;
+        if(attacker->melee->isTwoHanded == false){
+            QPointF pos1 = attacker->pos();
+            QPointF pos2 = victim->pos();
+            qreal attackRange = attacker->melee->attackRange;
 
-        // 计算攻击者与被攻击者的距离
-        qreal distance = QLineF(pos1, pos2).length();
+            // 计算攻击者与被攻击者的距离
+            qreal distance = QLineF(pos1, pos2).length();
 
-        if(distance < attackRange){
-            // 计算攻击者朝向的向量
-            QPointF directionVector = attacker->getDirection();
-            QPointF vectorToVictim = pos2 - pos1;
+            if(distance < attackRange){
+                // 计算攻击者朝向的向量
+                QPointF directionVector = attacker->getDirection();
+                QPointF vectorToVictim = pos2 - pos1;
 
-            // 归一化向量
-            vectorToVictim /= QLineF(pos1, pos2).length();
+                // 归一化向量
+                vectorToVictim /= QLineF(pos1, pos2).length();
 
-            // 计算两个向量的夹角的余弦值
-            qreal dotProduct = QPointF::dotProduct(directionVector, vectorToVictim);
+                // 计算两个向量的夹角的余弦值
+                qreal dotProduct = QPointF::dotProduct(directionVector, vectorToVictim);
 
-            // 获取两个向量夹角的余弦值对应的弧度
-            qreal angleRadians = std::acos(dotProduct);
+                // 获取两个向量夹角的余弦值对应的弧度
+                qreal angleRadians = std::acos(dotProduct);
 
-            // 定义攻击弧的角度
-            const qreal attackArcAngleRadians = M_PI / 3; // 60度对应的弧度
+                // 定义攻击弧的角度
+                const qreal attackArcAngleRadians = M_PI / 3; // 60度对应的弧度
 
-            // 判断夹角是否在定义的攻击弧内
-            if(angleRadians <= attackArcAngleRadians){
-                qDebug() << "Attacked!";
-                return true; // 被攻击者在攻击者的前方弧内
+                // 判断夹角是否在定义的攻击弧内
+                if(angleRadians <= attackArcAngleRadians){
+                    qDebug() << "Attacked!";
+                    return true; // 被攻击者在攻击者的前方弧内
+                }
+            }
+        } else if(attacker->melee->isTwoHanded == true){
+            // 双手剑的攻击延迟
+            static QTimer *attackTimer = nullptr;
+            if (attackTimer == nullptr) {
+                attackTimer = new QTimer(this);
+                attackTimer->setSingleShot(true);
+            }
+
+            if (!attackTimer->isActive()) {
+                attackTimer->start(500);  // 假设延迟时间为500毫秒
+                return false;  // 延迟期间不进行攻击判断
+            }
+
+            // 延迟结束后，计算是否命中
+            QPointF pos1 = attacker->pos();
+            QPointF pos2 = victim->pos();
+            qreal attackRange = attacker->melee->attackRange;
+
+            // 计算攻击者与被攻击者的距离
+            qreal distance = QLineF(pos1, pos2).length();
+
+            if (distance < attackRange) {
+                // 计算攻击者朝向的向量（面向方向）
+                QPointF directionVector = attacker->getDirection();
+                QPointF vectorToVictim = pos2 - pos1;
+
+                // 归一化向量
+                vectorToVictim /= QLineF(pos1, pos2).length();
+
+                // 计算两个向量的夹角的余弦值
+                qreal dotProduct = QPointF::dotProduct(directionVector, vectorToVictim);
+
+                // 获取两个向量夹角的余弦值对应的弧度
+                qreal angleRadians = std::acos(dotProduct);
+
+                // 定义攻击弧的角度
+                const qreal attackArcAngleRadians = M_PI / 3; // 60度对应的弧度
+
+                // 判断夹角是否在定义的攻击弧内（面向方向）
+                if (angleRadians <= attackArcAngleRadians) {
+                    qDebug() << "Attacked from the front!";
+                    return true;  // 被攻击者在攻击者的前方弧内
+                }
+
+                // 计算背向攻击：反转攻击方向
+                QPointF reverseDirectionVector = -directionVector;
+
+                // 计算背向攻击夹角
+                dotProduct = QPointF::dotProduct(reverseDirectionVector, vectorToVictim);
+                angleRadians = std::acos(dotProduct);
+
+                // 判断夹角是否在定义的攻击弧内（背向方向）
+                if (angleRadians <= attackArcAngleRadians) {
+                    qDebug() << "Attacked from the back!";
+                    return true;  // 被攻击者在攻击者的背向弧内
+                }
             }
         }
     }
     return false;
 }
+
 
 void BattleScene::attackDone(Character *attacker, Character *victim) {
     if (attacker != nullptr && victim != nullptr) {

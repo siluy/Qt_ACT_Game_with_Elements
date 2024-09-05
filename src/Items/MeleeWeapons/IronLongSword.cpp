@@ -4,6 +4,8 @@ IronLongSword::IronLongSword(QGraphicsItem *parent) : MeleeWeapon(parent, "://It
 {
     element = 0;
     material = 1;
+    attackRange = 250;
+    isTwoHanded = true;
 }
 
 void IronLongSword::attack()
