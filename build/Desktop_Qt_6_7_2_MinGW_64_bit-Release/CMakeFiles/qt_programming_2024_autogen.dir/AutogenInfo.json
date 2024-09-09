@@ -9,115 +9,10 @@
 	[
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/CMakeLists.txt",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/.qtc/package-manager/auto-setup.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeSystem.cmake.in",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/3.29.3/CMakeSystem.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeNinjaFindMake.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCompilerIdDetection.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/ADSP-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/ARMCC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/ARMClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/AppleClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Borland-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Bruce-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Compaq-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Cray-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/CrayClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Embarcadero-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Fujitsu-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GHS-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GNU-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/HP-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IAR-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Intel-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/LCC-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/MSVC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/NVHPC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/NVIDIA-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/OrangeC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/PGI-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/PathScale-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/SCO-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/SDCC-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/SunPro-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/TI-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/TIClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Tasking-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Watcom-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/XL-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/XLClang-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/zOS-C-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/3.29.3/CMakeCCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-Determine-CXX.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCompilerIdDetection.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/ADSP-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/ARMCC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/ARMClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/AppleClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Borland-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Cray-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/CrayClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Embarcadero-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Fujitsu-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GHS-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/HP-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IAR-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Intel-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/MSVC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/NVHPC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/NVIDIA-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/OrangeC-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/PGI-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/PathScale-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/SCO-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/TI-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/TIClang-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Tasking-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/Watcom-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/XL-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompiler.cmake.in",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake",
@@ -131,48 +26,19 @@
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeRCCompiler.cmake.in",
 		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/3.29.3/CMakeRCCompiler.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeRCInformation.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestRCCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeParseImplicitIncludeInfo.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeParseImplicitLinkInfo.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeParseLibraryArchitecture.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCCompilerABI.c",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in",
-		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/3.29.3/CMakeCCompiler.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake",
+		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Compiler/GNU.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeParseImplicitIncludeInfo.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeParseImplicitLinkInfo.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeParseLibraryArchitecture.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake",
-		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompiler.cmake.in",
-		"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake",
 		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
+		"C:/D/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake",
 		"C:/D/Qt/6.7.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"C:/D/Qt/6.7.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
 		"C:/D/Qt/6.7.2/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
@@ -373,9 +239,51 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/IceArmor.h",
+			"MU",
+			"XAWFG2TZKF/moc_IceArmor.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.h",
 			"MU",
 			"XAWFG2TZKF/moc_OldShirt.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/ThunderArmor.h",
+			"MU",
+			"XAWFG2TZKF/moc_ThunderArmor.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_Arrow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_FireArrow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_IceArrow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_NormalArrow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.h",
+			"MU",
+			"HAVIXRU2FU/moc_ThunderArrow.cpp",
 			null
 		],
 		[
@@ -421,6 +329,36 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronHandBow.h",
+			"MU",
+			"G4HZ5YLGZV/moc_IronHandBow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronStrongBow.h",
+			"MU",
+			"G4HZ5YLGZV/moc_IronStrongBow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodBow.h",
+			"MU",
+			"G4HZ5YLGZV/moc_WoodBow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodHandBow.h",
+			"MU",
+			"G4HZ5YLGZV/moc_WoodHandBow.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodStrongBow.h",
+			"MU",
+			"G4HZ5YLGZV/moc_WoodStrongBow.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.h",
 			"MU",
 			"KRBJEFP6ZJ/moc_Character.cpp",
@@ -439,6 +377,30 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.h",
+			"MU",
+			"B2U6TKB4P2/moc_Condition.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.h",
+			"MU",
+			"B2U6TKB4P2/moc_Electrocuted.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.h",
+			"MU",
+			"B2U6TKB4P2/moc_Fire.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.h",
+			"MU",
+			"B2U6TKB4P2/moc_Frozen.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Gravity.h",
 			"MU",
 			"7O23G427QC/moc_Gravity.cpp",
@@ -448,6 +410,12 @@
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.h",
 			"MU",
 			"6DSFGWXEQO/moc_CapOfTheHero.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/FlameCap.h",
+			"MU",
+			"6DSFGWXEQO/moc_FlameCap.cpp",
 			null
 		],
 		[
@@ -463,6 +431,18 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/IceCap.h",
+			"MU",
+			"6DSFGWXEQO/moc_IceCap.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/ThunderCap.h",
+			"MU",
+			"6DSFGWXEQO/moc_ThunderCap.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HealthBar.h",
 			"MU",
 			"7O23G427QC/moc_HealthBar.cpp",
@@ -475,9 +455,27 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/FlameTrousers.h",
+			"MU",
+			"QOAUGX27LX/moc_FlameTrousers.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/IceTrousers.h",
+			"MU",
+			"QOAUGX27LX/moc_IceTrousers.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.h",
 			"MU",
 			"QOAUGX27LX/moc_LegEquipment.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/ThunderTrousers.h",
+			"MU",
+			"QOAUGX27LX/moc_ThunderTrousers.cpp",
 			null
 		],
 		[
@@ -505,9 +503,33 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_FireSword.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IceSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_IceSword.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronLongSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_IronLongSword.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.h",
 			"MU",
 			"EPP3YG7A3A/moc_IronShortSword.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronStaff.h",
+			"MU",
+			"EPP3YG7A3A/moc_IronStaff.cpp",
 			null
 		],
 		[
@@ -517,9 +539,27 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/ThunderSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_ThunderSword.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodLongSword.h",
+			"MU",
+			"EPP3YG7A3A/moc_WoodLongSword.cpp",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.h",
 			"MU",
 			"EPP3YG7A3A/moc_WoodShortSword.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodStaff.h",
+			"MU",
+			"EPP3YG7A3A/moc_WoodStaff.cpp",
 			null
 		],
 		[
@@ -544,6 +584,18 @@
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.h",
 			"MU",
 			"SNE2VJ5FQV/moc_BattleScene.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.h",
+			"MU",
+			"SNE2VJ5FQV/moc_CommandDialog.cpp",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/GameOverDialog.h",
+			"MU",
+			"SNE2VJ5FQV/moc_GameOverDialog.cpp",
 			null
 		],
 		[
@@ -634,7 +686,42 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/IceArmor.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/OldShirt.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Armors/ThunderArmor.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/Arrow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/FireArrow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/IceArrow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/NormalArrow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Arrows/ThunderArrow.cpp",
 			"MU",
 			null
 		],
@@ -674,6 +761,31 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronHandBow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/IronStrongBow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodBow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodHandBow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Bows/WoodStrongBow.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Characters/Character.cpp",
 			"MU",
 			null
@@ -689,7 +801,32 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Condition.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Electrocuted.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Fire.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/Conditions/Frozen.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/CapOfTheHero.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/FlameCap.cpp",
 			"MU",
 			null
 		],
@@ -704,6 +841,16 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/IceCap.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HeadEquipments/ThunderCap.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/HealthBar.cpp",
 			"MU",
 			null
@@ -714,7 +861,22 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/FlameTrousers.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/IceTrousers.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/LegEquipment.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/LegEquipments/ThunderTrousers.cpp",
 			"MU",
 			null
 		],
@@ -739,7 +901,27 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/FireSword.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IceSword.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronLongSword.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronShortSword.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/IronStaff.cpp",
 			"MU",
 			null
 		],
@@ -749,7 +931,22 @@
 			null
 		],
 		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/ThunderSword.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodLongSword.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodShortSword.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Items/MeleeWeapons/WoodStaff.cpp",
 			"MU",
 			null
 		],
@@ -775,6 +972,16 @@
 		],
 		[
 			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/BattleScene.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/CommandDialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/D/qt-programming-2024-original/qt-programming-2024-master/qt-programming-2024-master/src/Scenes/GameOverDialog.cpp",
 			"MU",
 			null
 		],

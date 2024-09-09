@@ -214,16 +214,6 @@ Arrow* Character::pickupArrow(Arrow* newArrow) {
     arrows.append(newArrow); // 将新箭矢添加到 arrows 向量中
     newArrow->setVisible(0);
     return nullptr;
-    /*for (Arrow* newArrow : newArrows) {
-        if (newArrow) {
-            newArrow->setParentItem(this); // 设置新箭矢的父节点为当前角色
-            arrows.append(newArrow); // 将新箭矢添加到 arrows 向量中
-        }
-    }
-
-    // 如果需要返回原来的箭矢（例如为了丢弃或者处理），可以将旧箭矢返回
-    // 这里假设你只想返回新添加的箭矢
-    return newArrows;*/
 }
 
 QVector<Arrow*> Character::removeAllArrows() {
@@ -324,7 +314,7 @@ void Character::throwWeapon() {
         //qDebug() << "Throwing weapon, melee is not null";
         melee->unmount();
         melee->setParentItem(parentItem());
-        melee->setPos(QPointF(pos().x()+100, pos().y()-50));
+        melee->setPos(QPointF(pos().x()-100, pos().y()-50));
         melee->startThrown();
         melee->beThrown = true;
         //qDebug() << "Setting melee pos to:" << pos();
@@ -332,6 +322,7 @@ void Character::throwWeapon() {
         QPointF speed = direction * 0.2;
         if(direction.x()>0){
             melee->setTransform(QTransform().scale(-1, 1), true); // 设置武器的水平翻转
+            melee->setPos(QPointF(pos().x()+100, pos().y()-50));
         }
         melee->speed = speed;
         //qDebug() << "Setting melee speed to:" << speed;
